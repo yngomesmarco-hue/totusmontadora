@@ -1,22 +1,16 @@
 import { Button } from "@/components/ui/button";
 import ParticleBackground from "./ParticleBackground";
-import { useParallax } from "@/hooks/useParallax";
 import heroStand from "@/assets/stand-bet7k.png";
 import logoTotus from "@/assets/logo-totus.png";
 
 const Hero = () => {
-  const parallaxOffset = useParallax(0.5);
-  const parallaxOffsetSlow = useParallax(0.3);
-
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden bg-background"
     >
       {/* Particle Background */}
-      <div style={{ transform: `translateY(${parallaxOffset}px)` }}>
-        <ParticleBackground />
-      </div>
+      <ParticleBackground />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 py-20">
@@ -53,10 +47,7 @@ const Hero = () => {
           </div>
 
           {/* Right Column - Stand Image */}
-          <div 
-            className="relative animate-fade-in hidden md:block"
-            style={{ transform: `translateY(${-parallaxOffsetSlow}px)` }}
-          >
+          <div className="relative animate-fade-in hidden md:block">
             <img
               src={heroStand}
               alt="Stand TOTUS"

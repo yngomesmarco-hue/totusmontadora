@@ -11,11 +11,7 @@ const VideoGallery = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
           {videos.map((video, index) => (
-            <div 
-              key={index} 
-              className="rounded-lg overflow-hidden animate-fade-in hover-scale" 
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
+            <div key={index} className="rounded-lg overflow-hidden">
               <video
                 controls
                 className="w-full h-auto"
