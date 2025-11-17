@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
+import logoTotus from "@/assets/logo-totus.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,10 +33,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 border-2 border-foreground rounded-md flex items-center justify-center">
-              <span className="text-xl font-bold text-foreground">B</span>
-            </div>
-            <span className="text-xl font-bold text-foreground">BTOS</span>
+            <img src={logoTotus} alt="TOTUS Montadora" className="h-10 w-auto" />
           </div>
 
           {/* Desktop Navigation */}

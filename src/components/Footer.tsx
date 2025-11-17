@@ -33,7 +33,7 @@ const Footer = () => {
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             {/* Logo and Description */}
             <div>
-              <div className="text-3xl font-bold text-neon mb-4">BTOS</div>
+              <div className="text-3xl font-bold text-neon mb-4">TOTUS</div>
               <p className="text-muted-foreground">
                 Montadora especializada em stands para eventos, criando experiências
                 únicas e memoráveis.
@@ -83,7 +83,7 @@ const Footer = () => {
             <div>
               <h3 className="font-semibold text-lg mb-4">Contato</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li>contato@btosmontadora.com.br</li>
+                <li>contato@totusmontadora.com.br</li>
                 <li>(11) 98765-4321</li>
                 <li>WhatsApp: (11) 98765-4321</li>
               </ul>
@@ -134,7 +134,7 @@ const Footer = () => {
           {/* Bottom Bar */}
           <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
             <p>
-              © BTOS Montadora – Todos os direitos reservados – CNPJ:
+              © TOTUS Montadora – Todos os direitos reservados – CNPJ:
               50.547.235/0001-76 –{" "}
               <a href="#" className="hover:text-neon transition-colors">
                 Política de Privacidade

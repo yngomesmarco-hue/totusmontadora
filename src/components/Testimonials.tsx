@@ -7,7 +7,7 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      text: "A BTOS superou todas as nossas expectativas. O stand ficou exatamente como no projeto 3D, com acabamento impecável e montagem rápida.",
+      text: "A TOTUS superou todas as nossas expectativas. O stand ficou exatamente como no projeto 3D, com acabamento impecável e montagem rápida.",
       author: "Maria Silva",
       position: "Diretora de Marketing",
       company: "Tech Innovations",
@@ -19,7 +19,7 @@ const Testimonials = () => {
       company: "Global Solutions",
     },
     {
-      text: "Trabalhar com a BTOS foi uma experiência incrível. Desde o primeiro contato até a desmontagem, tudo foi perfeito. Recomendo fortemente!",
+      text: "Trabalhar com a TOTUS foi uma experiência incrível. Desde o primeiro contato até a desmontagem, tudo foi perfeito. Recomendo fortemente!",
       author: "Ana Paula",
       position: "Gerente de Eventos",
       company: "Premium Brands",
@@ -48,7 +48,7 @@ const Testimonials = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             Experiências reais de quem confiou na{" "}
-            <span className="text-neon">BTOS Montadora</span>
+            <span className="text-neon">TOTUS Montadora</span>
           </h2>
         </div>
 

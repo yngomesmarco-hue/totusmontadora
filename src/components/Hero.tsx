@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import ParticleBackground from "./ParticleBackground";
 import heroStand from "@/assets/stand-bet7k.png";
+import logoTotus from "@/assets/logo-totus.png";
 
 const Hero = () => {
   return (
@@ -16,15 +17,9 @@ const Hero = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
           <div className="space-y-8 animate-fade-in">
-            {/* Logo BTOS MONTADORA */}
+            {/* Logo TOTUS MONTADORA */}
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-16 h-16 border-3 border-foreground rounded-lg flex items-center justify-center">
-                <span className="text-3xl font-bold text-foreground">B</span>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-foreground tracking-wider">BTOS</div>
-                <div className="text-sm text-foreground tracking-widest">MONTADORA</div>
-              </div>
+              <img src={logoTotus} alt="TOTUS Montadora" className="h-20 w-auto" />
             </div>
 
             {/* Main Heading */}
@@ -55,7 +50,7 @@ const Hero = () => {
           <div className="relative animate-fade-in hidden md:block">
             <img
               src={heroStand}
-              alt="Stand BTOS"
+              alt="Stand TOTUS"
               className="w-full h-auto object-contain drop-shadow-2xl"
             />
           </div>
