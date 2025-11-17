@@ -22,7 +22,7 @@ const LogoSlider = () => {
   ];
 
   return (
-    <section className="bg-white py-4 overflow-hidden">
+    <section className="bg-white py-4 overflow-hidden animate-fade-in">
       <div className="relative">
         <div className="flex animate-scroll">
           {/* First set of logos */}

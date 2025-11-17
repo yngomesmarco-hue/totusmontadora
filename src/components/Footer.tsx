@@ -28,7 +28,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-black border-t border-border py-16">
+      <footer className="bg-black border-t border-border py-16 animate-fade-in">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             {/* Logo and Description */}

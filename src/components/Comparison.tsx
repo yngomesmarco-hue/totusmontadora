@@ -105,7 +105,7 @@ const Comparison = () => {
   return (
     <section className="pt-20 pb-8 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Prova da Excelência em <span className="text-neon">stands para eventos!</span>
           </h2>
@@ -116,16 +116,20 @@ const Comparison = () => {
 
         <div className="max-w-6xl mx-auto space-y-8">
           {/* ProntoPaga Comparison */}
-          <ComparisonSlider 
-            image3d={stand3dProntoPaga}
-            imageReal={standRealProntoPaga}
-          />
+          <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <ComparisonSlider 
+              image3d={stand3dProntoPaga}
+              imageReal={standRealProntoPaga}
+            />
+          </div>
 
           {/* Cometa Gaming Comparison */}
-          <ComparisonSlider 
-            image3d={stand3dCometa}
-            imageReal={standRealCometa}
-          />
+          <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <ComparisonSlider 
+              image3d={stand3dCometa}
+              imageReal={standRealCometa}
+            />
+          </div>
         </div>
       </div>
     </section>
