@@ -103,7 +103,7 @@ const ComparisonSlider = ({ image3d, imageReal }: { image3d: string; imageReal: 
 
 const Comparison = () => {
   return (
-    <section className="py-20 md:py-32 bg-background">
+    <section className="pt-20 pb-8 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
