@@ -22,7 +22,7 @@ const LogoSlider = () => {
   ];
 
   return (
-    <section className="bg-white py-8 overflow-hidden">
+    <section className="bg-white py-2 overflow-hidden">
       <div className="relative">
         <div className="flex animate-scroll">
           {/* First set of logos */}
@@ -30,7 +30,7 @@ const LogoSlider = () => {
             <div
               key={`logo-1-${index}`}
               className="flex-shrink-0 mx-8 flex items-center justify-center"
-              style={{ width: "200px", height: "100px" }}
+              style={{ width: "180px", height: "64px" }}
             >
               <img
                 src={logo}
@@ -44,7 +44,7 @@ const LogoSlider = () => {
             <div
               key={`logo-2-${index}`}
               className="flex-shrink-0 mx-8 flex items-center justify-center"
-              style={{ width: "200px", height: "100px" }}
+              style={{ width: "180px", height: "64px" }}
             >
               <img
                 src={logo}
