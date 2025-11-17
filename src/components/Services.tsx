@@ -37,17 +37,6 @@ const Services = () => {
 
   return (
     <section id="sobre" className="relative">
-      {/* Title Section with white background */}
-      <div className="bg-white py-16">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground text-center">
-            Projetos exclusivos da concepção à execução,{" "}
-            <br className="hidden md:block" />
-            cuidamos de tudo!
-          </h2>
-        </div>
-      </div>
-
       {/* Services Section with split layout */}
       <div className="grid md:grid-cols-2">
         {/* Left Column - Services List */}
