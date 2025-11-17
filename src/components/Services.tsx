@@ -40,7 +40,7 @@ const Services = () => {
       {/* Services Section with split layout */}
       <div className="grid md:grid-cols-2">
         {/* Left Column - Services List */}
-        <div className="bg-background py-12 md:py-16">
+        <div className="bg-background py-16 md:py-20">
           <div className="space-y-12 px-6 md:px-12 lg:px-16">
             {services.map((service, index) => (
               <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
