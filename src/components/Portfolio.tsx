@@ -1,6 +1,6 @@
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="pt-8 pb-8 bg-background">
+    <section id="portfolio" className="py-16 bg-background">
       {/* Full-width Banner with Text */}
       <div className="w-full bg-gradient-to-r from-gray-50 via-white to-gray-50 py-12 border-y border-border/20">
         <div className="container mx-auto px-6 max-w-5xl">
