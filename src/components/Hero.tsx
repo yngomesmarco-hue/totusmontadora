@@ -18,8 +18,8 @@ const Hero = () => {
           {/* Left Column - Text Content */}
           <div className="space-y-8 animate-fade-in">
             {/* Logo TOTUS MONTADORA */}
-            <div className="flex items-center gap-3 mb-3">
-              <img src={logoTotus} alt="TOTUS Montadora" className="h-48 w-auto" />
+            <div className="flex items-center gap-3 mb-8">
+              <img src={logoTotus} alt="TOTUS Montadora" className="h-32 w-auto" />
             </div>
 
             {/* Main Heading */}
