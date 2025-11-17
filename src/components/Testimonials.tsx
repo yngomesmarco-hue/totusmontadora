@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { useParallax } from "@/hooks/useParallax";
 import bgTestimonials from "@/assets/bg-testimonials.png";
+
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const parallaxOffset = useParallax(0.15);
   const testimonials = [{
     text: "A TOTUS superou todas as nossas expectativas. O stand ficou exatamente como no projeto 3D, com acabamento impecável e montagem rápida.",
     author: "Maria Silva",
@@ -25,11 +28,12 @@ const Testimonials = () => {
   const prevTestimonial = () => {
     setCurrentIndex(prev => (prev - 1 + testimonials.length) % testimonials.length);
   };
-  return <section className="py-20 md:py-32 bg-white relative animate-fade-in" style={{
+  return <section className="py-20 md:py-32 bg-white relative animate-fade-in overflow-hidden" style={{
     backgroundImage: `url(${bgTestimonials})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat'
+    backgroundRepeat: 'no-repeat',
+    backgroundPositionY: `${parallaxOffset}px`
   }}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">

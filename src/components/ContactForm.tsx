@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { useParallax } from "@/hooks/useParallax";
 
 const ContactForm = () => {
   const { toast } = useToast();
+  const parallaxOffset = useParallax(0.1);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,7 +26,10 @@ const ContactForm = () => {
     <section id="contato" className="pt-8 pb-8 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div 
+            className="grid md:grid-cols-2 gap-12 items-center"
+            style={{ transform: `translateY(${-parallaxOffset}px)` }}
+          >
             <div className="animate-fade-in">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Vamos transformar suas ideias em <span className="text-neon">realidade</span>

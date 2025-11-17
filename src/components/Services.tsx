@@ -1,7 +1,9 @@
 import { Settings, Box, HardHat, Hammer, Rocket } from "lucide-react";
+import { useParallax } from "@/hooks/useParallax";
 import standConstruction from "@/assets/stand-construction-2.png";
 
 const Services = () => {
+  const parallaxOffset = useParallax(0.2);
   const services = [
     {
       icon: Settings,
@@ -74,11 +76,12 @@ const Services = () => {
         </div>
 
         {/* Right Column - Image */}
-        <div className="relative min-h-[600px] md:min-h-screen">
+        <div className="relative min-h-[600px] md:min-h-screen overflow-hidden">
           <img
             src={standConstruction}
             alt="Montagem de Stand"
             className="absolute inset-0 w-full h-full object-cover"
+            style={{ transform: `translateY(${-parallaxOffset}px)` }}
           />
         </div>
       </div>

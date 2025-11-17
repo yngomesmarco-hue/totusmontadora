@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { useParallax } from "@/hooks/useParallax";
 import stand3dProntoPaga from "@/assets/stand-3d-prontopaga.png";
 import standRealProntoPaga from "@/assets/stand-real-prontopaga.png";
 import stand3dCometa from "@/assets/stand-3d-cometa.png";
@@ -102,10 +103,15 @@ const ComparisonSlider = ({ image3d, imageReal }: { image3d: string; imageReal: 
 };
 
 const Comparison = () => {
+  const parallaxOffset = useParallax(0.1);
+
   return (
     <section className="pt-20 pb-8 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
+        <div 
+          className="text-center mb-16 animate-fade-in"
+          style={{ transform: `translateY(${-parallaxOffset}px)` }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Prova da Excelência em <span className="text-neon">stands para eventos!</span>
           </h2>
