@@ -1,95 +1,131 @@
-import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
 import stand3dProntoPaga from "@/assets/stand-3d-prontopaga.png";
 import standRealProntoPaga from "@/assets/stand-real-prontopaga.png";
+import stand3dCometa from "@/assets/stand-3d-cometa.png";
+import standRealCometa from "@/assets/stand-real-cometa.png";
 
-const Comparison = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const ComparisonSlider = ({ image3d, imageReal }: { image3d: string; imageReal: string }) => {
+  const [sliderPosition, setSliderPosition] = useState(50);
+  const [isDragging, setIsDragging] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const comparisons = [
-    {
-      render: stand3dProntoPaga,
-      real: standRealProntoPaga,
-      title: "Stand ProntoPaga",
-    },
-    {
-      render: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2012",
-      real: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070",
-      title: "Stand Corporativo",
-    },
-    {
-      render: "https://images.unsplash.com/photo-1475503572774-15a45e5d60b9?q=80&w=2070",
-      real: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2069",
-      title: "Espaço de Tecnologia",
-    },
-  ];
-
-  const nextComparison = () => {
-    setCurrentIndex((prev) => (prev + 1) % comparisons.length);
+  const handleMove = (clientX: number) => {
+    if (!containerRef.current) return;
+    
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const percentage = (x / rect.width) * 100;
+    
+    setSliderPosition(Math.min(Math.max(percentage, 0), 100));
   };
 
-  const prevComparison = () => {
-    setCurrentIndex((prev) => (prev - 1 + comparisons.length) % comparisons.length);
+  const handleMouseDown = () => setIsDragging(true);
+  const handleMouseUp = () => setIsDragging(false);
+
+  const handleMouseMove = (e: MouseEvent) => {
+    if (!isDragging) return;
+    handleMove(e.clientX);
   };
+
+  const handleTouchMove = (e: TouchEvent) => {
+    if (!isDragging) return;
+    handleMove(e.touches[0].clientX);
+  };
+
+  useEffect(() => {
+    if (isDragging) {
+      window.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("mouseup", handleMouseUp);
+      window.addEventListener("touchmove", handleTouchMove);
+      window.addEventListener("touchend", handleMouseUp);
+    }
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleMouseUp);
+    };
+  }, [isDragging]);
 
   return (
-    <section className="py-20 md:py-32 bg-secondary">
+    <div 
+      ref={containerRef}
+      className="relative w-full aspect-[16/9] overflow-hidden rounded-lg cursor-ew-resize select-none"
+      onMouseDown={handleMouseDown}
+      onTouchStart={handleMouseDown}
+    >
+      {/* Stand Real (Background) */}
+      <div className="absolute inset-0">
+        <img
+          src={imageReal}
+          alt="Stand Real"
+          className="w-full h-full object-cover"
+          draggable="false"
+        />
+        <div className="absolute bottom-4 right-4 bg-background/80 backdrop-blur-sm px-4 py-2 rounded-md">
+          <span className="text-foreground font-semibold text-sm">Stand</span>
+        </div>
+      </div>
+
+      {/* Projeto 3D (Foreground with clip) */}
+      <div 
+        className="absolute inset-0 transition-none"
+        style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+      >
+        <img
+          src={image3d}
+          alt="Projeto 3D"
+          className="w-full h-full object-cover"
+          draggable="false"
+        />
+        <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm px-4 py-2 rounded-md">
+          <span className="text-foreground font-semibold text-sm">Projeto 3D</span>
+        </div>
+      </div>
+
+      {/* Slider Line */}
+      <div 
+        className="absolute top-0 bottom-0 w-1 bg-neon cursor-ew-resize"
+        style={{ left: `${sliderPosition}%`, transform: 'translateX(-50%)' }}
+      >
+        {/* Slider Handle */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-neon rounded-full flex items-center justify-center shadow-lg">
+          <div className="flex gap-1">
+            <div className="w-0.5 h-6 bg-background"></div>
+            <div className="w-0.5 h-6 bg-background"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Comparison = () => {
+  return (
+    <section className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Comparação <span className="text-neon">3D vs Realidade</span>
+            Prova da Excelência em <span className="text-neon">stands para eventos!</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
             Veja as fotos com o antes e depois e comprove como nossos projetos 3D se transformam em stands para eventos perfeitos.
           </p>
         </div>
 
-        <div className="relative max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="relative group overflow-hidden rounded-lg">
-              <img
-                src={comparisons[currentIndex].render}
-                alt="Render 3D"
-                className="w-full h-[400px] object-cover"
-              />
-              <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm px-4 py-2 rounded-md">
-                <span className="text-foreground font-semibold text-sm">Projeto 3D</span>
-              </div>
-            </div>
+        <div className="max-w-6xl mx-auto space-y-8">
+          {/* ProntoPaga Comparison */}
+          <ComparisonSlider 
+            image3d={stand3dProntoPaga}
+            imageReal={standRealProntoPaga}
+          />
 
-            <div className="relative group overflow-hidden rounded-lg">
-              <img
-                src={comparisons[currentIndex].real}
-                alt="Resultado Real"
-                className="w-full h-[400px] object-cover"
-              />
-              <div className="absolute bottom-4 left-4 bg-background/80 backdrop-blur-sm px-4 py-2 rounded-md">
-                <span className="text-foreground font-semibold text-sm">Stand</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Navigation */}
-          <div className="flex justify-center items-center gap-4 mt-8">
-            <button
-              onClick={prevComparison}
-              className="p-3 rounded-full bg-card hover:bg-neon hover:text-black transition-all border border-neon"
-            >
-              <ChevronLeft size={24} />
-            </button>
-            <div className="text-center">
-              <p className="text-lg font-semibold">{comparisons[currentIndex].title}</p>
-              <p className="text-sm text-muted-foreground">
-                {currentIndex + 1} de {comparisons.length}
-              </p>
-            </div>
-            <button
-              onClick={nextComparison}
-              className="p-3 rounded-full bg-card hover:bg-neon hover:text-black transition-all border border-neon"
-            >
-              <ChevronRight size={24} />
-            </button>
-          </div>
+          {/* Cometa Gaming Comparison */}
+          <ComparisonSlider 
+            image3d={stand3dCometa}
+            imageReal={standRealCometa}
+          />
         </div>
       </div>
     </section>
