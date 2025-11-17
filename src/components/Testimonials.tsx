@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import bgTestimonials from "@/assets/bg-testimonials.png";
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -34,10 +35,18 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-20 md:py-32 bg-secondary">
+    <section 
+      className="py-20 md:py-32 bg-white relative"
+      style={{
+        backgroundImage: `url(${bgTestimonials})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             Experiências reais de quem confiou na{" "}
             <span className="text-neon">BTOS Montadora</span>
           </h2>
