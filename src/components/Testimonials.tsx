@@ -25,7 +25,7 @@ const Testimonials = () => {
   const prevTestimonial = () => {
     setCurrentIndex(prev => (prev - 1 + testimonials.length) % testimonials.length);
   };
-  return <section className="py-20 md:py-32 bg-white relative" style={{
+  return <section className="py-20 md:py-32 bg-white relative animate-fade-in" style={{
     backgroundImage: `url(${bgTestimonials})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -40,7 +40,7 @@ const Testimonials = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="bg-card p-8 md:p-12 rounded-lg border border-border relative">
+          <div className="bg-card p-8 md:p-12 rounded-lg border border-border relative animate-fade-in hover-scale" style={{ animationDelay: '0.2s' }}>
             <Quote className="absolute top-6 left-6 w-12 h-12 text-neon/20" />
 
             <div className="relative z-10">
@@ -68,7 +68,7 @@ const Testimonials = () => {
           </div>
 
           {/* Navigation */}
-          <div className="flex justify-center items-center gap-4 mt-8">
+          <div className="flex justify-center items-center gap-4 mt-8 animate-fade-in" style={{ animationDelay: '0.3s' }}>
             <button onClick={prevTestimonial} className="p-3 rounded-full bg-card hover:bg-neon hover:text-black transition-all border border-neon">
               <ChevronLeft size={24} />
             </button>

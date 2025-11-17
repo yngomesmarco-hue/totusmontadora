@@ -25,7 +25,7 @@ const ContactForm = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
+            <div className="animate-fade-in">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Vamos transformar suas ideias em <span className="text-neon">realidade</span>
               </h2>
@@ -51,7 +51,8 @@ const ContactForm = () => {
 
             <form
               onSubmit={handleSubmit}
-              className="bg-card p-8 rounded-lg border border-border"
+              className="bg-card p-8 rounded-lg border border-border animate-fade-in"
+              style={{ animationDelay: '0.2s' }}
             >
               <div className="space-y-6">
                 <div>
