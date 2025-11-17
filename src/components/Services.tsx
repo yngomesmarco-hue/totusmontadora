@@ -1,5 +1,5 @@
 import { Settings, Box, HardHat, Hammer, Rocket } from "lucide-react";
-import standConstruction from "@/assets/stand-construction.jpg";
+import standConstruction from "@/assets/stand-construction-2.png";
 
 const Services = () => {
   const services = [
