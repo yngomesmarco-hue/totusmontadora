@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,18 +25,24 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-background/95 backdrop-blur-md shadow-lg" : "bg-background/50 backdrop-blur-sm"
       }`}
     >
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-6 py-5">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-neon">BTOS</div>
+          {/* Logo */}
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 border-2 border-foreground rounded-md flex items-center justify-center">
+              <span className="text-xl font-bold text-foreground">B</span>
+            </div>
+            <span className="text-xl font-bold text-foreground">BTOS</span>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             <button
               onClick={() => scrollToSection("home")}
-              className="text-foreground hover:text-neon transition-colors"
+              className="text-neon hover:text-neon transition-colors font-medium"
             >
               Home
             </button>
@@ -48,9 +54,9 @@ const Header = () => {
             </button>
             <button
               onClick={() => scrollToSection("portfolio")}
-              className="text-foreground hover:text-neon transition-colors"
+              className="text-foreground hover:text-neon transition-colors flex items-center gap-1"
             >
-              Portfólio
+              Portfólio <ChevronDown size={16} />
             </button>
             <button
               onClick={() => scrollToSection("contato")}
@@ -58,13 +64,22 @@ const Header = () => {
             >
               Contato
             </button>
+          </nav>
+
+          {/* Right Section */}
+          <div className="hidden md:flex items-center gap-4">
             <Button
               onClick={() => scrollToSection("contato")}
-              className="bg-neon text-black hover:bg-neon/90 font-semibold glow-neon"
+              className="bg-neon text-black hover:bg-neon/90 font-semibold glow-neon rounded-lg px-6"
             >
               Solicite um orçamento
             </Button>
-          </nav>
+            <div className="flex items-center gap-2 border border-border rounded px-3 py-2">
+              <span className="text-2xl">🇧🇷</span>
+              <span className="text-foreground font-medium">PT</span>
+              <ChevronDown size={16} className="text-foreground" />
+            </div>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
