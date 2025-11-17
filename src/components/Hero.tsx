@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import ParticleBackground from "./ParticleBackground";
-import heroStand from "@/assets/hero-stand.jpg";
+import heroStand from "@/assets/stand-bet7k.png";
 
 const Hero = () => {
   return (
@@ -28,18 +28,14 @@ const Hero = () => {
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              <span className="text-foreground">Criamos experiências</span>
-              <br />
-              <span className="text-neon">únicas que inspiram,</span>
-              <br />
-              <span className="text-foreground">conectam e engajam</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-snug" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700 }}>
+              <span className="text-foreground">Criamos experiências únicas </span>
+              <span className="text-neon">que inspiram, conectam e engajam</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-lg md:text-xl text-foreground/90 max-w-xl">
-              Soluções completas em stands para eventos, da concepção à execução, 
-              cuidamos de cada passo para o sucesso do seu evento
+            <p className="text-base md:text-lg text-foreground/80 max-w-xl leading-relaxed" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400 }}>
+              Soluções completas em stands para eventos, da concepção à execução, cuidamos de cada passo para o sucesso do seu evento
             </p>
 
             {/* CTA Button */}
