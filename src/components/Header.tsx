@@ -3,6 +3,12 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logoTotus from "@/assets/logo-totus.png";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -72,12 +78,22 @@ const Header = () => {
             >
               Sobre Nós
             </button>
-            <button
-              onClick={() => scrollToSection("portfolio")}
-              className="text-foreground hover:text-neon transition-colors flex items-center gap-1"
-            >
-              Portfólio <ChevronDown size={16} />
-            </button>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="text-foreground hover:text-neon transition-colors flex items-center gap-1 font-medium">
+                Portfólio <ChevronDown size={16} />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-background border border-border z-50">
+                <DropdownMenuItem onClick={() => scrollToSection("portfolio")} className="text-foreground hover:text-neon cursor-pointer">
+                  Sigma Américas 2024
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => scrollToSection("portfolio")} className="text-foreground hover:text-neon cursor-pointer">
+                  Sigma Américas 2025
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => scrollToSection("portfolio")} className="text-foreground hover:text-neon cursor-pointer">
+                  Automec
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <button
               onClick={() => scrollToSection("contato")}
               className="text-foreground hover:text-neon transition-colors"
