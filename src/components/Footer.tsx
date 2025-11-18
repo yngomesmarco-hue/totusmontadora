@@ -107,7 +107,7 @@ const Footer = () => {
           <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
             <p>
               © TOTUS Montadora – Todos os direitos reservados – CNPJ:
-              50.547.235/0001-76 –{" "}
+              37.154.824/0001-25 –{" "}
               <a href="#" className="hover:text-neon transition-colors">
                 Política de Privacidade
               </a>
