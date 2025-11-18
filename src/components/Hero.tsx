@@ -15,11 +15,11 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 md:px-6 py-12 md:py-20">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Left Column - Text Content */}
-          <div className="space-y-6 md:space-y-8 animate-fade-in">
-            {/* Logo TOTUS MONTADORA */}
-            <div className="flex items-center gap-3 mb-4 md:mb-8">
-              <img src={logoTotus} alt="TOTUS Montadora" className="h-20 md:h-32 w-auto" />
+          {/* Left Column - Text Content (Mobile: Center aligned) */}
+          <div className="space-y-6 md:space-y-8 animate-fade-in text-center md:text-left">
+            {/* Logo TOTUS MONTADORA - Visible on all screens */}
+            <div className="flex items-center justify-center md:justify-start gap-3 mb-4 md:mb-8">
+              <img src={logoTotus} alt="TOTUS Montadora" className="h-24 md:h-32 w-auto" />
             </div>
 
             {/* Main Heading */}
@@ -29,7 +29,7 @@ const Hero = () => {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-sm md:text-base lg:text-lg text-foreground/80 max-w-xl leading-relaxed" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400 }}>
+            <p className="text-sm md:text-base lg:text-lg text-foreground/80 max-w-xl mx-auto md:mx-0 leading-relaxed" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400 }}>
               Soluções completas em stands para eventos, da concepção à execução, cuidamos de cada passo para o sucesso do seu evento
             </p>
 
@@ -46,8 +46,8 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Right Column - Stand Image */}
-          <div className="relative animate-fade-in hidden md:block">
+          {/* Right Column - Stand Image (Now visible on mobile too) */}
+          <div className="relative animate-fade-in">
             <img
               src={heroStand}
               alt="Stand TOTUS"

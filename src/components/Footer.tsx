@@ -149,9 +149,10 @@ const Footer = () => {
         href="https://wa.me/5511987654321"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 bg-neon text-black p-4 rounded-full shadow-2xl hover:scale-110 transition-transform glow-neon"
+        className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform"
+        aria-label="Contato via WhatsApp"
       >
-        <MessageCircle size={32} />
+        <MessageCircle size={28} fill="currentColor" />
       </a>
     </>
   );
