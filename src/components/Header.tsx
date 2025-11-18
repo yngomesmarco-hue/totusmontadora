@@ -57,7 +57,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <img src={logoTotus} alt="TOTUS Montadora" className="h-14 w-auto" />
+            <img src={logoTotus} alt="TOTUS Montadora" className="h-10 md:h-12 w-auto" />
           </div>
 
           {/* Desktop Navigation */}
