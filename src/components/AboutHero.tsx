@@ -22,8 +22,8 @@ const AboutHero = () => {
             fontFamily: "'Poppins', sans-serif",
             fontWeight: 700
           }} className="md:text-5xl lg:text-6xl font-bold leading-snug text-center text-3xl">
-              <span className="text-foreground">Conheça a TOTUS </span>
-              <span className="text-neon">Montadora:</span>
+              <span className="text-foreground text-left">Conheça a TOTUS </span>
+              <span className="text-neon text-left">Montadora:</span>
             </h1>
 
             {/* Subtitle */}
