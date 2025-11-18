@@ -38,7 +38,7 @@ const Footer = () => {
             <div>
               <div className="text-3xl font-bold text-neon mb-4">TOTUS</div>
               <p className="text-muted-foreground">
-                Montadora especializada em stands para eventos, criando experiências
+                Cenografia especializada em stands para eventos, criando experiências
                 únicas e memoráveis.
               </p>
             </div>
@@ -74,7 +74,7 @@ const Footer = () => {
             <div>
               <h3 className="font-semibold text-lg mb-4">Contato</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li>contato@totusmontadora.com.br</li>
+                <li>contato@totuscenografia.com.br</li>
                 <li>Entre em contato abaixo:            </li>
                 <li>WhatsApp: (11) 96242-8997</li>
               </ul>
@@ -106,7 +106,7 @@ const Footer = () => {
           {/* Bottom Bar */}
           <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
             <p>
-              © TOTUS Montadora – Todos os direitos reservados – CNPJ:
+              © TOTUS Cenografia – Todos os direitos reservados – CNPJ:
               37.154.824/0001-25 –{" "}
               <a href="#" className="hover:text-neon transition-colors">
                 Política de Privacidade
