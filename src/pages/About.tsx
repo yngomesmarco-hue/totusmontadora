@@ -11,10 +11,10 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <AboutHero />
-      <AboutDifferentials />
-      <AboutCommitments />
       <LogoSlider />
       <AboutServices />
+      <AboutDifferentials />
+      <AboutCommitments />
       <Footer />
     </div>
   );
