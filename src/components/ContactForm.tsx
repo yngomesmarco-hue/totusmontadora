@@ -21,15 +21,15 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contato" className="py-20 bg-background">
+    <section id="contato" className="py-12 md:py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
                 Vamos transformar suas ideias em <span className="text-neon">realidade</span>
               </h2>
-              <p className="text-xl text-muted-foreground mb-6">
+              <p className="text-lg md:text-xl text-muted-foreground mb-4 md:mb-6">
                 Preencha o formulário e nossa equipe entrará em contato para
                 desenvolver o projeto perfeito para o seu evento.
               </p>
@@ -51,7 +51,7 @@ const ContactForm = () => {
 
             <form
               onSubmit={handleSubmit}
-              className="bg-card p-8 rounded-lg border border-border"
+              className="bg-card p-6 md:p-8 rounded-lg border border-border"
             >
               <div className="space-y-6">
                 <div>
@@ -104,7 +104,7 @@ const ContactForm = () => {
 
                 <Button
                   type="submit"
-                  className="w-full bg-neon text-black hover:bg-neon/90 font-semibold text-lg py-6 glow-neon"
+                  className="w-full bg-neon text-black hover:bg-neon/90 font-semibold text-base md:text-lg py-5 md:py-6 glow-neon"
                 >
                   ENVIAR
                 </Button>
