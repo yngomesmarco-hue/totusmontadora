@@ -1,104 +1,77 @@
-import { Brain, Frame, Lightbulb, Wrench } from "lucide-react";
-import standConstruction from "@/assets/stand-construction.jpg";
+import { Brain, Users, Clock, Leaf } from "lucide-react";
+import constructionImage from "@/assets/stand-construction-2.png";
 
 const AboutServices = () => {
-  const services = [
+  const features = [
     {
       icon: Brain,
       title: "Neuro-Arquitetura:",
-      description: "Neuro-Arquitetura aplicada para que ambientes influenciem no comportamento e tempo de permanência."
+      description: "Neuro-Arquitetura aplicada para que ambientes influenciem no comportamento e tempo de permanência dos visitantes."
     },
     {
-      icon: Frame,
-      title: "Framing:",
-      description: "Criação de pontos instagramáveis que ampliam a presença digital e destacam a exclusividade."
+      icon: Users,
+      title: "Estratégia de Engajamento:",
+      description: "Cada área é pensada estrategicamente para gerar máximo impacto e converter visitantes em clientes."
     },
     {
-      icon: Lightbulb,
-      title: "Iluminação Técnica:",
-      description: "Destaque intencional de produtos, gerando exclusividade e valor."
+      icon: Clock,
+      title: "Entregas no prazo:",
+      description: "Cumprimos prazos rigorosamente, garantindo que seu estande esteja pronto quando você precisar."
     },
     {
-      icon: Wrench,
-      title: "Estruturas Robustas:",
-      description: "Imponência, autoridade e durabilidade para a marca em grandes feiras."
-    }
-  ];
-
-  const materials = [
-    {
-      icon: Wrench,
-      title: "Acabamentos Premium:",
-      description: "ACM, MDF, Acrílico, pintura automotiva e iluminação embutida. Todos valorizando sua marca."
-    },
-    {
-      icon: Brain,
-      title: "Wayfinding Estratégico:",
-      description: "Fluxo natural que conduz visitantes pelos pontoschave da marca."
+      icon: Leaf,
+      title: "Sustentabilidade:",
+      description: "Materiais e práticas sustentáveis sempre que possível, reduzindo o impacto ambiental."
     }
   ];
 
   return (
-    <section className="py-20 bg-background">
-      {/* Do Papel À Vida Section */}
-      <div className="grid md:grid-cols-2">
-        {/* Left Column - Services */}
-        <div className="bg-background py-16 md:py-20">
-          <div className="space-y-12 px-6 md:px-12 lg:px-16">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                Do Papel À Vida
-              </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                Através de uma cuidadosa seleção de materiais e técnicas construtivas, transformamos cada projeto em uma experiência única. Do conceito à finalização, nossa equipe de especialistas acompanha de perto cada etapa, garantindo a integração perfeita entre design e funcionalidade.
-              </p>
+    <section className="py-20 bg-black">
+      <div className="container mx-auto px-6">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Left Column - Text Content */}
+          <div className="space-y-8">
+            <h2 className="text-4xl md:text-5xl font-bold text-white">
+              Do Papel À Vida
+            </h2>
+            
+            <p className="text-white/80 text-lg leading-relaxed">
+              Através de uma cuidadosa seleção de materiais e técnicas construtivas, transformamos cada projeto em uma experiência única. Do conceito à finalização, nossa equipe de especialistas acompanha de perto cada etapa, garantindo a integração perfeita entre design e funcionalidade.
+            </p>
+
+            {/* Features List */}
+            <div className="space-y-6 mt-8">
+              {features.map((feature, index) => {
+                const Icon = feature.icon;
+                return (
+                  <div key={index} className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 rounded-lg bg-neon/20 flex items-center justify-center">
+                        <Icon className="w-6 h-6 text-neon" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-neon font-semibold text-lg mb-1">
+                        {feature.title}
+                      </h3>
+                      <p className="text-white/70 text-sm leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-
-            {services.map((service, index) => (
-              <div key={index} className="border-t border-border/20 pt-8">
-                <div className="flex gap-4 items-start">
-                  <div className="flex-shrink-0">
-                    <service.icon className="w-12 h-12 text-neon" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-neon mb-2">
-                      {service.title}
-                    </h3>
-                    <p className="text-foreground">
-                      {service.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-
-            {materials.map((material, index) => (
-              <div key={index} className="border-t border-border/20 pt-8">
-                <div className="flex gap-4 items-start">
-                  <div className="flex-shrink-0">
-                    <material.icon className="w-12 h-12 text-neon" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-neon mb-2">
-                      {material.title}
-                    </h3>
-                    <p className="text-foreground">
-                      {material.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
-        </div>
 
-        {/* Right Column - Image */}
-        <div className="relative h-[600px] md:h-full">
-          <img
-            src={standConstruction}
-            alt="Stand em Construção"
-            className="w-full h-full object-cover"
-          />
+          {/* Right Column - Construction Image */}
+          <div className="relative">
+            <img 
+              src={constructionImage} 
+              alt="Construção de stand" 
+              className="w-full h-auto object-cover rounded-lg"
+            />
+          </div>
         </div>
       </div>
     </section>
