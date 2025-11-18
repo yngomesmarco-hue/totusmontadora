@@ -106,23 +106,23 @@
     box-shadow: 0 0 20px hsl(var(--neon-green) / 0.5);
   }
 
-  @keyframes scroll {
+  @keyframes marquee {
     0% {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-100% / 8));
+      transform: translateX(-50%);
     }
   }
 
-  .animate-scroll {
-    animation: scroll 0.5s linear infinite;
+  .animate-marquee {
+    animation: marquee 10s linear infinite;
     will-change: transform;
   }
 
   @media (min-width: 768px) {
-    .animate-scroll {
-      animation: scroll 40s linear infinite;
+    .animate-marquee {
+      animation: marquee 40s linear infinite;
     }
   }
 }

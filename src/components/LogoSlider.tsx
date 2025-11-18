@@ -21,13 +21,13 @@ const LogoSlider = () => {
 
   return (
     <section className="bg-white py-8 overflow-hidden">
-      <div className="relative">
-        <div className="flex animate-scroll">
-          {/* Multiple sets of logos for truly seamless infinite scroll */}
-          {[...Array(8)].map((_, setIndex) => (
-            logos.map((logo, index) => (
+      <div className="relative w-full">
+        <div className="flex animate-marquee">
+          {/* First set of logos */}
+          <div className="flex flex-shrink-0">
+            {logos.map((logo, index) => (
               <div
-                key={`logo-${setIndex}-${index}`}
+                key={`logo-set1-${index}`}
                 className="flex-shrink-0 mx-8 flex items-center justify-center"
                 style={{ width: "200px", height: "100px" }}
               >
@@ -37,8 +37,24 @@ const LogoSlider = () => {
                   className="max-w-full max-h-full object-contain"
                 />
               </div>
-            ))
-          ))}
+            ))}
+          </div>
+          {/* Duplicate set for seamless loop */}
+          <div className="flex flex-shrink-0">
+            {logos.map((logo, index) => (
+              <div
+                key={`logo-set2-${index}`}
+                className="flex-shrink-0 mx-8 flex items-center justify-center"
+                style={{ width: "200px", height: "100px" }}
+              >
+                <img
+                  src={logo}
+                  alt={`Logo ${index + 1}`}
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
