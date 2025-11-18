@@ -33,31 +33,31 @@ const Services = () => {
         {/* Left Column - Services List */}
         <div className="bg-background py-16 md:py-20">
           <div className="space-y-12 px-6 md:px-12 lg:px-16">
-            {services.map((service, index) => <div key={index} className="animate-fade-in" style={{
+            {services.map((service, index) => <div key={index} className="animate-fade-in text-center" style={{
             animationDelay: `${index * 0.1}s`
           }}>
-                {/* Icon and Title */}
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="flex-shrink-0">
-                    <service.icon className="w-12 h-12 text-foreground" strokeWidth={1.5} />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-neon mb-2">
-                      {service.title}
-                    </h3>
-                    <p className="text-foreground font-medium mb-3 text-sm">
-                      {service.subtitle}
-                    </p>
-                  </div>
+                {/* Icon */}
+                <div className="flex justify-center mb-6">
+                  <service.icon className="w-16 h-16 md:w-20 md:h-20 text-foreground" strokeWidth={1.5} />
                 </div>
                 
+                {/* Title */}
+                <h3 className="text-2xl md:text-3xl font-bold text-neon mb-4">
+                  {service.title}
+                </h3>
+                
+                {/* Subtitle */}
+                <p className="text-foreground font-medium mb-6 text-base md:text-lg">
+                  {service.subtitle}
+                </p>
+                
                 {/* Description */}
-                <p className="text-foreground/80 leading-relaxed">
+                <p className="text-foreground/80 leading-relaxed text-sm md:text-base max-w-2xl mx-auto">
                   {service.description}
                 </p>
 
                 {/* Divider */}
-                {index < services.length - 1 && <div className="mt-8 border-t border-border/30"></div>}
+                {index < services.length - 1 && <div className="mt-12 mb-12 border-t border-border/30"></div>}
               </div>)}
           </div>
         </div>
