@@ -70,7 +70,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <button
-                    onClick={() => scrollToSection("contato")}
+                    onClick={() => window.open("https://api.whatsapp.com/send?phone=5511962428997&text=Vi%20seu%20site%20e%20tenho%20interesse", "_blank")}
                     className="text-muted-foreground hover:text-neon transition-colors"
                   >
                     Contato
@@ -146,7 +146,7 @@ const Footer = () => {
 
       {/* WhatsApp Floating Button */}
       <a
-        href="https://wa.me/5511987654321"
+        href="https://api.whatsapp.com/send?phone=5511962428997&text=Vi%20seu%20site%20e%20tenho%20interesse"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform"

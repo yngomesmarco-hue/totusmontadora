@@ -99,7 +99,7 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
             <button
-              onClick={() => scrollToSection("contato")}
+              onClick={() => window.open("https://api.whatsapp.com/send?phone=5511962428997&text=Vi%20seu%20site%20e%20tenho%20interesse", "_blank")}
               className="text-foreground hover:text-neon transition-colors"
             >
               Contato
@@ -109,7 +109,7 @@ const Header = () => {
           {/* Right Section */}
           <div className="hidden md:flex items-center gap-4">
             <Button
-              onClick={() => scrollToSection("contato")}
+              onClick={() => window.open("https://api.whatsapp.com/send?phone=5511962428997&text=Vi%20seu%20site%20e%20tenho%20interesse", "_blank")}
               className="bg-neon text-black hover:bg-neon/90 font-semibold glow-neon rounded-lg px-6"
             >
               Solicite um orçamento
@@ -152,13 +152,13 @@ const Header = () => {
               Portfólio
             </button>
             <button
-              onClick={() => scrollToSection("contato")}
+              onClick={() => window.open("https://api.whatsapp.com/send?phone=5511962428997&text=Vi%20seu%20site%20e%20tenho%20interesse", "_blank")}
               className="text-foreground hover:text-neon transition-colors text-left"
             >
               Contato
             </button>
             <Button
-              onClick={() => scrollToSection("contato")}
+              onClick={() => window.open("https://api.whatsapp.com/send?phone=5511962428997&text=Vi%20seu%20site%20e%20tenho%20interesse", "_blank")}
               className="bg-neon text-black hover:bg-neon/90 font-semibold"
             >
               Solicite um orçamento

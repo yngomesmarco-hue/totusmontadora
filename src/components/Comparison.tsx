@@ -100,7 +100,10 @@ const Comparison = () => {
 
         {/* Ver Mais Projetos Button */}
         <div className="flex justify-center mt-12">
-          <button className="bg-neon text-black hover:bg-neon/90 font-bold text-lg px-12 py-4 rounded-md glow-neon transition-all">
+          <button 
+            onClick={() => window.location.href = "/portfolio"}
+            className="bg-neon text-black hover:bg-neon/90 font-bold text-lg px-12 py-4 rounded-md glow-neon transition-all"
+          >
             VER MAIS PROJETOS!
           </button>
         </div>
