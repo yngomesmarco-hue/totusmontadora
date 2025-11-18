@@ -3,11 +3,11 @@ const AboutDifferentials = () => {
   const differentials = [{
     icon: Award,
     title: "Qualidade e Profissionalismo",
-    description: "Trabalhamos em estreita colaboração com os clientes para garantir que cada detalhe seja cuidadosamente planejado e executado. Nosso compromisso com a qualidade vai além do design visual, resultando em stands para eventos que não apenas impressionam, mas também envolvem e inspiram. Cada projeto é tratado com a máxima seriedade e dedicação, garantindo um resultado que reflete a excelência da TOTUS Montadora."
+    description: "Trabalhamos em estreita colaboração com os clientes para garantir que cada detalhe seja cuidadosamente planejado e executado. Nosso compromisso com a qualidade vai além do design visual, resultando em stands para eventos que não apenas impressionam, mas também envolvem e inspiram. Cada projeto é tratado com a máxima seriedade e dedicação, garantindo um resultado que reflete a excelência da TOTUS Cenografia."
   }, {
     icon: Lightbulb,
     title: "Compromisso com a Personalização",
-    description: "Cada cliente é único, e tratamos cada projeto com a atenção e cuidado que ele merece. Na TOTUS Montadora, você não receberá soluções genéricas. Nosso serviço é totalmente personalizado, adaptado às suas necessidades e objetivos específicos. Desde o conceito inicial até a execução final, garantimos que seu stand seja um reflexo perfeito da sua visão e identidade."
+    description: "Cada cliente é único, e tratamos cada projeto com a atenção e cuidado que ele merece. Na TOTUS Cenografia, você não receberá soluções genéricas. Nosso serviço é totalmente personalizado, adaptado às suas necessidades e objetivos específicos. Desde o conceito inicial até a execução final, garantimos que seu stand seja um reflexo perfeito da sua visão e identidade."
   }, {
     icon: Cog,
     title: "Inovação e Criatividade",

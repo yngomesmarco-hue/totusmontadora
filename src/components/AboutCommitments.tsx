@@ -12,7 +12,7 @@ const AboutCommitments = () => {
         </h2>
         
         <p className="text-center text-muted-foreground mb-12 max-w-4xl mx-auto text-sm">
-          Na TOTUS Montadora, nossos princípios são a base que orienta todas as nossas ações e decisões. Nossa missão, visão e valores refletem nosso compromisso com a excelência, inovação e personalização, garantindo que cada projeto não só atenda, mas supere as expectativas dos nossos clientes.
+          Na TOTUS Cenografia, nossos princípios são a base que orienta todas as nossas ações e decisões. Nossa missão, visão e valores refletem nosso compromisso com a excelência, inovação e personalização, garantindo que cada projeto não só atenda, mas supere as expectativas dos nossos clientes.
         </p>
 
         <div className="space-y-4">

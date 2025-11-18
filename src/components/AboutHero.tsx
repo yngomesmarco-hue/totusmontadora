@@ -15,7 +15,7 @@ const AboutHero = () => {
           <div className="space-y-8 animate-fade-in">
             {/* Logo TOTUS MONTADORA */}
             <div className="flex items-center gap-3 mb-8 justify-center md:justify-start">
-              <img src={logoTotus} alt="TOTUS Montadora" className="h-12 md:h-16 w-auto" />
+              <img src={logoTotus} alt="TOTUS Cenografia" className="h-12 md:h-16 w-auto" />
             </div>
 
             {/* Main Heading */}
@@ -24,7 +24,7 @@ const AboutHero = () => {
             fontWeight: 700
           }} className="text-3xl md:text-5xl lg:text-6xl font-bold leading-snug text-left">
               <span className="text-foreground">Conheça a TOTUS </span>
-              <span className="text-neon">Montadora:</span>
+              <span className="text-neon">Cenografia:</span>
             </h1>
 
             {/* Subtitle */}

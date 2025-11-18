@@ -19,7 +19,7 @@ const Hero = () => {
           <div className="space-y-6 md:space-y-8 animate-fade-in text-center md:text-left">
             {/* Logo TOTUS MONTADORA - Visible on all screens */}
             <div className="flex items-center justify-center md:justify-start gap-3 mb-4 md:mb-8">
-              <img src={logoTotus} alt="TOTUS Montadora" className="h-12 md:h-16 w-auto" />
+              <img src={logoTotus} alt="TOTUS Cenografia" className="h-12 md:h-16 w-auto" />
             </div>
 
             {/* Main Heading */}
