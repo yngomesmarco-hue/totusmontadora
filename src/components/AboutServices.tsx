@@ -26,11 +26,11 @@ const AboutServices = () => {
   ];
 
   return (
-    <section className="py-20 bg-black">
+    <section className="bg-black">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-0 items-start">
           {/* Left Column - Text Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 py-20">
             <h2 className="text-4xl md:text-5xl font-bold text-white">
               Do Papel À Vida
             </h2>
@@ -65,11 +65,11 @@ const AboutServices = () => {
           </div>
 
           {/* Right Column - Construction Image */}
-          <div className="relative">
+          <div className="relative h-full min-h-[700px]">
             <img 
               src={constructionImage} 
               alt="Construção de stand" 
-              className="w-full h-auto object-cover rounded-lg"
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
