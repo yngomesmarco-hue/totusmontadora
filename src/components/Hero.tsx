@@ -13,30 +13,30 @@ const Hero = () => {
       <ParticleBackground />
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 py-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 container mx-auto px-4 md:px-6 py-12 md:py-20">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Column - Text Content */}
-          <div className="space-y-8 animate-fade-in">
+          <div className="space-y-6 md:space-y-8 animate-fade-in">
             {/* Logo TOTUS MONTADORA */}
-            <div className="flex items-center gap-3 mb-8">
-              <img src={logoTotus} alt="TOTUS Montadora" className="h-32 w-auto" />
+            <div className="flex items-center gap-3 mb-4 md:mb-8">
+              <img src={logoTotus} alt="TOTUS Montadora" className="h-20 md:h-32 w-auto" />
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-snug" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700 }}>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight md:leading-snug" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700 }}>
               <span className="text-foreground">Criamos experiências únicas </span>
               <span className="text-neon">que inspiram, conectam e engajam</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base md:text-lg text-foreground/80 max-w-xl leading-relaxed" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400 }}>
+            <p className="text-sm md:text-base lg:text-lg text-foreground/80 max-w-xl leading-relaxed" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400 }}>
               Soluções completas em stands para eventos, da concepção à execução, cuidamos de cada passo para o sucesso do seu evento
             </p>
 
             {/* CTA Button */}
             <Button
               size="lg"
-              className="bg-neon text-black hover:bg-neon/90 font-semibold text-lg px-8 py-6 rounded-lg glow-neon"
+              className="bg-neon text-black hover:bg-neon/90 font-semibold text-base md:text-lg px-6 md:px-8 py-5 md:py-6 rounded-lg glow-neon w-full md:w-auto"
               onClick={() => {
                 const element = document.getElementById("contato");
                 element?.scrollIntoView({ behavior: "smooth" });
