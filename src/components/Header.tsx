@@ -79,17 +79,19 @@ const Header = () => {
               Sobre Nós
             </button>
             <DropdownMenu>
-              <DropdownMenuTrigger className="text-foreground hover:text-neon transition-colors flex items-center gap-1 font-medium">
+              <DropdownMenuTrigger className={`transition-colors flex items-center gap-1 font-medium ${
+                location.pathname === "/portfolio" ? "text-neon" : "text-foreground hover:text-neon"
+              }`}>
                 Portfólio <ChevronDown size={16} />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-background border border-border z-50">
-                <DropdownMenuItem onClick={() => scrollToSection("portfolio")} className="text-foreground hover:text-neon cursor-pointer">
+                <DropdownMenuItem onClick={() => navigateToPage("/portfolio")} className="text-foreground hover:text-neon cursor-pointer">
                   Sigma Américas 2024
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => scrollToSection("portfolio")} className="text-foreground hover:text-neon cursor-pointer">
+                <DropdownMenuItem onClick={() => navigateToPage("/portfolio")} className="text-foreground hover:text-neon cursor-pointer">
                   Sigma Américas 2025
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => scrollToSection("portfolio")} className="text-foreground hover:text-neon cursor-pointer">
+                <DropdownMenuItem onClick={() => navigateToPage("/portfolio")} className="text-foreground hover:text-neon cursor-pointer">
                   Automec
                 </DropdownMenuItem>
               </DropdownMenuContent>
