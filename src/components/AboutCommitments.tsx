@@ -35,7 +35,7 @@ const AboutCommitments = () => {
                     </div>
                   </div>
                   <div className="flex-1">
-                    <p className="text-foreground leading-relaxed">
+                    <p className="text-foreground leading-relaxed text-xs">
                       Nossa missão é transformar ideias em experiências únicas e memoráveis, criando stands de alta qualidade que inspirem e engajem os públicos dos nossos clientes. Buscamos oferecer soluções completas e personalizadas, combinando inovação, criatividade e excelência em cada projeto.
                     </p>
                   </div>
