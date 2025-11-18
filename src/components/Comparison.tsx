@@ -82,10 +82,10 @@ const Comparison = () => {
   return <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="md:text-5xl font-bold mb-4 text-3xl text-center">
+          <h2 className="md:text-5xl font-bold mb-4 text-center text-2xl">
             Prova da Excelência em stands para eventos! <span className="text-neon font-sans">stands para eventos!</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+          <p className="text-muted-foreground max-w-4xl mx-auto text-sm">
             Veja as fotos com o antes e depois e comprove como nossos projetos 3D se transformam em stands para eventos perfeitos.
           </p>
         </div>
