@@ -21,40 +21,21 @@ const LogoSlider = () => {
 
   return (
     <section className="bg-white py-8 overflow-hidden">
-      <div className="relative w-full">
-        <div className="flex animate-marquee">
-          {/* First set of logos */}
-          <div className="flex flex-shrink-0">
-            {logos.map((logo, index) => (
-              <div
-                key={`logo-set1-${index}`}
-                className="flex-shrink-0 mx-8 flex items-center justify-center"
-                style={{ width: "200px", height: "100px" }}
-              >
-                <img
-                  src={logo}
-                  alt={`Logo ${index + 1}`}
-                  className="max-w-full max-h-full object-contain"
-                />
-              </div>
-            ))}
-          </div>
-          {/* Duplicate set for seamless loop */}
-          <div className="flex flex-shrink-0">
-            {logos.map((logo, index) => (
-              <div
-                key={`logo-set2-${index}`}
-                className="flex-shrink-0 mx-8 flex items-center justify-center"
-                style={{ width: "200px", height: "100px" }}
-              >
-                <img
-                  src={logo}
-                  alt={`Logo ${index + 1}`}
-                  className="max-w-full max-h-full object-contain"
-                />
-              </div>
-            ))}
-          </div>
+      <div className="relative w-full overflow-hidden">
+        <div className="flex w-max animate-marquee">
+          {[...logos, ...logos].map((logo, index) => (
+            <div
+              key={`logo-${index}`}
+              className="flex-shrink-0 mx-8 flex items-center justify-center"
+              style={{ width: "200px", height: "100px" }}
+            >
+              <img
+                src={logo}
+                alt={`Logo ${index % logos.length + 1}`}
+                className="max-w-full max-h-full object-contain"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
