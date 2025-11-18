@@ -17,12 +17,12 @@ const Portfolio = () => {
     {
       title: "AUTOMEC",
       image: automecImage,
-      link: null,
+      link: "/portfolio/automec",
     },
     {
       title: "SIGMA AMÉRICAS 2025",
       image: sigma2025Image,
-      link: null,
+      link: "/portfolio/sigma-americas-2025",
     },
   ];
 
