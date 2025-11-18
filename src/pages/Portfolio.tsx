@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import sigma2024Image from "@/assets/sigma-americas-2024.png";
@@ -5,18 +6,23 @@ import automecImage from "@/assets/automec.png";
 import sigma2025Image from "@/assets/sigma-americas-2025.png";
 
 const Portfolio = () => {
+  const navigate = useNavigate();
+
   const projects = [
     {
       title: "SIGMA AMÉRICAS 2024",
       image: sigma2024Image,
+      link: "/portfolio/sigma-americas-2024",
     },
     {
       title: "AUTOMEC",
       image: automecImage,
+      link: null,
     },
     {
       title: "SIGMA AMÉRICAS 2025",
       image: sigma2025Image,
+      link: null,
     },
   ];
 
@@ -43,6 +49,7 @@ const Portfolio = () => {
                 <div
                   key={index}
                   className="relative group overflow-hidden rounded-lg aspect-[3/4] cursor-pointer"
+                  onClick={() => project.link && navigate(project.link)}
                 >
                   <img
                     src={project.image}
