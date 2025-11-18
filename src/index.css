@@ -116,7 +116,13 @@
   }
 
   .animate-scroll {
-    animation: scroll 20s linear infinite;
+    animation: scroll 7s linear infinite;
     will-change: transform;
+  }
+
+  @media (min-width: 768px) {
+    .animate-scroll {
+      animation: scroll 20s linear infinite;
+    }
   }
 }
