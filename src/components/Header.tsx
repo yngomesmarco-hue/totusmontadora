@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logoTotus from "@/assets/logo-totus.png";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -16,11 +19,26 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
+    setIsMobileMenuOpen(false);
+  };
+
+  const navigateToPage = (path: string) => {
+    navigate(path);
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -39,14 +57,18 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             <button
-              onClick={() => scrollToSection("home")}
-              className="text-neon hover:text-neon transition-colors font-medium"
+              onClick={() => navigate("/")}
+              className={`transition-colors font-medium ${
+                location.pathname === "/" ? "text-neon" : "text-foreground hover:text-neon"
+              }`}
             >
               Home
             </button>
             <button
-              onClick={() => scrollToSection("sobre")}
-              className="text-foreground hover:text-neon transition-colors"
+              onClick={() => navigateToPage("/sobre-nos")}
+              className={`transition-colors ${
+                location.pathname === "/sobre-nos" ? "text-neon" : "text-foreground hover:text-neon"
+              }`}
             >
               Sobre Nós
             </button>
@@ -92,13 +114,13 @@ const Header = () => {
         {isMobileMenuOpen && (
           <nav className="md:hidden flex flex-col gap-4 mt-4 pb-4">
             <button
-              onClick={() => scrollToSection("home")}
+              onClick={() => navigate("/")}
               className="text-foreground hover:text-neon transition-colors text-left"
             >
               Home
             </button>
             <button
-              onClick={() => scrollToSection("sobre")}
+              onClick={() => navigateToPage("/sobre-nos")}
               className="text-foreground hover:text-neon transition-colors text-left"
             >
               Sobre Nós
