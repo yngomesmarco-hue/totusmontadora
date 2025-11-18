@@ -14,7 +14,7 @@ const AboutHero = () => {
           <div className="space-y-8 animate-fade-in">
             {/* Logo TOTUS MONTADORA */}
             <div className="flex items-center gap-3 mb-8">
-              <img src={logoTotus} alt="TOTUS Montadora" className="h-32 w-auto" />
+              <img src={logoTotus} alt="TOTUS Montadora" className="h-20 md:h-28 w-auto" />
             </div>
 
             {/* Main Heading */}
