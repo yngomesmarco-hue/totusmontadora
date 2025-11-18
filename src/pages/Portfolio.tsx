@@ -1,14 +1,14 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import sigmaImage from "@/assets/stand-bet7k.png";
-import lolaImage from "@/assets/logo-lola.png";
-import automecImage from "@/assets/stand-construction.jpg";
+import sigma2024Image from "@/assets/sigma-americas-2024.png";
+import automecImage from "@/assets/automec.png";
+import sigma2025Image from "@/assets/sigma-americas-2025.png";
 
 const Portfolio = () => {
   const projects = [
     {
       title: "SIGMA AMÉRICAS 2024",
-      image: sigmaImage,
+      image: sigma2024Image,
     },
     {
       title: "AUTOMEC",
@@ -16,7 +16,7 @@ const Portfolio = () => {
     },
     {
       title: "SIGMA AMÉRICAS 2025",
-      image: sigmaImage,
+      image: sigma2025Image,
     },
   ];
 
