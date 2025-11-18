@@ -1,52 +1,65 @@
-import standImage from "@/assets/stand-3d-cometa.png";
+import { Button } from "@/components/ui/button";
+import ParticleBackground from "./ParticleBackground";
+import heroStand from "@/assets/stand-bet7k.png";
+import logoTotus from "@/assets/logo-totus.png";
 
 const AboutHero = () => {
   return (
-    <section className="relative pt-32 pb-20 bg-black overflow-hidden">
-      {/* Green light effects - similar to particle background */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 left-0 w-96 h-96 bg-green-500/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-64 h-64 bg-green-400/10 rounded-full blur-3xl"></div>
-      </div>
+    <section
+      className="relative min-h-screen flex items-center overflow-hidden bg-background"
+    >
+      {/* Particle Background */}
+      <ParticleBackground />
 
-      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-6 py-20">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left side - Text content */}
-          <div className="space-y-6">
-            {/* Logo */}
-            <div className="mb-8">
-              <h2 className="text-3xl font-bold text-white mb-1">BTOS</h2>
-              <p className="text-sm text-white/60 tracking-widest">MONTADORA</p>
+          {/* Left Column - Text Content */}
+          <div className="space-y-8 animate-fade-in">
+            {/* Logo TOTUS MONTADORA */}
+            <div className="flex items-center gap-3 mb-8">
+              <img src={logoTotus} alt="TOTUS Montadora" className="h-32 w-auto" />
             </div>
 
-            {/* Title */}
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Conheça a BTOS Montadora:
+            {/* Main Heading */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-snug" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700 }}>
+              <span className="text-foreground">Conheça a BTOS </span>
+              <span className="text-neon">Montadora:</span>
             </h1>
-            
-            {/* Description paragraphs */}
-            <div className="space-y-4 text-white/80 text-base leading-relaxed">
-              <p>
-                Na BTOS, entendemos que um estande é muito mais do que uma estrutura física. É o ponto de encontro entre sua marca e seus clientes, a materialização da sua visão e a principal ferramenta para gerar negócios e conexões em feiras e eventos.
-              </p>
-              
-              <p>
-                Com anos de experiência no mercado, nos especializamos em transformar conceitos em realidade, criando espaços que não apenas se destacam visualmente, mas que são projetados para serem funcionais, acolhedores e, acima de tudo, eficazes.
-              </p>
-            </div>
+
+            {/* Subtitle */}
+            <p className="text-base md:text-lg text-foreground/80 max-w-xl leading-relaxed" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400 }}>
+              Na BTOS, entendemos que um estande é muito mais do que uma estrutura física. É o ponto de encontro entre sua marca e seus clientes, a materialização da sua visão e a principal ferramenta para gerar negócios e conexões em feiras e eventos.
+            </p>
+
+            <p className="text-base md:text-lg text-foreground/80 max-w-xl leading-relaxed" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400 }}>
+              Com anos de experiência no mercado, nos especializamos em transformar conceitos em realidade, criando espaços que não apenas se destacam visualmente, mas que são projetados para serem funcionais, acolhedores e, acima de tudo, eficazes.
+            </p>
+
+            {/* CTA Button */}
+            <Button
+              size="lg"
+              className="bg-neon text-black hover:bg-neon/90 font-semibold text-lg px-8 py-6 rounded-lg glow-neon"
+              onClick={() => {
+                const element = document.getElementById("contato");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                } else {
+                  window.location.href = "/#contato";
+                }
+              }}
+            >
+              Solicite um orçamento
+            </Button>
           </div>
 
-          {/* Right side - Stand image */}
-          <div className="relative">
-            <div className="relative z-10">
-              <img 
-                src={standImage} 
-                alt="Stand 3D BTOS" 
-                className="w-full h-auto object-contain"
-              />
-            </div>
-            {/* Glow effect around image */}
-            <div className="absolute inset-0 bg-green-500/10 blur-3xl scale-110"></div>
+          {/* Right Column - Stand Image */}
+          <div className="relative animate-fade-in hidden md:block">
+            <img
+              src={heroStand}
+              alt="Stand TOTUS"
+              className="w-full h-auto object-contain drop-shadow-2xl"
+            />
           </div>
         </div>
       </div>
