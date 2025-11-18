@@ -63,7 +63,7 @@ const AboutCommitments = () => {
                     </div>
                   </div>
                   <div className="flex-1">
-                    <p className="text-foreground leading-relaxed">
+                    <p className="text-foreground leading-relaxed text-xs">
                       Ser reconhecida como a principal empresa de montagem de stands no mercado, conhecida pela nossa capacidade de inovação, atenção aos detalhes e comprometimento com a satisfação do cliente. Queremos estabelecer parcerias duradouras, impactando positivamente cada evento que realizamos e destacando a importância de ambientes bem projetados.
                     </p>
                   </div>
