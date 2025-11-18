@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import ParticleBackground from "./ParticleBackground";
 import heroStand from "@/assets/stand-bet7k.png";
 import logoTotus from "@/assets/logo-totus.png";
+import standMobile from "@/assets/stand-mobile.png";
 const AboutHero = () => {
   return <section className="relative min-h-screen flex items-center overflow-hidden bg-background">
       {/* Particle Background */}
@@ -54,6 +55,11 @@ const AboutHero = () => {
           }}>
               Solicite um orçamento
             </Button>
+
+            {/* Stand Image - Mobile Only */}
+            <div className="mt-8 md:hidden">
+              <img src={standMobile} alt="Stand TOTUS" className="w-full h-auto object-contain" />
+            </div>
           </div>
 
           {/* Right Column - Stand Image */}
