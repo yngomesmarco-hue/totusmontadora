@@ -116,7 +116,10 @@ const AboutCommitments = () => {
         </div>
 
         <div className="flex justify-center mt-12">
-          <button className="bg-neon text-black hover:bg-neon/90 font-bold text-lg px-12 py-4 rounded-md glow-neon transition-all">
+          <button 
+            onClick={() => window.open("https://api.whatsapp.com/send?phone=5511962428997&text=Vi%20seu%20site%20e%20tenho%20interesse", "_blank")}
+            className="bg-neon text-black hover:bg-neon/90 font-bold text-lg px-12 py-4 rounded-md glow-neon transition-all"
+          >
             Solicite um orçamento
           </button>
         </div>

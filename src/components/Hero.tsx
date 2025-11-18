@@ -38,8 +38,7 @@ const Hero = () => {
               size="lg"
               className="bg-neon text-black hover:bg-neon/90 font-semibold text-base md:text-lg px-6 md:px-8 py-5 md:py-6 rounded-lg glow-neon w-full md:w-auto"
               onClick={() => {
-                const element = document.getElementById("contato");
-                element?.scrollIntoView({ behavior: "smooth" });
+                window.open("https://api.whatsapp.com/send?phone=5511962428997&text=Vi%20seu%20site%20e%20tenho%20interesse", "_blank");
               }}
             >
               Solicite um orçamento
