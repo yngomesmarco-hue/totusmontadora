@@ -79,19 +79,21 @@ const Header = () => {
               Sobre Nós
             </button>
             <DropdownMenu>
-              <DropdownMenuTrigger className={`transition-colors flex items-center gap-1 font-medium ${
-                location.pathname === "/portfolio" ? "text-neon" : "text-foreground hover:text-neon"
-              }`}>
+              <DropdownMenuTrigger 
+                onClick={() => navigateToPage("/portfolio")}
+                className={`transition-colors flex items-center gap-1 font-medium ${
+                  location.pathname.startsWith("/portfolio") ? "text-neon" : "text-foreground hover:text-neon"
+                }`}>
                 Portfólio <ChevronDown size={16} />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-background border border-border z-50">
-                <DropdownMenuItem onClick={() => navigateToPage("/portfolio")} className="text-foreground hover:text-neon cursor-pointer">
+                <DropdownMenuItem onClick={() => navigateToPage("/portfolio/sigma-americas-2024")} className="text-foreground hover:text-neon cursor-pointer">
                   Sigma Américas 2024
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => navigateToPage("/portfolio")} className="text-foreground hover:text-neon cursor-pointer">
+                <DropdownMenuItem onClick={() => navigateToPage("/portfolio/sigma-americas-2025")} className="text-foreground hover:text-neon cursor-pointer">
                   Sigma Américas 2025
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => navigateToPage("/portfolio")} className="text-foreground hover:text-neon cursor-pointer">
+                <DropdownMenuItem onClick={() => navigateToPage("/portfolio/automec")} className="text-foreground hover:text-neon cursor-pointer">
                   Automec
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -144,7 +146,7 @@ const Header = () => {
               Sobre Nós
             </button>
             <button
-              onClick={() => scrollToSection("portfolio")}
+              onClick={() => navigateToPage("/portfolio")}
               className="text-foreground hover:text-neon transition-colors text-left"
             >
               Portfólio
