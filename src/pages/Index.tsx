@@ -5,7 +5,6 @@ import Services from "@/components/Services";
 import Comparison from "@/components/Comparison";
 import Portfolio from "@/components/Portfolio";
 import ContactForm from "@/components/ContactForm";
-import VideoGallery from "@/components/VideoGallery";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 
@@ -19,7 +18,6 @@ const Index = () => {
       <Comparison />
       <Portfolio />
       <ContactForm />
-      <VideoGallery />
       <Testimonials />
       <Footer />
     </div>
