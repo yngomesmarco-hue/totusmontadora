@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 
 const ContactForm = () => {
@@ -9,6 +11,8 @@ const ContactForm = () => {
     name: "",
     email: "",
     whatsapp: "",
+    cliente: "",
+    mensagem: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -17,7 +21,7 @@ const ContactForm = () => {
       title: "Mensagem enviada!",
       description: "Entraremos em contato em breve.",
     });
-    setFormData({ name: "", email: "", whatsapp: "" });
+    setFormData({ name: "", email: "", whatsapp: "", cliente: "", mensagem: "" });
   };
 
   return (
@@ -55,56 +59,81 @@ const ContactForm = () => {
             >
               <div className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
-                    Nome
-                  </label>
                   <Input
                     id="name"
                     type="text"
+                    placeholder="Nome"
                     value={formData.name}
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
                     required
-                    className="bg-secondary border-border focus:border-neon"
+                    className="bg-white border-border focus:border-neon"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Email
-                  </label>
                   <Input
                     id="email"
                     type="email"
+                    placeholder="Email"
                     value={formData.email}
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
                     required
-                    className="bg-secondary border-border focus:border-neon"
+                    className="bg-white border-border focus:border-neon"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="whatsapp" className="block text-sm font-medium mb-2">
-                    WhatsApp
-                  </label>
                   <Input
                     id="whatsapp"
                     type="tel"
+                    placeholder="WhatsApp"
                     value={formData.whatsapp}
                     onChange={(e) =>
                       setFormData({ ...formData, whatsapp: e.target.value })
                     }
                     required
-                    className="bg-secondary border-border focus:border-neon"
+                    className="bg-white border-border focus:border-neon"
+                  />
+                </div>
+
+                <div>
+                  <Select
+                    value={formData.cliente}
+                    onValueChange={(value) =>
+                      setFormData({ ...formData, cliente: value })
+                    }
+                  >
+                    <SelectTrigger className="bg-white border-border focus:border-neon">
+                      <SelectValue placeholder="Cliente" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-white z-50">
+                      <SelectItem value="novo">Novo Cliente</SelectItem>
+                      <SelectItem value="existente">Cliente Existente</SelectItem>
+                      <SelectItem value="parceiro">Parceiro</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div>
+                  <Textarea
+                    id="mensagem"
+                    placeholder="Mensagem"
+                    value={formData.mensagem}
+                    onChange={(e) =>
+                      setFormData({ ...formData, mensagem: e.target.value })
+                    }
+                    rows={4}
+                    className="bg-white border-border focus:border-neon resize-none"
                   />
                 </div>
 
                 <Button
                   type="submit"
-                  className="w-full bg-neon text-black hover:bg-neon/90 font-semibold text-base md:text-lg py-5 md:py-6 glow-neon"
+                  className="w-full bg-neon text-black hover:bg-neon/90 font-bold text-base md:text-lg py-5 md:py-6 glow-neon uppercase"
                 >
                   ENVIAR
                 </Button>
