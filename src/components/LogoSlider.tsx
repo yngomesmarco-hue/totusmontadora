@@ -24,7 +24,7 @@ const LogoSlider = () => {
       <div className="relative">
         <div className="flex animate-scroll">
           {/* Multiple sets of logos for truly seamless infinite scroll */}
-          {[...Array(3)].map((_, setIndex) => (
+          {[...Array(6)].map((_, setIndex) => (
             logos.map((logo, index) => (
               <div
                 key={`logo-${setIndex}-${index}`}
