@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const {
     toast
   } = useToast();
@@ -25,10 +28,24 @@ const Footer = () => {
     });
   };
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({
-      behavior: "smooth"
-    });
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
+  const navigateToPage = (path: string) => {
+    navigate(path);
   };
   return <>
       <footer className="bg-black border-t border-border py-16">
@@ -53,12 +70,12 @@ const Footer = () => {
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => scrollToSection("sobre")} className="text-muted-foreground hover:text-neon transition-colors">
+                  <button onClick={() => navigateToPage("/sobre-nos")} className="text-muted-foreground hover:text-neon transition-colors">
                     Sobre Nós
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => scrollToSection("portfolio")} className="text-muted-foreground hover:text-neon transition-colors">
+                  <button onClick={() => navigateToPage("/portfolio")} className="text-muted-foreground hover:text-neon transition-colors">
                     Portfólio
                   </button>
                 </li>
