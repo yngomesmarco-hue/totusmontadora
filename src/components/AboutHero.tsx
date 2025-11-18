@@ -1,27 +1,53 @@
+import standImage from "@/assets/stand-3d-cometa.png";
+
 const AboutHero = () => {
   return (
-    <section className="pt-32 pb-20 bg-gradient-to-b from-gray-50 via-white to-gray-50">
-      <div className="container mx-auto px-6 max-w-6xl">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8 text-foreground">
-          Conheça a TOTUS Montadora: Transformando Ideias em Realidade
-        </h1>
-        
-        <div className="space-y-6 text-center text-foreground/80 text-lg">
-          <p>
-            Com paixão pela inovação e compromisso com a qualidade, desenvolvemos soluções completas e personalizadas para stands para eventos. Desde o desenvolvimento do projeto inicial até a montagem final, nossa equipe dedica-se a cada detalhe, garantindo que nossos clientes recebam um serviço excepcional.
-          </p>
-          
-          <p>
-            Com muita experiência no setor, atendemos uma ampla gama de clientes, incluindo marcas renomadas como Rede Globo, Coca-Cola, Elvis Presley Enterprise, Embraer, Ambev e CVC. Cada projeto que realizamos é tratado com a máxima atenção e cuidado, refletindo a singularidade e os objetivos de nossos clientes.
-          </p>
-          
-          <p>
-            Nosso objetivo é criar ambientes que inspiram e engajam, proporcionando experiências memoráveis para todos os visitantes. Estamos sempre na vanguarda da inovação, prontos para transformar suas ideias mais ousadas em stands que se destacam e deixam uma impressão duradoura.
-          </p>
-          
-          <p className="font-semibold text-foreground">
-            Deixe-nos ajudar a transformar seu próximo evento em uma experiência inesquecível.
-          </p>
+    <section className="relative pt-32 pb-20 bg-black overflow-hidden">
+      {/* Green light effects - similar to particle background */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-20 left-0 w-96 h-96 bg-green-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-64 h-64 bg-green-400/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Left side - Text content */}
+          <div className="space-y-6">
+            {/* Logo */}
+            <div className="mb-8">
+              <h2 className="text-3xl font-bold text-white mb-1">BTOS</h2>
+              <p className="text-sm text-white/60 tracking-widest">MONTADORA</p>
+            </div>
+
+            {/* Title */}
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Conheça a BTOS Montadora:
+            </h1>
+            
+            {/* Description paragraphs */}
+            <div className="space-y-4 text-white/80 text-base leading-relaxed">
+              <p>
+                Na BTOS, entendemos que um estande é muito mais do que uma estrutura física. É o ponto de encontro entre sua marca e seus clientes, a materialização da sua visão e a principal ferramenta para gerar negócios e conexões em feiras e eventos.
+              </p>
+              
+              <p>
+                Com anos de experiência no mercado, nos especializamos em transformar conceitos em realidade, criando espaços que não apenas se destacam visualmente, mas que são projetados para serem funcionais, acolhedores e, acima de tudo, eficazes.
+              </p>
+            </div>
+          </div>
+
+          {/* Right side - Stand image */}
+          <div className="relative">
+            <div className="relative z-10">
+              <img 
+                src={standImage} 
+                alt="Stand 3D BTOS" 
+                className="w-full h-auto object-contain"
+              />
+            </div>
+            {/* Glow effect around image */}
+            <div className="absolute inset-0 bg-green-500/10 blur-3xl scale-110"></div>
+          </div>
         </div>
       </div>
     </section>
