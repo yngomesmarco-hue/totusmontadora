@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import bgTestimonials from "@/assets/bg-testimonials.png";
 import dennyaRonchi from "@/assets/dennya-ronchi.png";
+import claudioCorrea from "@/assets/claudio-correa.png";
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const testimonials = [{
@@ -11,10 +12,11 @@ const Testimonials = () => {
     company: "EzzePay",
     image: dennyaRonchi
   }, {
-    text: "Profissionalismo e atenção aos detalhes em cada etapa. Nossa presença no evento foi um sucesso absoluto graças ao trabalho excepcional da equipe.",
-    author: "João Santos",
-    position: "CEO",
-    company: "Global Solutions"
+    text: "A qualidade e experiência dos profissionais envolvidos, desde a fase inicial do projeto até a entrega do nosso stand, foram excepcionais. O time da BTOS foi presente e solícito em todas as fases: pré, durante e pós-evento, um grande diferencial. O resultado foi ainda melhor, os nossos visitantes adoraram o stand e nós, como empresa, ficamos encantados ao ver nosso conceito e marca sendo transmitidos em cada um dos detalhes.",
+    author: "Claudio Corrêa",
+    position: "Country Manager Brazil",
+    company: "ProntoPaga",
+    image: claudioCorrea
   }, {
     text: "Trabalhar com a TOTUS foi uma experiência incrível. Desde o primeiro contato até a desmontagem, tudo foi perfeito. Recomendo fortemente!",
     author: "Ana Paula",
