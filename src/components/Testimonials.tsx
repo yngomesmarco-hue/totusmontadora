@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import bgTestimonials from "@/assets/bg-testimonials.png";
 import dennyaRonchi from "@/assets/dennya-ronchi.png";
 import claudioCorrea from "@/assets/claudio-correa.png";
+import dorotaGruszka from "@/assets/dorota-gruszka.png";
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const testimonials = [{
@@ -18,10 +19,11 @@ const Testimonials = () => {
     company: "ProntoPaga",
     image: claudioCorrea
   }, {
-    text: "Trabalhar com a TOTUS foi uma experiência incrível. Desde o primeiro contato até a desmontagem, tudo foi perfeito. Recomendo fortemente!",
-    author: "Ana Paula",
-    position: "Gerente de Eventos",
-    company: "Premium Brands"
+    text: "We partnered with BTOS Montagens for our recent event in São Paulo, and we were very pleased with their stand construction service. The stand they designed was visually appealing and effectively captured attendees' attention. The additional lights they provided added value by enhancing the visibility. It was a satisfactory experience, and we found the service definitely worth the price. We would consider collaborating with them again in the future!",
+    author: "Dorota Gruszka",
+    position: "Marketing Manager",
+    company: "Booming Games",
+    image: dorotaGruszka
   }];
   const nextTestimonial = () => {
     setCurrentIndex(prev => (prev + 1) % testimonials.length);
