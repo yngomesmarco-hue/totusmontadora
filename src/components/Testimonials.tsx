@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import bgTestimonials from "@/assets/bg-testimonials.png";
+import dennyaRonchi from "@/assets/dennya-ronchi.png";
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const testimonials = [{
-    text: "A TOTUS superou todas as nossas expectativas. O stand ficou exatamente como no projeto 3D, com acabamento impecável e montagem rápida.",
-    author: "Maria Silva",
-    position: "Diretora de Marketing",
-    company: "Tech Innovations"
+    text: "Passando aqui para agradecer pelo suporte que vocês me deram com relação ao estande. A execução ficou de acordo com projeto que foi feito, ficamos satisfeitos com o resultado, tivemos muitos elogios. Vamos para os próximos!",
+    author: "Dennya Ronchi",
+    position: "Financeiro Administrativo",
+    company: "EzzePay",
+    image: dennyaRonchi
   }, {
     text: "Profissionalismo e atenção aos detalhes em cada etapa. Nossa presença no evento foi um sucesso absoluto graças ao trabalho excepcional da equipe.",
     author: "João Santos",
@@ -49,11 +51,19 @@ const Testimonials = () => {
               </p>
 
               <div className="flex items-center gap-3 md:gap-4">
-                <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-neon/20 flex items-center justify-center flex-shrink-0">
-                  <span className="text-xl md:text-2xl font-bold text-neon">
-                    {testimonials[currentIndex].author.charAt(0)}
-                  </span>
-                </div>
+                {testimonials[currentIndex].image ? (
+                  <img 
+                    src={testimonials[currentIndex].image} 
+                    alt={testimonials[currentIndex].author}
+                    className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover flex-shrink-0"
+                  />
+                ) : (
+                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-neon/20 flex items-center justify-center flex-shrink-0">
+                    <span className="text-xl md:text-2xl font-bold text-neon">
+                      {testimonials[currentIndex].author.charAt(0)}
+                    </span>
+                  </div>
+                )}
                 <div>
                   <p className="font-semibold text-base md:text-lg">
                     {testimonials[currentIndex].author}
