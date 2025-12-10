@@ -1,26 +1,28 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import pipolImage from "@/assets/sigma2024/pipol-1.png";
-import xnextImage from "@/assets/sigma2024/xnext-1.png";
-import cafImage from "@/assets/sigma2024/caf.png";
-import cactusImage from "@/assets/sigma2024/cactus.png";
-import prontopagaImage from "@/assets/sigma2024/prontopaga.png";
-import ezzepayImage from "@/assets/sigma2024/ezzepay.png";
-import bet7kImage from "@/assets/sigma2024/bet7k.png";
-import boomingGamesImage from "@/assets/sigma2024/booming-games.png";
-import awareImage from "@/assets/sigma2024/aware.png";
+import image1 from "@/assets/sigma2024/image-1.jpg";
+import image2 from "@/assets/sigma2024/image-2.jpg";
+import image3 from "@/assets/sigma2024/image-3.jpg";
+import image4 from "@/assets/sigma2024/image-4.jpg";
+import image5 from "@/assets/sigma2024/image-5.jpg";
+import image6 from "@/assets/sigma2024/image-6.jpg";
+import image7 from "@/assets/sigma2024/image-7.jpg";
+import image8 from "@/assets/sigma2024/image-8.jpg";
+import image9 from "@/assets/sigma2024/image-9.jpg";
+import image10 from "@/assets/sigma2024/image-10.jpg";
 
 const SigmaAmericas2024 = () => {
   const images = [
-    pipolImage,
-    xnextImage,
-    cafImage,
-    cactusImage,
-    prontopagaImage,
-    ezzepayImage,
-    bet7kImage,
-    boomingGamesImage,
-    awareImage,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image6,
+    image7,
+    image8,
+    image9,
+    image10,
   ];
 
   return (
