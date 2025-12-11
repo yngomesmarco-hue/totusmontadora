@@ -10,6 +10,11 @@ import image7 from "@/assets/sigma2025/image-7.jpg";
 import image8 from "@/assets/sigma2025/image-8.jpg";
 import image9 from "@/assets/sigma2025/image-9.jpg";
 import image10 from "@/assets/sigma2025/image-10.jpg";
+import image11 from "@/assets/sigma2025/image-11.jpg";
+import image12 from "@/assets/sigma2025/image-12.jpg";
+import image13 from "@/assets/sigma2025/image-13.jpg";
+import image14 from "@/assets/sigma2025/image-14.jpg";
+import image15 from "@/assets/sigma2025/image-15.jpg";
 
 const SigmaAmericas2025 = () => {
   const images = [
@@ -23,6 +28,11 @@ const SigmaAmericas2025 = () => {
     image8,
     image9,
     image10,
+    image11,
+    image12,
+    image13,
+    image14,
+    image15,
   ];
 
   return (
