@@ -17,7 +17,7 @@ const ContactForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    const mailtoLink = `mailto:armando@totusmontadora.com.br?subject=Contato via Site - ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
+    const mailtoLink = `mailto:atendimento@totusmontadora.com.br?subject=Contato via Site - ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
       `Nome: ${formData.name}\nEmail: ${formData.email}\nWhatsApp: ${formData.whatsapp}\n\nMensagem:\n${formData.mensagem}`
     )}`;
     window.open(mailtoLink, '_blank');
