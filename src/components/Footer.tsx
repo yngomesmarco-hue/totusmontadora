@@ -91,7 +91,7 @@ const Footer = () => {
             <div>
               <h3 className="font-semibold text-lg mb-4">Contato</h3>
               <ul className="space-y-2 text-muted-foreground">
-                <li>contato@totuscenografia.com.br</li>
+                <li>atendimento@totusmontadora.com.br</li>
                 <li>Entre em contato abaixo:            </li>
                 <li>WhatsApp: (11) 94004-2546</li>
               </ul>

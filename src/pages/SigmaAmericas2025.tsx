@@ -1,15 +1,15 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import image1 from "@/assets/sigma2025/image-1.png";
-import image2 from "@/assets/sigma2025/image-2.png";
-import image3 from "@/assets/sigma2025/image-3.png";
-import image4 from "@/assets/sigma2025/image-4.png";
-import image5 from "@/assets/sigma2025/image-5.png";
-import image6 from "@/assets/sigma2025/image-6.png";
-import image7 from "@/assets/sigma2025/image-7.png";
-import image8 from "@/assets/sigma2025/image-8.png";
-import image9 from "@/assets/sigma2025/image-9.png";
-import image10 from "@/assets/sigma2025/image-10.png";
+import image1 from "@/assets/sigma2025/image-1.jpg";
+import image2 from "@/assets/sigma2025/image-2.jpg";
+import image3 from "@/assets/sigma2025/image-3.jpg";
+import image4 from "@/assets/sigma2025/image-4.jpg";
+import image5 from "@/assets/sigma2025/image-5.jpg";
+import image6 from "@/assets/sigma2025/image-6.jpg";
+import image7 from "@/assets/sigma2025/image-7.jpg";
+import image8 from "@/assets/sigma2025/image-8.jpg";
+import image9 from "@/assets/sigma2025/image-9.jpg";
+import image10 from "@/assets/sigma2025/image-10.jpg";
 
 const SigmaAmericas2025 = () => {
   const images = [
