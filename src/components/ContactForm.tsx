@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
 import { useToast } from "@/hooks/use-toast";
 const ContactForm = () => {
   const {
@@ -12,20 +12,24 @@ const ContactForm = () => {
     name: "",
     email: "",
     whatsapp: "",
-    cliente: "",
     mensagem: ""
   });
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    const mailtoLink = `mailto:armando@totusmontadora.com.br?subject=Contato via Site - ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
+      `Nome: ${formData.name}\nEmail: ${formData.email}\nWhatsApp: ${formData.whatsapp}\n\nMensagem:\n${formData.mensagem}`
+    )}`;
+    window.open(mailtoLink, '_blank');
+    
     toast({
       title: "Mensagem enviada!",
-      description: "Entraremos em contato em breve."
+      description: "Seu email será aberto para enviar a mensagem."
     });
     setFormData({
       name: "",
       email: "",
       whatsapp: "",
-      cliente: "",
       mensagem: ""
     });
   };
@@ -59,48 +63,32 @@ const ContactForm = () => {
 
             <form onSubmit={handleSubmit} className="bg-card p-6 md:p-8 rounded-lg border border-border">
               <div className="space-y-6">
-                <div>
+              <div>
                   <Input id="name" type="text" placeholder="Nome" value={formData.name} onChange={e => setFormData({
                   ...formData,
                   name: e.target.value
-                })} required className="bg-white border-border focus:border-neon" />
+                })} required className="bg-white border-border focus:border-neon text-black placeholder:text-gray-500" />
                 </div>
 
                 <div>
                   <Input id="email" type="email" placeholder="Email" value={formData.email} onChange={e => setFormData({
                   ...formData,
                   email: e.target.value
-                })} required className="bg-white border-border focus:border-neon" />
+                })} required className="bg-white border-border focus:border-neon text-black placeholder:text-gray-500" />
                 </div>
 
                 <div>
                   <Input id="whatsapp" type="tel" placeholder="WhatsApp" value={formData.whatsapp} onChange={e => setFormData({
                   ...formData,
                   whatsapp: e.target.value
-                })} required className="bg-white border-border focus:border-neon" />
-                </div>
-
-                <div>
-                  <Select value={formData.cliente} onValueChange={value => setFormData({
-                  ...formData,
-                  cliente: value
-                })}>
-                    <SelectTrigger className="bg-white border-border focus:border-neon">
-                      <SelectValue placeholder="Cliente" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-white z-50">
-                      <SelectItem value="novo">Novo Cliente</SelectItem>
-                      <SelectItem value="existente">Cliente Existente</SelectItem>
-                      <SelectItem value="parceiro">Parceiro</SelectItem>
-                    </SelectContent>
-                  </Select>
+                })} required className="bg-white border-border focus:border-neon text-black placeholder:text-gray-500" />
                 </div>
 
                 <div>
                   <Textarea id="mensagem" placeholder="Mensagem" value={formData.mensagem} onChange={e => setFormData({
                   ...formData,
                   mensagem: e.target.value
-                })} rows={4} className="bg-white border-border focus:border-neon resize-none" />
+                })} rows={4} className="bg-white border-border focus:border-neon resize-none text-black placeholder:text-gray-500" />
                 </div>
 
                 <Button type="submit" className="w-full bg-neon text-black hover:bg-neon/90 font-bold text-base md:text-lg py-5 md:py-6 glow-neon uppercase">
