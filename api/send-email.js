@@ -1,29 +1,20 @@
 import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
-  // CORS básico (pra garantir que o form consiga chamar)
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
-  if (req.method === "OPTIONS") {
-    return res.status(200).end();
-  }
-
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
+  const { name, email, whatsapp, mensagem } = req.body;
+
+  if (!name || !email || !mensagem) {
+    return res.status(400).json({ error: "Dados incompletos" });
+  }
+
   try {
-    const { name, email, whatsapp, mensagem } = req.body || {};
-
-    if (!name || !email || !whatsapp || !mensagem) {
-      return res.status(400).json({ error: "Campos obrigatórios faltando" });
-    }
-
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT || 587),
+      host: "smtp.gmail.com",
+      port: 587,
       secure: false,
       auth: {
         user: process.env.SMTP_USER,
@@ -33,15 +24,22 @@ export default async function handler(req, res) {
 
     await transporter.sendMail({
       from: `"Site Totus" <${process.env.SMTP_USER}>`,
-      to: process.env.TO_EMAIL || "atendimento@totusmontadora.com.br",
+      to: "atendimento@totusmontadora.com.br",
       replyTo: email,
-      subject: `Contato via Site - ${name}`,
-      text: `Nome: ${name}\nEmail: ${email}\nWhatsApp: ${whatsapp}\n\nMensagem:\n${mensagem}`,
+      subject: `Novo contato pelo site - ${name}`,
+      text: `
+Nome: ${name}
+Email: ${email}
+WhatsApp: ${whatsapp}
+
+Mensagem:
+${mensagem}
+      `,
     });
 
-    return res.status(200).json({ ok: true });
-  } catch (err) {
-    console.error(err);
-    return res.status(500).json({ error: "Erro ao enviar e-mail" });
+    return res.status(200).json({ success: true });
+  } catch (error) {
+    console.error("ERRO AO ENVIAR EMAIL:", error);
+    return res.status(500).json({ error: "Erro interno ao enviar email" });
   }
 }
