@@ -44,7 +44,7 @@ const AboutHero = () => {
 
             {/* CTA Button */}
             <Button size="lg" className="bg-neon text-black hover:bg-neon/90 font-semibold text-lg px-8 py-6 rounded-lg glow-neon" onClick={() => {
-            window.open("https://api.whatsapp.com/send?phone=5511962428997&text=Vi%20seu%20site%20e%20tenho%20interesse", "_blank");
+            window.open("https://api.whatsapp.com/send/?phone=11940042546&text=Oi%2C+vim+pelo+site+da+Totus+e+tenho+interesse&type=phone_number&app_absent=0", "_blank");
           }}>
               Solicite um orçamento
             </Button>

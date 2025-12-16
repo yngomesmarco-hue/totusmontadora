@@ -80,7 +80,7 @@ const Footer = () => {
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => window.open("https://api.whatsapp.com/send?phone=5511940042546&text=Vi%20seu%20site%20e%20tenho%20interesse", "_blank")} className="text-muted-foreground hover:text-neon transition-colors">
+                  <button onClick={() => window.open("https://api.whatsapp.com/send/?phone=11940042546&text=Oi%2C+vim+pelo+site+da+Totus+e+tenho+interesse&type=phone_number&app_absent=0", "_blank")} className="text-muted-foreground hover:text-neon transition-colors">
                     Contato
                   </button>
                 </li>
@@ -134,7 +134,7 @@ const Footer = () => {
       </footer>
 
       {/* WhatsApp Floating Button */}
-      <a href="https://api.whatsapp.com/send?phone=5511940042546&text=Vi%20seu%20site%20e%20tenho%20interesse" target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform" aria-label="Contato via WhatsApp">
+      <a href="https://api.whatsapp.com/send/?phone=11940042546&text=Oi%2C+vim+pelo+site+da+Totus+e+tenho+interesse&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform" aria-label="Contato via WhatsApp">
         <MessageCircle size={28} fill="currentColor" />
       </a>
     </>;
