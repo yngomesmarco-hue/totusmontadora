@@ -8,11 +8,12 @@ import {
 import { ChevronDown } from "lucide-react";
 import flagSpain from '@/assets/flag-spain.png';
 import flagUsa from '@/assets/flag-usa.png';
+import flagBrazil from '@/assets/flag-brazil.png';
 
-const languages: { code: Language; label: string; flag: string; image?: string }[] = [
-  { code: 'pt', label: 'PT', flag: '🇧🇷' },
-  { code: 'en', label: 'EN', flag: '', image: flagUsa },
-  { code: 'es', label: 'ES', flag: '', image: flagSpain },
+const languages: { code: Language; label: string; image: string }[] = [
+  { code: 'pt', label: 'PT', image: flagBrazil },
+  { code: 'en', label: 'EN', image: flagUsa },
+  { code: 'es', label: 'ES', image: flagSpain },
 ];
 
 const LanguageSelector = () => {
@@ -23,11 +24,7 @@ const LanguageSelector = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="flex items-center gap-1 border border-border rounded px-2 py-1.5 hover:bg-muted/50 transition-colors">
-        {currentLang.image ? (
-          <img src={currentLang.image} alt={currentLang.label} className="w-6 h-6 rounded-full object-cover" />
-        ) : (
-          <span className="text-2xl">{currentLang.flag}</span>
-        )}
+        <img src={currentLang.image} alt={currentLang.label} className="w-6 h-6 rounded-full object-cover" />
         <ChevronDown size={14} className="text-foreground" />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="bg-background border border-border z-50 min-w-[60px]">
@@ -39,11 +36,7 @@ const LanguageSelector = () => {
               language === lang.code ? 'bg-muted/50' : 'hover:bg-muted/30'
             }`}
           >
-            {lang.image ? (
-              <img src={lang.image} alt={lang.label} className="w-6 h-6 rounded-full object-cover" />
-            ) : (
-              <span className="text-2xl">{lang.flag}</span>
-            )}
+            <img src={lang.image} alt={lang.label} className="w-6 h-6 rounded-full object-cover" />
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
