@@ -12,17 +12,17 @@ const Portfolio = () => {
 
   const projects = [
     {
-      title: "SIGMA AMÉRICAS 2024",
+      titleKey: "portfolio.sigma2024",
       image: sigma2024Image,
       link: "/portfolio/sigma-americas-2024",
     },
     {
-      title: "AUTOMEC",
+      titleKey: "portfolio.automec",
       image: automecImage,
       link: "/portfolio/automec",
     },
     {
-      title: "SIGMA AMÉRICAS 2025",
+      titleKey: "portfolio.sigma2025",
       image: sigma2025Image,
       link: "/portfolio/sigma-americas-2025",
     },
@@ -55,12 +55,12 @@ const Portfolio = () => {
                 >
                   <img
                     src={project.image}
-                    alt={project.title}
+                    alt={t(project.titleKey)}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-6">
                     <h3 className="text-white font-bold text-xl text-center w-full">
-                      {project.title}
+                      {t(project.titleKey)}
                     </h3>
                   </div>
                 </div>

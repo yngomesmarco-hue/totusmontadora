@@ -12,23 +12,23 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      text: "Passando aqui para agradecer pelo suporte que vocês me deram com relação ao estande. A execução ficou de acordo com projeto que foi feito, ficamos satisfeitos com o resultado, tivemos muitos elogios. Vamos para os próximos!",
+      textKey: 'testimonials.1.text',
       author: "Dennya Ronchi",
-      position: "Financeiro Administrativo",
+      positionKey: 'testimonials.1.position',
       company: "EzzePay",
       image: dennyaRonchi,
     },
     {
-      text: "A qualidade e experiência dos profissionais envolvidos, desde a fase inicial do projeto até a entrega do nosso stand, foram excepcionais. O time da BTOS foi presente e solícito em todas as fases: pré, durante e pós-evento, um grande diferencial. O resultado foi ainda melhor, os nossos visitantes adoraram o stand e nós, como empresa, ficamos encantados ao ver nosso conceito e marca sendo transmitidos em cada um dos detalhes.",
+      textKey: 'testimonials.2.text',
       author: "Claudio Corrêa",
-      position: "Country Manager Brazil",
+      positionKey: 'testimonials.2.position',
       company: "ProntoPaga",
       image: claudioCorrea,
     },
     {
-      text: "We partnered with BTOS Montagens for our recent event in São Paulo, and we were very pleased with their stand construction service. The stand they designed was visually appealing and effectively captured attendees' attention. The additional lights they provided added value by enhancing the visibility. It was a satisfactory experience, and we found the service definitely worth the price. We would consider collaborating with them again in the future!",
+      textKey: 'testimonials.3.text',
       author: "Dorota Gruszka",
-      position: "Marketing Manager",
+      positionKey: 'testimonials.3.position',
       company: "Booming Games",
       image: dorotaGruszka,
     },
@@ -66,7 +66,7 @@ const Testimonials = () => {
 
             <div className="relative z-10">
               <p className="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 leading-relaxed">
-                "{testimonials[currentIndex].text}"
+                "{t(testimonials[currentIndex].textKey)}"
               </p>
 
               <div className="flex items-center gap-3 md:gap-4">
@@ -88,7 +88,7 @@ const Testimonials = () => {
                     {testimonials[currentIndex].author}
                   </p>
                   <p className="text-sm md:text-base text-muted-foreground">
-                    {testimonials[currentIndex].position} •{" "}
+                    {t(testimonials[currentIndex].positionKey)} •{" "}
                     {testimonials[currentIndex].company}
                   </p>
                 </div>
