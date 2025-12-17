@@ -329,6 +329,7 @@ const translations: Record<Language, Record<string, string>> = {
   },
 };
 
+// Language context for internationalization
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
