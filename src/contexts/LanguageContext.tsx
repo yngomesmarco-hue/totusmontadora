@@ -422,7 +422,15 @@ const translations: Record<Language, Record<string, string>> = {
   },
 };
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const GLOBAL_CTX_KEY = "__TOTUS_LANGUAGE_CONTEXT__";
+
+const getGlobal = () => globalThis as unknown as Record<string, unknown>;
+
+const LanguageContext =
+  (getGlobal()[GLOBAL_CTX_KEY] as React.Context<LanguageContextType | undefined> | undefined) ??
+  createContext<LanguageContextType | undefined>(undefined);
+
+getGlobal()[GLOBAL_CTX_KEY] = LanguageContext;
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>(() => {
