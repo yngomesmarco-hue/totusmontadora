@@ -4,9 +4,11 @@ import Footer from "@/components/Footer";
 import sigma2024Image from "@/assets/sigma-americas-2024.png";
 import automecImage from "@/assets/automec.png";
 import sigma2025Image from "@/assets/sigma-americas-2025.png";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Portfolio = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const projects = [
     {
@@ -29,16 +31,16 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="pt-32">
         <section className="py-16">
           {/* Title */}
           <div className="container mx-auto px-6 mb-12">
             <h1 className="text-5xl md:text-6xl font-bold text-center text-white mb-4">
-              PORTFÓLIO
+              {t('portfolio.title')}
             </h1>
             <p className="text-xl text-center text-muted-foreground max-w-3xl mx-auto">
-              Explore nossos projetos de sucesso e veja como transformamos visões em realidade
+              {t('portfolio.subtitle')}
             </p>
           </div>
 
@@ -70,7 +72,7 @@ const Portfolio = () => {
           <div className="w-full bg-gradient-to-r from-gray-50 via-white to-gray-50 py-12 border-y border-border/20">
             <div className="container mx-auto px-6 max-w-5xl">
               <p className="text-xl md:text-2xl text-center text-black leading-relaxed">
-                Cada stand para eventos que criamos é uma prova do nosso compromisso com a qualidade, inovação e personalização.
+                {t('portfolio.banner')}
               </p>
             </div>
           </div>

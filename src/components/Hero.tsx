@@ -2,8 +2,11 @@ import { Button } from "@/components/ui/button";
 import ParticleBackground from "./ParticleBackground";
 import heroStand from "@/assets/stand-bet7k.png";
 import logoTotus from "@/assets/logo-totus.png";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
+  
   return (
     <section
       id="home"
@@ -24,13 +27,13 @@ const Hero = () => {
 
             {/* Main Heading */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight md:leading-snug" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700 }}>
-              <span className="text-foreground">Criamos experiências únicas </span>
-              <span className="text-neon">que inspiram, conectam e engajam</span>
+              <span className="text-foreground">{t('hero.title1')}</span>
+              <span className="text-neon">{t('hero.title2')}</span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-sm md:text-base lg:text-lg text-foreground/80 max-w-xl mx-auto md:mx-0 leading-relaxed" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400 }}>
-              Soluções completas em stands para eventos, da concepção à execução, cuidamos de cada passo para o sucesso do seu evento
+              {t('hero.subtitle')}
             </p>
 
             {/* CTA Button */}
@@ -41,7 +44,7 @@ const Hero = () => {
                 window.open("https://api.whatsapp.com/send/?phone=11940042546&text=Oi%2C+vim+pelo+site+da+Totus+e+tenho+interesse&type=phone_number&app_absent=0", "_blank");
               }}
             >
-              Solicite um orçamento
+              {t('hero.cta')}
             </Button>
           </div>
 
