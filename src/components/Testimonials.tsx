@@ -4,44 +4,59 @@ import bgTestimonials from "@/assets/bg-testimonials.png";
 import dennyaRonchi from "@/assets/dennya-ronchi.png";
 import claudioCorrea from "@/assets/claudio-correa.png";
 import dorotaGruszka from "@/assets/dorota-gruszka.png";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const testimonials = [{
-    text: "Passando aqui para agradecer pelo suporte que vocês me deram com relação ao estande. A execução ficou de acordo com projeto que foi feito, ficamos satisfeitos com o resultado, tivemos muitos elogios. Vamos para os próximos!",
-    author: "Dennya Ronchi",
-    position: "Financeiro Administrativo",
-    company: "EzzePay",
-    image: dennyaRonchi
-  }, {
-    text: "A qualidade e experiência dos profissionais envolvidos, desde a fase inicial do projeto até a entrega do nosso stand, foram excepcionais. O time da BTOS foi presente e solícito em todas as fases: pré, durante e pós-evento, um grande diferencial. O resultado foi ainda melhor, os nossos visitantes adoraram o stand e nós, como empresa, ficamos encantados ao ver nosso conceito e marca sendo transmitidos em cada um dos detalhes.",
-    author: "Claudio Corrêa",
-    position: "Country Manager Brazil",
-    company: "ProntoPaga",
-    image: claudioCorrea
-  }, {
-    text: "We partnered with BTOS Montagens for our recent event in São Paulo, and we were very pleased with their stand construction service. The stand they designed was visually appealing and effectively captured attendees' attention. The additional lights they provided added value by enhancing the visibility. It was a satisfactory experience, and we found the service definitely worth the price. We would consider collaborating with them again in the future!",
-    author: "Dorota Gruszka",
-    position: "Marketing Manager",
-    company: "Booming Games",
-    image: dorotaGruszka
-  }];
+  const { t } = useLanguage();
+
+  const testimonials = [
+    {
+      text: "Passando aqui para agradecer pelo suporte que vocês me deram com relação ao estande. A execução ficou de acordo com projeto que foi feito, ficamos satisfeitos com o resultado, tivemos muitos elogios. Vamos para os próximos!",
+      author: "Dennya Ronchi",
+      position: "Financeiro Administrativo",
+      company: "EzzePay",
+      image: dennyaRonchi,
+    },
+    {
+      text: "A qualidade e experiência dos profissionais envolvidos, desde a fase inicial do projeto até a entrega do nosso stand, foram excepcionais. O time da BTOS foi presente e solícito em todas as fases: pré, durante e pós-evento, um grande diferencial. O resultado foi ainda melhor, os nossos visitantes adoraram o stand e nós, como empresa, ficamos encantados ao ver nosso conceito e marca sendo transmitidos em cada um dos detalhes.",
+      author: "Claudio Corrêa",
+      position: "Country Manager Brazil",
+      company: "ProntoPaga",
+      image: claudioCorrea,
+    },
+    {
+      text: "We partnered with BTOS Montagens for our recent event in São Paulo, and we were very pleased with their stand construction service. The stand they designed was visually appealing and effectively captured attendees' attention. The additional lights they provided added value by enhancing the visibility. It was a satisfactory experience, and we found the service definitely worth the price. We would consider collaborating with them again in the future!",
+      author: "Dorota Gruszka",
+      position: "Marketing Manager",
+      company: "Booming Games",
+      image: dorotaGruszka,
+    },
+  ];
+
   const nextTestimonial = () => {
-    setCurrentIndex(prev => (prev + 1) % testimonials.length);
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   };
+
   const prevTestimonial = () => {
-    setCurrentIndex(prev => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
-  return <section className="py-12 md:py-20 lg:py-32 bg-white relative" style={{
-    backgroundImage: `url(${bgTestimonials})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat'
-  }}>
+
+  return (
+    <section
+      className="py-12 md:py-20 lg:py-32 bg-white relative"
+      style={{
+        backgroundImage: `url(${bgTestimonials})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 text-slate-950 px-4">
-            Experiências reais de quem confiou na{" "}
-            <span className="text-neon">TOTUS Cenografia</span>
+            {t('testimonials.title')}{" "}
+            <span className="text-neon">{t('testimonials.titleHighlight')}</span>
           </h2>
         </div>
 
@@ -56,8 +71,8 @@ const Testimonials = () => {
 
               <div className="flex items-center gap-3 md:gap-4">
                 {testimonials[currentIndex].image ? (
-                  <img 
-                    src={testimonials[currentIndex].image} 
+                  <img
+                    src={testimonials[currentIndex].image}
                     alt={testimonials[currentIndex].author}
                     className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover flex-shrink-0"
                   />
@@ -83,18 +98,34 @@ const Testimonials = () => {
 
           {/* Navigation */}
           <div className="flex justify-center items-center gap-3 md:gap-4 mt-6 md:mt-8">
-            <button onClick={prevTestimonial} className="p-2 md:p-3 rounded-full bg-card hover:bg-neon hover:text-black transition-all border border-neon">
+            <button
+              onClick={prevTestimonial}
+              className="p-2 md:p-3 rounded-full bg-card hover:bg-neon hover:text-black transition-all border border-neon"
+            >
               <ChevronLeft size={20} className="md:w-6 md:h-6" />
             </button>
             <div className="flex gap-2">
-              {testimonials.map((_, index) => <button key={index} onClick={() => setCurrentIndex(index)} className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all ${currentIndex === index ? "bg-neon w-6 md:w-8" : "bg-muted"}`} />)}
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all ${
+                    currentIndex === index ? "bg-neon w-6 md:w-8" : "bg-muted"
+                  }`}
+                />
+              ))}
             </div>
-            <button onClick={nextTestimonial} className="p-2 md:p-3 rounded-full bg-card hover:bg-neon hover:text-black transition-all border border-neon">
+            <button
+              onClick={nextTestimonial}
+              className="p-2 md:p-3 rounded-full bg-card hover:bg-neon hover:text-black transition-all border border-neon"
+            >
               <ChevronRight size={20} className="md:w-6 md:h-6" />
             </button>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Testimonials;

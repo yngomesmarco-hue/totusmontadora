@@ -3,8 +3,13 @@ import ParticleBackground from "./ParticleBackground";
 import heroStand from "@/assets/stand-bet7k.png";
 import logoTotus from "@/assets/logo-totus.png";
 import standMobile from "@/assets/stand-mobile.png";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const AboutHero = () => {
-  return <section className="relative min-h-screen flex items-center overflow-hidden bg-background">
+  const { t } = useLanguage();
+
+  return (
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-background">
       {/* Particle Background */}
       <ParticleBackground />
 
@@ -19,34 +24,41 @@ const AboutHero = () => {
             </div>
 
             {/* Main Heading */}
-            <h1 style={{
-            fontFamily: "'Poppins', sans-serif",
-            fontWeight: 700
-          }} className="text-3xl md:text-5xl lg:text-6xl font-bold leading-snug text-left">
-              <span className="text-foreground">Conheça a TOTUS </span>
-              <span className="text-neon">Cenografia:</span>
+            <h1
+              style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700 }}
+              className="text-3xl md:text-5xl lg:text-6xl font-bold leading-snug text-left"
+            >
+              <span className="text-foreground">{t('aboutHero.title1')}</span>
+              <span className="text-neon">{t('aboutHero.title2')}</span>
             </h1>
 
             {/* Subtitle */}
-            <p style={{
-            fontFamily: "'Poppins', sans-serif",
-            fontWeight: 400
-          }} className="md:text-lg text-foreground/80 max-w-xl leading-relaxed text-sm">
-              Na TOTUS, entendemos que um estande é muito mais do que uma estrutura física. É o ponto de encontro entre sua marca e seus clientes, a materialização da sua visão e a principal ferramenta para gerar negócios e conexões em feiras e eventos.
+            <p
+              style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400 }}
+              className="md:text-lg text-foreground/80 max-w-xl leading-relaxed text-sm"
+            >
+              {t('aboutHero.paragraph1')}
             </p>
 
-            <p style={{
-            fontFamily: "'Poppins', sans-serif",
-            fontWeight: 400
-          }} className="md:text-lg text-foreground/80 max-w-xl leading-relaxed text-sm">
-              Com anos de experiência no mercado, nos especializamos em transformar conceitos em realidade, criando espaços que não apenas se destacam visualmente, mas que são projetados para serem funcionais, acolhedores e, acima de tudo, eficazes.
+            <p
+              style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400 }}
+              className="md:text-lg text-foreground/80 max-w-xl leading-relaxed text-sm"
+            >
+              {t('aboutHero.paragraph2')}
             </p>
 
             {/* CTA Button */}
-            <Button size="lg" className="bg-neon text-black hover:bg-neon/90 font-semibold text-lg px-8 py-6 rounded-lg glow-neon" onClick={() => {
-            window.open("https://api.whatsapp.com/send/?phone=11940042546&text=Oi%2C+vim+pelo+site+da+Totus+e+tenho+interesse&type=phone_number&app_absent=0", "_blank");
-          }}>
-              Solicite um orçamento
+            <Button
+              size="lg"
+              className="bg-neon text-black hover:bg-neon/90 font-semibold text-lg px-8 py-6 rounded-lg glow-neon"
+              onClick={() => {
+                window.open(
+                  "https://api.whatsapp.com/send/?phone=11940042546&text=Oi%2C+vim+pelo+site+da+Totus+e+tenho+interesse&type=phone_number&app_absent=0",
+                  "_blank"
+                );
+              }}
+            >
+              {t('nav.quote')}
             </Button>
 
             {/* Stand Image - Mobile Only */}
@@ -57,10 +69,16 @@ const AboutHero = () => {
 
           {/* Right Column - Stand Image */}
           <div className="relative animate-fade-in hidden md:block">
-            <img src={heroStand} alt="Stand TOTUS" className="w-full h-auto object-contain drop-shadow-2xl" />
+            <img
+              src={heroStand}
+              alt="Stand TOTUS"
+              className="w-full h-auto object-contain drop-shadow-2xl"
+            />
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default AboutHero;
