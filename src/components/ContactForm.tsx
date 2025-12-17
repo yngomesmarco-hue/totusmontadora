@@ -3,9 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ContactForm = () => {
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -32,8 +34,8 @@ const ContactForm = () => {
       }
 
       toast({
-        title: "Mensagem enviada!",
-        description: "Recebemos seu contato e retornaremos em breve.",
+        title: t('contact.success.title'),
+        description: t('contact.success.description'),
       });
 
       setFormData({
@@ -44,8 +46,8 @@ const ContactForm = () => {
       });
     } catch (error) {
       toast({
-        title: "Erro ao enviar",
-        description: "Tente novamente em alguns instantes.",
+        title: t('contact.error.title'),
+        description: t('contact.error.description'),
       });
     }
   };
@@ -57,27 +59,26 @@ const ContactForm = () => {
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-                Vamos transformar suas ideias em{" "}
-                <span className="text-neon">realidade</span>
+                {t('contact.title')}{" "}
+                <span className="text-neon">{t('contact.titleHighlight')}</span>
               </h2>
 
               <p className="md:text-xl text-muted-foreground mb-4 md:mb-6 text-base">
-                Preencha o formulário e nossa equipe entrará em contato para
-                desenvolver o projeto perfeito para o seu evento.
+                {t('contact.description')}
               </p>
 
               <ul className="space-y-4 text-muted-foreground">
                 <li className="flex items-center gap-3">
                   <span className="w-2 h-2 bg-neon rounded-full"></span>
-                  Atendimento personalizado
+                  {t('contact.benefit1')}
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="w-2 h-2 bg-neon rounded-full"></span>
-                  Orçamento sem compromisso
+                  {t('contact.benefit2')}
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="w-2 h-2 bg-neon rounded-full"></span>
-                  Resposta em até 24 horas
+                  {t('contact.benefit3')}
                 </li>
               </ul>
             </div>
@@ -89,7 +90,7 @@ const ContactForm = () => {
               <div className="space-y-6">
                 <Input
                   type="text"
-                  placeholder="Nome"
+                  placeholder={t('contact.name')}
                   value={formData.name}
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
@@ -100,7 +101,7 @@ const ContactForm = () => {
 
                 <Input
                   type="email"
-                  placeholder="Email"
+                  placeholder={t('contact.email')}
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
@@ -111,7 +112,7 @@ const ContactForm = () => {
 
                 <Input
                   type="tel"
-                  placeholder="WhatsApp"
+                  placeholder={t('contact.whatsapp')}
                   value={formData.whatsapp}
                   onChange={(e) =>
                     setFormData({ ...formData, whatsapp: e.target.value })
@@ -121,7 +122,7 @@ const ContactForm = () => {
                 />
 
                 <Textarea
-                  placeholder="Mensagem"
+                  placeholder={t('contact.message')}
                   value={formData.mensagem}
                   onChange={(e) =>
                     setFormData({ ...formData, mensagem: e.target.value })
@@ -134,7 +135,7 @@ const ContactForm = () => {
                   type="submit"
                   className="w-full bg-neon text-black hover:bg-neon/90 font-bold text-base md:text-lg py-5 md:py-6 glow-neon uppercase"
                 >
-                  ENVIAR
+                  {t('contact.submit')}
                 </Button>
               </div>
             </form>

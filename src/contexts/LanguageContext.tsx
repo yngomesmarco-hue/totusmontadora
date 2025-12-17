@@ -51,6 +51,29 @@ const translations: Record<Language, Record<string, string>> = {
     // Testimonials
     'testimonials.title': 'Experiências reais de quem confiou na',
     'testimonials.titleHighlight': 'TOTUS Cenografia',
+    'testimonials.1.text': 'Passando aqui para agradecer pelo suporte que vocês me deram com relação ao estande. A execução ficou de acordo com projeto que foi feito, ficamos satisfeitos com o resultado, tivemos muitos elogios. Vamos para os próximos!',
+    'testimonials.1.position': 'Financeiro Administrativo',
+    'testimonials.2.text': 'A qualidade e experiência dos profissionais envolvidos, desde a fase inicial do projeto até a entrega do nosso stand, foram excepcionais. O time da TOTUS foi presente e solícito em todas as fases: pré, durante e pós-evento, um grande diferencial. O resultado foi ainda melhor, os nossos visitantes adoraram o stand e nós, como empresa, ficamos encantados ao ver nosso conceito e marca sendo transmitidos em cada um dos detalhes.',
+    'testimonials.2.position': 'Country Manager Brazil',
+    'testimonials.3.text': 'Fizemos parceria com a TOTUS Montagens para nosso evento recente em São Paulo, e ficamos muito satisfeitos com o serviço de construção de estande. O estande que eles projetaram foi visualmente atraente e capturou efetivamente a atenção dos participantes. As luzes adicionais que forneceram agregaram valor ao melhorar a visibilidade. Foi uma experiência satisfatória, e achamos o serviço definitivamente vale o preço. Consideraríamos colaborar com eles novamente no futuro!',
+    'testimonials.3.position': 'Gerente de Marketing',
+    
+    // Contact Form
+    'contact.title': 'Vamos transformar suas ideias em',
+    'contact.titleHighlight': 'realidade',
+    'contact.description': 'Preencha o formulário e nossa equipe entrará em contato para desenvolver o projeto perfeito para o seu evento.',
+    'contact.benefit1': 'Atendimento personalizado',
+    'contact.benefit2': 'Orçamento sem compromisso',
+    'contact.benefit3': 'Resposta em até 24 horas',
+    'contact.name': 'Nome',
+    'contact.email': 'Email',
+    'contact.whatsapp': 'WhatsApp',
+    'contact.message': 'Mensagem',
+    'contact.submit': 'ENVIAR',
+    'contact.success.title': 'Mensagem enviada!',
+    'contact.success.description': 'Recebemos seu contato e retornaremos em breve.',
+    'contact.error.title': 'Erro ao enviar',
+    'contact.error.description': 'Tente novamente em alguns instantes.',
     
     // Footer
     'footer.description': 'Cenografia especializada em stands para eventos, criando experiências únicas e memoráveis.',
@@ -108,12 +131,20 @@ const translations: Record<Language, Record<string, string>> = {
     'aboutCommitments.values.personalization': 'Personalização: Atendimento exclusivo e adaptação dos nossos serviços às necessidades e objetivos específicos de cada cliente.',
     'aboutCommitments.values.professionalism': 'Profissionalismo: Conduta ética, transparência e respeito em todas as nossas interações e projetos.',
     'aboutCommitments.values.passion': 'Paixão: Dedicação e entusiasmo em transformar ideias em experiências que deixem uma marca duradoura.',
+    'aboutCommitments.cta': 'Solicite um orçamento',
     
     // Portfolio
     'portfolio.title': 'PORTFÓLIO',
     'portfolio.subtitle': 'Explore nossos projetos de sucesso e veja como transformamos visões em realidade',
     'portfolio.banner': 'Cada stand para eventos que criamos é uma prova do nosso compromisso com a qualidade, inovação e personalização.',
     'portfolio.back': 'Voltar ao Portfólio',
+    'portfolio.sigma2024': 'SIGMA AMÉRICAS 2024',
+    'portfolio.automec': 'AUTOMEC',
+    'portfolio.sigma2025': 'SIGMA AMÉRICAS 2025',
+    
+    // Video Gallery
+    'videoGallery.title': 'Veja nossos projetos em ação',
+    'videoGallery.subtitle': 'Assista aos vídeos dos nossos stands e eventos',
   },
   en: {
     // Header
@@ -157,6 +188,29 @@ const translations: Record<Language, Record<string, string>> = {
     // Testimonials
     'testimonials.title': 'Real experiences from those who trusted',
     'testimonials.titleHighlight': 'TOTUS Cenografia',
+    'testimonials.1.text': 'Stopping by to thank you for the support you gave me regarding the stand. The execution was in accordance with the project that was made, we were satisfied with the result, we had many compliments. On to the next ones!',
+    'testimonials.1.position': 'Administrative Financial',
+    'testimonials.2.text': 'The quality and experience of the professionals involved, from the initial phase of the project to the delivery of our stand, were exceptional. The TOTUS team was present and helpful in all phases: pre, during and post-event, a great differentiator. The result was even better, our visitors loved the stand and we, as a company, were delighted to see our concept and brand being transmitted in every detail.',
+    'testimonials.2.position': 'Country Manager Brazil',
+    'testimonials.3.text': 'We partnered with TOTUS Montagens for our recent event in São Paulo, and we were very pleased with their stand construction service. The stand they designed was visually appealing and effectively captured attendees attention. The additional lights they provided added value by enhancing the visibility. It was a satisfactory experience, and we found the service definitely worth the price. We would consider collaborating with them again in the future!',
+    'testimonials.3.position': 'Marketing Manager',
+    
+    // Contact Form
+    'contact.title': 'Let\'s transform your ideas into',
+    'contact.titleHighlight': 'reality',
+    'contact.description': 'Fill out the form and our team will contact you to develop the perfect project for your event.',
+    'contact.benefit1': 'Personalized service',
+    'contact.benefit2': 'No obligation quote',
+    'contact.benefit3': 'Response within 24 hours',
+    'contact.name': 'Name',
+    'contact.email': 'Email',
+    'contact.whatsapp': 'WhatsApp',
+    'contact.message': 'Message',
+    'contact.submit': 'SEND',
+    'contact.success.title': 'Message sent!',
+    'contact.success.description': 'We received your contact and will respond soon.',
+    'contact.error.title': 'Error sending',
+    'contact.error.description': 'Please try again in a few moments.',
     
     // Footer
     'footer.description': 'Scenography specialized in event stands, creating unique and memorable experiences.',
@@ -203,23 +257,31 @@ const translations: Record<Language, Record<string, string>> = {
     
     // About Commitments
     'aboutCommitments.title': 'Commitments that guide our work',
-    'aboutCommitments.description': 'At TOTUS Cenografia, our principles are the foundation that guides all our actions and decisions. Our mission, vision and values reflect our commitment to excellence, innovation and personalization, ensuring that each project not only meets, but exceeds our clients expectations.',
+    'aboutCommitments.description': 'At TOTUS Cenografia, our principles are the foundation that guides all our actions and decisions. Our mission, vision and values reflect our commitment to excellence, innovation and personalization, ensuring that each project not only meets, but exceeds our clients\' expectations.',
     'aboutCommitments.mission': 'Mission',
-    'aboutCommitments.mission.text': 'Our mission is to transform ideas into unique and memorable experiences, creating high-quality stands that inspire and engage our clients audiences. We seek to offer complete and personalized solutions, combining innovation, creativity and excellence in each project.',
+    'aboutCommitments.mission.text': 'Our mission is to transform ideas into unique and memorable experiences, creating high-quality stands that inspire and engage our clients\' audiences. We seek to offer complete and personalized solutions, combining innovation, creativity and excellence in every project.',
     'aboutCommitments.vision': 'Vision',
     'aboutCommitments.vision.text': 'To be recognized as the leading stand assembly company in the market, known for our capacity for innovation, attention to detail and commitment to customer satisfaction. We want to establish lasting partnerships, positively impacting each event we carry out and highlighting the importance of well-designed environments.',
     'aboutCommitments.values': 'Values',
     'aboutCommitments.values.excellence': 'Excellence: Commitment to quality and perfection in all aspects of our work.',
     'aboutCommitments.values.innovation': 'Innovation: Constant search for new ideas and creative solutions that differentiate our projects.',
-    'aboutCommitments.values.personalization': 'Personalization: Exclusive service and adaptation of our services to the specific needs and objectives of each client.',
+    'aboutCommitments.values.personalization': 'Personalization: Exclusive service and adaptation of our services to the specific needs and goals of each client.',
     'aboutCommitments.values.professionalism': 'Professionalism: Ethical conduct, transparency and respect in all our interactions and projects.',
     'aboutCommitments.values.passion': 'Passion: Dedication and enthusiasm in transforming ideas into experiences that leave a lasting mark.',
+    'aboutCommitments.cta': 'Request a quote',
     
     // Portfolio
     'portfolio.title': 'PORTFOLIO',
     'portfolio.subtitle': 'Explore our successful projects and see how we transform visions into reality',
     'portfolio.banner': 'Every event stand we create is proof of our commitment to quality, innovation and personalization.',
     'portfolio.back': 'Back to Portfolio',
+    'portfolio.sigma2024': 'SIGMA AMERICAS 2024',
+    'portfolio.automec': 'AUTOMEC',
+    'portfolio.sigma2025': 'SIGMA AMERICAS 2025',
+    
+    // Video Gallery
+    'videoGallery.title': 'See our projects in action',
+    'videoGallery.subtitle': 'Watch videos of our stands and events',
   },
   es: {
     // Header
@@ -231,30 +293,30 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Hero
     'hero.title1': 'Creamos experiencias únicas ',
-    'hero.title2': 'que inspiran, conectan y cautivan',
-    'hero.subtitle': 'Soluciones completas en stands para eventos, desde la concepción hasta la ejecución, cuidamos cada paso para el éxito de su evento',
+    'hero.title2': 'que inspiran, conectan y comprometen',
+    'hero.subtitle': 'Soluciones completas en stands para eventos, desde la concepción hasta la ejecución, cuidamos cada paso para el éxito de tu evento',
     'hero.cta': 'Solicitar presupuesto',
     
     // Services
     'services.project.title': 'Desarrollo del Proyecto',
     'services.project.subtitle': 'Transformamos tus ideas en proyectos concretos',
-    'services.project.description': 'Nuestro servicio de desarrollo del proyecto comienza con una comprensión profunda de sus necesidades y objetivos. Trabajamos en estrecha colaboración con usted para crear un concepto de stand que no solo cumpla con sus expectativas, sino que las supere. Desde el diseño inicial hasta los detalles finales, garantizamos que cada aspecto del proyecto sea cuidadosamente planificado para maximizar el impacto y la funcionalidad.',
+    'services.project.description': 'Nuestro servicio de desarrollo del proyecto comienza con una comprensión profunda de sus necesidades y objetivos. Trabajamos en estrecha colaboración con usted para crear un concepto de stand que no solo cumpla con sus expectativas, sino que las supere. Desde el diseño inicial hasta los detalles finales, nos aseguramos de que cada aspecto del proyecto esté cuidadosamente planificado para maximizar el impacto y la funcionalidad.',
     'services.3d.title': 'Imágenes en 3D',
-    'services.3d.subtitle': 'Visualice su stand antes del montaje',
-    'services.3d.description': 'Con nuestro servicio de imágenes 3D, puede visualizar su stand incluso antes del montaje. Utilizamos tecnología de punta para crear representaciones detalladas y realistas de su proyecto. Esto permite ajustes y refinamientos anticipados, garantizando que el resultado sea exactamente como lo imaginó. Nuestras imágenes 3D ayudan a comunicar claramente la visión del proyecto a todas las partes involucradas.',
+    'services.3d.subtitle': 'Visualiza tu stand antes del montaje',
+    'services.3d.description': 'Con nuestro servicio de imágenes en 3D, puede visualizar su stand incluso antes del montaje. Utilizamos tecnología de punta para crear representaciones detalladas y realistas de su proyecto. Esto permite ajustes y refinamientos anticipados, asegurando que el resultado sea exactamente como lo imaginó. Nuestras imágenes en 3D ayudan a comunicar claramente la visión del proyecto a todas las partes involucradas.',
     'services.labor.title': 'Mano de Obra y Contrataciones',
     'services.labor.subtitle': 'Equipo especializado para cada detalle',
-    'services.labor.description': 'Garantizamos que cada aspecto de su stand sea montado por profesionales altamente calificados. Nuestro equipo de mano de obra y contrataciones incluye especialistas en montaje, electricidad, carpintería y otros servicios necesarios para la construcción de su stand. Coordinamos todas las contrataciones extras, asegurando que el trabajo se realice con precisión y eficiencia.',
+    'services.labor.description': 'Garantizamos que cada aspecto de su stand sea montado por profesionales altamente calificados. Nuestro equipo de mano de obra y contrataciones incluye especialistas en montaje, electricidad, carpintería y otros servicios necesarios para la construcción de su stand. Coordinamos todas las contrataciones adicionales, asegurando que el trabajo se realice con precisión y eficiencia.',
     'services.assembly.title': 'Montaje del Stand',
-    'services.assembly.subtitle': 'Montaje rápido y preciso para el éxito de su evento',
-    'services.assembly.description': 'Nuestro equipo de montaje está entrenado para ejecutar el proyecto con rapidez y precisión, garantizando que su stand esté listo a tiempo para el evento. Utilizamos materiales de alta calidad y técnicas de construcción avanzadas para garantizar que cada stand sea robusto, seguro y estéticamente agradable. Estamos comprometidos en proporcionar un montaje impecable, que refleja la excelencia de su marca.',
+    'services.assembly.subtitle': 'Montaje rápido y preciso para el éxito de tu evento',
+    'services.assembly.description': 'Nuestro equipo de montaje está capacitado para ejecutar el proyecto con rapidez y precisión, asegurando que su stand esté listo a tiempo para el evento. Utilizamos materiales de alta calidad y técnicas de construcción avanzadas para garantizar que cada stand sea robusto, seguro y estéticamente agradable. Estamos comprometidos a proporcionar un montaje impecable que refleje la excelencia de su marca.',
     'services.activation.title': 'Acciones de Activación',
-    'services.activation.subtitle': 'Involucre a su público con acciones interactivas',
-    'services.activation.description': 'Además de crear stands para eventos impresionantes, también ofrecemos servicios de activación para involucrar y cautivar a su público. Desarrollamos acciones interactivas y experiencias memorables que capturan la atención de los visitantes y promueven su marca. Ya sea a través de demostraciones en vivo, actividades interactivas o distribución de obsequios, nuestras acciones de activación están diseñadas para maximizar el impacto de su stand.',
+    'services.activation.subtitle': 'Involucra a tu audiencia con acciones interactivas',
+    'services.activation.description': 'Además de crear stands para eventos impresionantes, también ofrecemos servicios de activación para involucrar y comprometer a su audiencia. Desarrollamos acciones interactivas y experiencias memorables que capturan la atención de los visitantes y promueven su marca. Ya sea a través de demostraciones en vivo, actividades interactivas o distribución de obsequios, nuestras acciones de activación están diseñadas para maximizar el impacto de su stand.',
     
     // Comparison
-    'comparison.title': '¡Prueba de la Excelencia en stands para eventos!',
-    'comparison.titleHighlight': '¡stands para eventos!',
+    'comparison.title': '¡Prueba de Excelencia en stands para eventos!',
+    'comparison.titleHighlight': 'stands para eventos!',
     'comparison.subtitle': 'Vea las fotos del antes y después y compruebe cómo nuestros proyectos 3D se transforman en stands para eventos perfectos.',
     'comparison.viewMore': '¡VER MÁS PROYECTOS!',
     'comparison.stand': 'Stand',
@@ -263,13 +325,36 @@ const translations: Record<Language, Record<string, string>> = {
     // Testimonials
     'testimonials.title': 'Experiencias reales de quienes confiaron en',
     'testimonials.titleHighlight': 'TOTUS Cenografia',
+    'testimonials.1.text': 'Pasando por aquí para agradecer por el apoyo que me dieron con respecto al stand. La ejecución estuvo de acuerdo con el proyecto que se hizo, quedamos satisfechos con el resultado, tuvimos muchos elogios. ¡Vamos a por los próximos!',
+    'testimonials.1.position': 'Financiero Administrativo',
+    'testimonials.2.text': 'La calidad y experiencia de los profesionales involucrados, desde la fase inicial del proyecto hasta la entrega de nuestro stand, fueron excepcionales. El equipo de TOTUS estuvo presente y atento en todas las fases: pre, durante y post evento, un gran diferencial. El resultado fue aún mejor, nuestros visitantes adoraron el stand y nosotros, como empresa, quedamos encantados al ver nuestro concepto y marca siendo transmitidos en cada uno de los detalles.',
+    'testimonials.2.position': 'Country Manager Brazil',
+    'testimonials.3.text': 'Nos asociamos con TOTUS Montagens para nuestro evento reciente en São Paulo, y quedamos muy satisfechos con su servicio de construcción de stands. El stand que diseñaron fue visualmente atractivo y capturó efectivamente la atención de los asistentes. Las luces adicionales que proporcionaron agregaron valor al mejorar la visibilidad. Fue una experiencia satisfactoria, y encontramos que el servicio definitivamente vale el precio. ¡Consideraríamos colaborar con ellos nuevamente en el futuro!',
+    'testimonials.3.position': 'Gerente de Marketing',
+    
+    // Contact Form
+    'contact.title': 'Vamos a transformar tus ideas en',
+    'contact.titleHighlight': 'realidad',
+    'contact.description': 'Complete el formulario y nuestro equipo se pondrá en contacto para desarrollar el proyecto perfecto para su evento.',
+    'contact.benefit1': 'Atención personalizada',
+    'contact.benefit2': 'Presupuesto sin compromiso',
+    'contact.benefit3': 'Respuesta en hasta 24 horas',
+    'contact.name': 'Nombre',
+    'contact.email': 'Correo electrónico',
+    'contact.whatsapp': 'WhatsApp',
+    'contact.message': 'Mensaje',
+    'contact.submit': 'ENVIAR',
+    'contact.success.title': '¡Mensaje enviado!',
+    'contact.success.description': 'Recibimos su contacto y responderemos pronto.',
+    'contact.error.title': 'Error al enviar',
+    'contact.error.description': 'Inténtelo de nuevo en unos momentos.',
     
     // Footer
     'footer.description': 'Escenografía especializada en stands para eventos, creando experiencias únicas y memorables.',
     'footer.navigation': 'Navegación',
     'footer.contact': 'Contacto',
-    'footer.contactBelow': 'Contáctenos a continuación:',
-    'footer.phone': 'WhatsApp: (11) 94004-2546',
+    'footer.contactBelow': 'Póngase en contacto a continuación:',
+    'footer.phone': 'Teléfono/SMS +5511940042546',
     'footer.downloadPortfolio': 'Descargue nuestro Portafolio',
     'footer.name': 'Nombre',
     'footer.company': 'Su Empresa',
@@ -281,17 +366,17 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.privacyPolicy': 'Política de Privacidad',
     
     // About Hero
-    'aboutHero.title1': 'Conozca TOTUS ',
+    'aboutHero.title1': 'Conoce TOTUS ',
     'aboutHero.title2': 'Cenografia:',
     'aboutHero.paragraph1': 'En TOTUS, entendemos que un stand es mucho más que una estructura física. Es el punto de encuentro entre su marca y sus clientes, la materialización de su visión y la principal herramienta para generar negocios y conexiones en ferias y eventos.',
-    'aboutHero.paragraph2': 'Con años de experiencia en el mercado, nos especializamos en transformar conceptos en realidad, creando espacios que no solo se destacan visualmente, sino que están diseñados para ser funcionales, acogedores y, sobre todo, efectivos.',
+    'aboutHero.paragraph2': 'Con años de experiencia en el mercado, nos especializamos en transformar conceptos en realidad, creando espacios que no solo destacan visualmente, sino que están diseñados para ser funcionales, acogedores y, sobre todo, efectivos.',
     
     // About Services
     'aboutServices.title': 'Del Papel A La Vida',
-    'aboutServices.description': 'A través de una cuidadosa selección de materiales y técnicas constructivas, transformamos cada proyecto en una experiencia única. Desde el concepto hasta la finalización, nuestro equipo de especialistas acompaña de cerca cada etapa, garantizando la integración perfecta entre diseño y funcionalidad.',
+    'aboutServices.description': 'A través de una cuidadosa selección de materiales y técnicas constructivas, transformamos cada proyecto en una experiencia única. Del concepto a la finalización, nuestro equipo de especialistas acompaña de cerca cada etapa, garantizando la integración perfecta entre diseño y funcionalidad.',
     'aboutServices.neuro.title': 'Neuro-Arquitectura:',
     'aboutServices.neuro.description': 'Neuro-Arquitectura aplicada para que los ambientes influyan en el comportamiento y tiempo de permanencia de los visitantes.',
-    'aboutServices.engagement.title': 'Estrategia de Compromiso:',
+    'aboutServices.engagement.title': 'Estrategia de Engagement:',
     'aboutServices.engagement.description': 'Cada área está pensada estratégicamente para generar máximo impacto y convertir visitantes en clientes.',
     'aboutServices.delivery.title': 'Entregas a tiempo:',
     'aboutServices.delivery.description': 'Cumplimos plazos rigurosamente, garantizando que su stand esté listo cuando lo necesite.',
@@ -301,41 +386,51 @@ const translations: Record<Language, Record<string, string>> = {
     // About Differentials
     'aboutDifferentials.title': 'Nuestros diferenciales: innovación y profesionalismo para resultados extraordinarios',
     'aboutDifferentials.quality.title': 'Calidad y Profesionalismo',
-    'aboutDifferentials.quality.description': 'Trabajamos en estrecha colaboración con los clientes para garantizar que cada detalle sea cuidadosamente planificado y ejecutado. Nuestro compromiso con la calidad va más allá del diseño visual, resultando en stands para eventos que no solo impresionan, sino que también involucran e inspiran. Cada proyecto es tratado con la máxima seriedad y dedicación, garantizando un resultado que refleja la excelencia de TOTUS Cenografia.',
+    'aboutDifferentials.quality.description': 'Trabajamos en estrecha colaboración con los clientes para garantizar que cada detalle esté cuidadosamente planificado y ejecutado. Nuestro compromiso con la calidad va más allá del diseño visual, resultando en stands para eventos que no solo impresionan, sino que también involucran e inspiran. Cada proyecto es tratado con la máxima seriedad y dedicación, garantizando un resultado que refleja la excelencia de TOTUS Cenografia.',
     'aboutDifferentials.personalization.title': 'Compromiso con la Personalización',
     'aboutDifferentials.personalization.description': 'Cada cliente es único, y tratamos cada proyecto con la atención y cuidado que merece. En TOTUS Cenografia, no recibirá soluciones genéricas. Nuestro servicio es totalmente personalizado, adaptado a sus necesidades y objetivos específicos. Desde el concepto inicial hasta la ejecución final, garantizamos que su stand sea un reflejo perfecto de su visión e identidad.',
     'aboutDifferentials.innovation.title': 'Innovación y Creatividad',
-    'aboutDifferentials.innovation.description': 'Siempre estamos buscando nuevas formas de impresionar y sorprender. Con un equipo talentoso y apasionado por la innovación, podemos transformar incluso las ideas más atrevidas en realidad. Nuestros stands están diseñados para destacar y dejar una impresión duradera, combinando creatividad y tecnología de punta para crear experiencias verdaderamente únicas.',
+    'aboutDifferentials.innovation.description': 'Siempre estamos buscando nuevas formas de impresionar y sorprender. Con un equipo talentoso y apasionado por la innovación, podemos transformar incluso las ideas más audaces en realidad. Nuestros stands están diseñados para destacar y dejar una impresión duradera, combinando creatividad y tecnología de punta para crear experiencias verdaderamente únicas.',
     
     // About Commitments
     'aboutCommitments.title': 'Compromisos que guían nuestro trabajo',
     'aboutCommitments.description': 'En TOTUS Cenografia, nuestros principios son la base que orienta todas nuestras acciones y decisiones. Nuestra misión, visión y valores reflejan nuestro compromiso con la excelencia, innovación y personalización, garantizando que cada proyecto no solo cumpla, sino que supere las expectativas de nuestros clientes.',
     'aboutCommitments.mission': 'Misión',
-    'aboutCommitments.mission.text': 'Nuestra misión es transformar ideas en experiencias únicas y memorables, creando stands de alta calidad que inspiren y cautiven a los públicos de nuestros clientes. Buscamos ofrecer soluciones completas y personalizadas, combinando innovación, creatividad y excelencia en cada proyecto.',
+    'aboutCommitments.mission.text': 'Nuestra misión es transformar ideas en experiencias únicas y memorables, creando stands de alta calidad que inspiren y comprometan a las audiencias de nuestros clientes. Buscamos ofrecer soluciones completas y personalizadas, combinando innovación, creatividad y excelencia en cada proyecto.',
     'aboutCommitments.vision': 'Visión',
-    'aboutCommitments.vision.text': 'Ser reconocida como la principal empresa de montaje de stands en el mercado, conocida por nuestra capacidad de innovación, atención a los detalles y compromiso con la satisfacción del cliente. Queremos establecer asociaciones duraderas, impactando positivamente cada evento que realizamos y destacando la importancia de ambientes bien diseñados.',
+    'aboutCommitments.vision.text': 'Ser reconocida como la principal empresa de montaje de stands en el mercado, conocida por nuestra capacidad de innovación, atención al detalle y compromiso con la satisfacción del cliente. Queremos establecer asociaciones duraderas, impactando positivamente cada evento que realizamos y destacando la importancia de ambientes bien diseñados.',
     'aboutCommitments.values': 'Valores',
     'aboutCommitments.values.excellence': 'Excelencia: Compromiso con la calidad y perfección en todos los aspectos de nuestro trabajo.',
     'aboutCommitments.values.innovation': 'Innovación: Búsqueda constante de nuevas ideas y soluciones creativas que diferencien nuestros proyectos.',
     'aboutCommitments.values.personalization': 'Personalización: Atención exclusiva y adaptación de nuestros servicios a las necesidades y objetivos específicos de cada cliente.',
     'aboutCommitments.values.professionalism': 'Profesionalismo: Conducta ética, transparencia y respeto en todas nuestras interacciones y proyectos.',
     'aboutCommitments.values.passion': 'Pasión: Dedicación y entusiasmo en transformar ideas en experiencias que dejen una marca duradera.',
+    'aboutCommitments.cta': 'Solicitar presupuesto',
     
     // Portfolio
     'portfolio.title': 'PORTAFOLIO',
     'portfolio.subtitle': 'Explore nuestros proyectos exitosos y vea cómo transformamos visiones en realidad',
     'portfolio.banner': 'Cada stand para eventos que creamos es una prueba de nuestro compromiso con la calidad, innovación y personalización.',
     'portfolio.back': 'Volver al Portafolio',
+    'portfolio.sigma2024': 'SIGMA AMÉRICAS 2024',
+    'portfolio.automec': 'AUTOMEC',
+    'portfolio.sigma2025': 'SIGMA AMÉRICAS 2025',
+    
+    // Video Gallery
+    'videoGallery.title': 'Vea nuestros proyectos en acción',
+    'videoGallery.subtitle': 'Mire videos de nuestros stands y eventos',
   },
 };
 
-// Language context for internationalization
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>(() => {
-    const saved = localStorage.getItem('language');
-    return (saved as Language) || 'pt';
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('language');
+      return (saved as Language) || 'pt';
+    }
+    return 'pt';
   });
 
   const setLanguage = (lang: Language) => {

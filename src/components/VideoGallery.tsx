@@ -1,4 +1,8 @@
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const VideoGallery = () => {
+  const { t } = useLanguage();
+  
   const videos = [
     "/videos/video1.mp4",
     "/videos/video2.mp4",
@@ -18,7 +22,7 @@ const VideoGallery = () => {
                 preload="metadata"
               >
                 <source src={video} type="video/mp4" />
-                Seu navegador não suporta vídeos.
+                {t('videoGallery.subtitle')}
               </video>
             </div>
           ))}
