@@ -112,7 +112,7 @@ const Footer = () => {
               <ul className="space-y-2 text-muted-foreground">
                 <li>atendimento@totusmontadora.com.br</li>
                 <li>{t('footer.contactBelow')}</li>
-                <li>WhatsApp: (11) 94004-2546</li>
+                <li>{t('footer.phone')}</li>
               </ul>
             </div>
 
