@@ -9,10 +9,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import LanguageSelector from "./LanguageSelector";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -68,7 +71,7 @@ const Header = () => {
                 location.pathname === "/" ? "text-neon" : "text-foreground hover:text-neon"
               }`}
             >
-              Home
+              {t('nav.home')}
             </button>
             <button
               onClick={() => navigateToPage("/sobre-nos")}
@@ -76,7 +79,7 @@ const Header = () => {
                 location.pathname === "/sobre-nos" ? "text-neon" : "text-foreground hover:text-neon"
               }`}
             >
-              Sobre Nós
+              {t('nav.about')}
             </button>
             <DropdownMenu>
               <DropdownMenuTrigger 
@@ -84,7 +87,7 @@ const Header = () => {
                 className={`transition-colors flex items-center gap-1 font-medium ${
                   location.pathname.startsWith("/portfolio") ? "text-neon" : "text-foreground hover:text-neon"
                 }`}>
-                Portfólio <ChevronDown size={16} />
+                {t('nav.portfolio')} <ChevronDown size={16} />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-background border border-border z-50">
                 <DropdownMenuItem onClick={() => navigateToPage("/portfolio/sigma-americas-2024")} className="text-foreground hover:text-neon cursor-pointer">
@@ -102,7 +105,7 @@ const Header = () => {
               onClick={() => window.open("https://api.whatsapp.com/send/?phone=11940042546&text=Oi%2C+vim+pelo+site+da+Totus+e+tenho+interesse&type=phone_number&app_absent=0", "_blank")}
               className="text-foreground hover:text-neon transition-colors"
             >
-              Contato
+              {t('nav.contact')}
             </button>
           </nav>
 
@@ -112,13 +115,9 @@ const Header = () => {
               onClick={() => window.open("https://api.whatsapp.com/send/?phone=11940042546&text=Oi%2C+vim+pelo+site+da+Totus+e+tenho+interesse&type=phone_number&app_absent=0", "_blank")}
               className="bg-neon text-black hover:bg-neon/90 font-semibold glow-neon rounded-lg px-6"
             >
-              Solicite um orçamento
+              {t('nav.quote')}
             </Button>
-            <div className="flex items-center gap-2 border border-border rounded px-3 py-2">
-              <span className="text-2xl">🇧🇷</span>
-              <span className="text-foreground font-medium">PT</span>
-              <ChevronDown size={16} className="text-foreground" />
-            </div>
+            <LanguageSelector />
           </div>
 
           {/* Mobile Menu Button */}
@@ -137,32 +136,35 @@ const Header = () => {
               onClick={() => navigate("/")}
               className="text-foreground hover:text-neon transition-colors text-left"
             >
-              Home
+              {t('nav.home')}
             </button>
             <button
               onClick={() => navigateToPage("/sobre-nos")}
               className="text-foreground hover:text-neon transition-colors text-left"
             >
-              Sobre Nós
+              {t('nav.about')}
             </button>
             <button
               onClick={() => navigateToPage("/portfolio")}
               className="text-foreground hover:text-neon transition-colors text-left"
             >
-              Portfólio
+              {t('nav.portfolio')}
             </button>
             <button
               onClick={() => window.open("https://api.whatsapp.com/send/?phone=11940042546&text=Oi%2C+vim+pelo+site+da+Totus+e+tenho+interesse&type=phone_number&app_absent=0", "_blank")}
               className="text-foreground hover:text-neon transition-colors text-left"
             >
-              Contato
+              {t('nav.contact')}
             </button>
             <Button
               onClick={() => window.open("https://api.whatsapp.com/send/?phone=11940042546&text=Oi%2C+vim+pelo+site+da+Totus+e+tenho+interesse&type=phone_number&app_absent=0", "_blank")}
               className="bg-neon text-black hover:bg-neon/90 font-semibold"
             >
-              Solicite um orçamento
+              {t('nav.quote')}
             </Button>
+            <div className="pt-2">
+              <LanguageSelector />
+            </div>
           </nav>
         )}
       </div>
