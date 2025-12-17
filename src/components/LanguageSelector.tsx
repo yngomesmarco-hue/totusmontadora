@@ -6,11 +6,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
+import flagSpain from '@/assets/flag-spain.png';
 
-const languages: { code: Language; label: string; flag: string }[] = [
+const languages: { code: Language; label: string; flag: string; image?: string }[] = [
   { code: 'pt', label: 'PT', flag: '🇧🇷' },
   { code: 'en', label: 'EN', flag: '🇺🇸' },
-  { code: 'es', label: 'ES', flag: '🇪🇸' },
+  { code: 'es', label: 'ES', flag: '', image: flagSpain },
 ];
 
 const LanguageSelector = () => {
@@ -21,7 +22,11 @@ const LanguageSelector = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="flex items-center gap-1 border border-border rounded px-2 py-1.5 hover:bg-muted/50 transition-colors">
-        <span className="text-2xl">{currentLang.flag}</span>
+        {currentLang.image ? (
+          <img src={currentLang.image} alt={currentLang.label} className="w-6 h-6 rounded-full object-cover" />
+        ) : (
+          <span className="text-2xl">{currentLang.flag}</span>
+        )}
         <ChevronDown size={14} className="text-foreground" />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="bg-background border border-border z-50 min-w-[60px]">
@@ -33,7 +38,11 @@ const LanguageSelector = () => {
               language === lang.code ? 'bg-muted/50' : 'hover:bg-muted/30'
             }`}
           >
-            <span className="text-2xl">{lang.flag}</span>
+            {lang.image ? (
+              <img src={lang.image} alt={lang.label} className="w-6 h-6 rounded-full object-cover" />
+            ) : (
+              <span className="text-2xl">{lang.flag}</span>
+            )}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
