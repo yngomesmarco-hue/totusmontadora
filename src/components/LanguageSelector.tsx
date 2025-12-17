@@ -20,22 +20,20 @@ const LanguageSelector = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex items-center gap-2 border border-border rounded px-3 py-2 hover:bg-muted/50 transition-colors">
+      <DropdownMenuTrigger className="flex items-center gap-1 border border-border rounded px-2 py-1.5 hover:bg-muted/50 transition-colors">
         <span className="text-2xl">{currentLang.flag}</span>
-        <span className="text-foreground font-medium">{currentLang.label}</span>
-        <ChevronDown size={16} className="text-foreground" />
+        <ChevronDown size={14} className="text-foreground" />
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-background border border-border z-50 min-w-[120px]">
+      <DropdownMenuContent className="bg-background border border-border z-50 min-w-[60px]">
         {languages.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
             onClick={() => setLanguage(lang.code)}
-            className={`flex items-center gap-2 cursor-pointer ${
-              language === lang.code ? 'text-neon bg-muted/50' : 'text-foreground hover:text-neon'
+            className={`flex items-center justify-center cursor-pointer ${
+              language === lang.code ? 'bg-muted/50' : 'hover:bg-muted/30'
             }`}
           >
-            <span className="text-xl">{lang.flag}</span>
-            <span>{lang.label}</span>
+            <span className="text-2xl">{lang.flag}</span>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
