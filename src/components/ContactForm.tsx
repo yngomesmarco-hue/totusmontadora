@@ -3,11 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 const ContactForm = () => {
   const { toast } = useToast();
-  const { t, language } = useLanguage();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -52,10 +50,6 @@ const ContactForm = () => {
     }
   };
 
-  const getPhoneLabel = () => {
-    return language === 'en' ? 'Phone/SMS' : 'WhatsApp';
-  };
-
   return (
     <section id="contato" className="py-12 md:py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -63,26 +57,27 @@ const ContactForm = () => {
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-                {t('contact.title')}{" "}
-                <span className="text-neon">{t('contact.titleHighlight')}</span>
+                Vamos transformar suas ideias em{" "}
+                <span className="text-neon">realidade</span>
               </h2>
 
               <p className="md:text-xl text-muted-foreground mb-4 md:mb-6 text-base">
-                {t('contact.description')}
+                Preencha o formulário e nossa equipe entrará em contato para
+                desenvolver o projeto perfeito para o seu evento.
               </p>
 
               <ul className="space-y-4 text-muted-foreground">
                 <li className="flex items-center gap-3">
                   <span className="w-2 h-2 bg-neon rounded-full"></span>
-                  {t('contact.feature1')}
+                  Atendimento personalizado
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="w-2 h-2 bg-neon rounded-full"></span>
-                  {t('contact.feature2')}
+                  Orçamento sem compromisso
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="w-2 h-2 bg-neon rounded-full"></span>
-                  {t('contact.feature3')}
+                  Resposta em até 24 horas
                 </li>
               </ul>
             </div>
@@ -94,7 +89,7 @@ const ContactForm = () => {
               <div className="space-y-6">
                 <Input
                   type="text"
-                  placeholder={t('contact.name')}
+                  placeholder="Nome"
                   value={formData.name}
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
@@ -116,7 +111,7 @@ const ContactForm = () => {
 
                 <Input
                   type="tel"
-                  placeholder={getPhoneLabel()}
+                  placeholder="WhatsApp"
                   value={formData.whatsapp}
                   onChange={(e) =>
                     setFormData({ ...formData, whatsapp: e.target.value })
@@ -126,7 +121,7 @@ const ContactForm = () => {
                 />
 
                 <Textarea
-                  placeholder={t('contact.message')}
+                  placeholder="Mensagem"
                   value={formData.mensagem}
                   onChange={(e) =>
                     setFormData({ ...formData, mensagem: e.target.value })
@@ -139,7 +134,7 @@ const ContactForm = () => {
                   type="submit"
                   className="w-full bg-neon text-black hover:bg-neon/90 font-bold text-base md:text-lg py-5 md:py-6 glow-neon uppercase"
                 >
-                  {t('contact.send')}
+                  ENVIAR
                 </Button>
               </div>
             </form>
