@@ -7,10 +7,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 import flagSpain from '@/assets/flag-spain.png';
+import flagUsa from '@/assets/flag-usa.png';
 
 const languages: { code: Language; label: string; flag: string; image?: string }[] = [
   { code: 'pt', label: 'PT', flag: '🇧🇷' },
-  { code: 'en', label: 'EN', flag: '🇺🇸' },
+  { code: 'en', label: 'EN', flag: '', image: flagUsa },
   { code: 'es', label: 'ES', flag: '', image: flagSpain },
 ];
 
