@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
+import iconInstagram from "@/assets/icon-instagram.png";
+import iconFacebook from "@/assets/icon-facebook.png";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -59,7 +61,28 @@ const Footer = () => {
             {/* Logo and Description */}
             <div>
               <div className="text-3xl font-bold text-neon mb-4">TOTUS</div>
-              <p className="text-muted-foreground">{t('footer.description')}</p>
+              <p className="text-muted-foreground mb-4">{t('footer.description')}</p>
+              {/* Social Media Icons */}
+              <div className="flex items-center gap-4">
+                <a
+                  href="https://www.instagram.com/totuscenografia?igsh=MWV2cThrZmtvdmQxZA%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80 transition-opacity"
+                  aria-label="Instagram"
+                >
+                  <img src={iconInstagram} alt="Instagram" className="w-10 h-10 object-contain" />
+                </a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61585363286635&rdid=VSJmchqKCSgfMLWa&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1DYeHqyqNT%2F"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80 transition-opacity"
+                  aria-label="Facebook"
+                >
+                  <img src={iconFacebook} alt="Facebook" className="w-10 h-10 object-contain" />
+                </a>
+              </div>
             </div>
 
             {/* Navigation */}
