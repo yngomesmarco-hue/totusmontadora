@@ -3,6 +3,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logoTotus from "@/assets/logo-totus.png";
+import iconInstagram from "@/assets/icon-instagram.png";
+import iconFacebook from "@/assets/icon-facebook.png";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -165,6 +167,27 @@ const Header = () => {
             >
               {t('nav.quote')}
             </Button>
+            {/* Social Media Icons */}
+            <div className="flex items-center gap-4 pt-2">
+              <a
+                href="https://www.instagram.com/totuscenografia?igsh=MWV2cThrZmtvdmQxZA%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+                aria-label="Instagram"
+              >
+                <img src={iconInstagram} alt="Instagram" className="w-8 h-8 object-contain" />
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61585363286635&rdid=VSJmchqKCSgfMLWa&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1DYeHqyqNT%2F"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+                aria-label="Facebook"
+              >
+                <img src={iconFacebook} alt="Facebook" className="w-8 h-8 object-contain" />
+              </a>
+            </div>
           </nav>
         )}
       </div>
