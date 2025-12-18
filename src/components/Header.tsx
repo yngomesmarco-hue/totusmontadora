@@ -120,13 +120,16 @@ const Header = () => {
             <LanguageSelector />
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-foreground"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile Menu Button and Language Selector */}
+          <div className="md:hidden flex items-center gap-3">
+            <button
+              className="text-foreground"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+            <LanguageSelector />
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -162,9 +165,6 @@ const Header = () => {
             >
               {t('nav.quote')}
             </Button>
-            <div className="pt-2">
-              <LanguageSelector />
-            </div>
           </nav>
         )}
       </div>
