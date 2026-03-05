@@ -101,6 +101,9 @@ const Header = () => {
                 <DropdownMenuItem onClick={() => navigateToPage("/portfolio/automec")} className="text-foreground hover:text-neon cursor-pointer">
                   Automec
                 </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => navigateToPage("/portfolio/sbc-summit-rio-2026")} className="text-foreground hover:text-neon cursor-pointer">
+                  SBC Summit Rio 2026
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
             <button

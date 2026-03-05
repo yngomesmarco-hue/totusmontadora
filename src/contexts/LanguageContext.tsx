@@ -141,6 +141,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.sigma2024': 'SIGMA AMÉRICAS 2024',
     'portfolio.automec': 'AUTOMEC',
     'portfolio.sigma2025': 'SIGMA AMÉRICAS 2025',
+    'portfolio.sbc2026': 'SBC SUMMIT RIO 2026',
     
     // Video Gallery
     'videoGallery.title': 'Veja nossos projetos em ação',
@@ -278,6 +279,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.sigma2024': 'SIGMA AMERICAS 2024',
     'portfolio.automec': 'AUTOMEC',
     'portfolio.sigma2025': 'SIGMA AMERICAS 2025',
+    'portfolio.sbc2026': 'SBC SUMMIT RIO 2026',
     
     // Video Gallery
     'videoGallery.title': 'See our projects in action',
@@ -415,6 +417,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.sigma2024': 'SIGMA AMÉRICAS 2024',
     'portfolio.automec': 'AUTOMEC',
     'portfolio.sigma2025': 'SIGMA AMÉRICAS 2025',
+    'portfolio.sbc2026': 'SBC SUMMIT RIO 2026',
     
     // Video Gallery
     'videoGallery.title': 'Vea nuestros proyectos en acción',
