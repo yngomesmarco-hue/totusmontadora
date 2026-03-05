@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import sigma2024Image from "@/assets/sigma-americas-2024.png";
 import automecImage from "@/assets/automec.png";
 import sigma2025Image from "@/assets/sigma-americas-2025.png";
+import sbc2026Image from "@/assets/sbc2026/image-1.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Portfolio = () => {
@@ -25,6 +26,11 @@ const Portfolio = () => {
       titleKey: "portfolio.sigma2025",
       image: sigma2025Image,
       link: "/portfolio/sigma-americas-2025",
+    },
+    {
+      titleKey: "portfolio.sbc2026",
+      image: sbc2026Image,
+      link: "/portfolio/sbc-summit-rio-2026",
     },
   ];
 

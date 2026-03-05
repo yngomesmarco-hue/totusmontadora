@@ -10,6 +10,7 @@ import Portfolio from "./pages/Portfolio";
 import SigmaAmericas2024 from "./pages/SigmaAmericas2024";
 import Automec from "./pages/Automec";
 import SigmaAmericas2025 from "./pages/SigmaAmericas2025";
+import SBCSummitRio2026 from "./pages/SBCSummitRio2026";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/portfolio/sigma-americas-2024" element={<SigmaAmericas2024 />} />
             <Route path="/portfolio/automec" element={<Automec />} />
             <Route path="/portfolio/sigma-americas-2025" element={<SigmaAmericas2025 />} />
+            <Route path="/portfolio/sbc-summit-rio-2026" element={<SBCSummitRio2026 />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
