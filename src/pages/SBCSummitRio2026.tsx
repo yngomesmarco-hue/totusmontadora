@@ -31,6 +31,19 @@ const SBCSummitRio2026 = () => {
           </h1>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Vídeo como primeiro item — preload="none" garante que o arquivo só baixa quando o usuário clica em play */}
+            <div className="relative overflow-hidden rounded-lg aspect-[3/4] bg-black">
+              <video
+                src="/sbc2026/sbc-summit-rio-2026.mp4"
+                poster="/sbc2026/sbc-summit-rio-2026-poster.jpg"
+                controls
+                preload="none"
+                playsInline
+                className="w-full h-full object-cover"
+                aria-label="Vídeo SBC Summit Rio 2026"
+              />
+            </div>
+
             {images.map((image, index) => (
               <div
                 key={index}
@@ -39,6 +52,8 @@ const SBCSummitRio2026 = () => {
                 <img
                   src={image}
                   alt={`SBC Summit Rio 2026 - Imagem ${index + 1}`}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
