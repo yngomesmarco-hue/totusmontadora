@@ -32,6 +32,13 @@ const Testimonials = () => {
       company: "Booming Games",
       image: dorotaGruszka,
     },
+    {
+      textKey: 'testimonials.4.text',
+      author: "Cometa Gaming",
+      positionKey: 'testimonials.4.position',
+      company: "Cometa Gaming",
+      image: null,
+    },
   ];
 
   const nextTestimonial = () => {

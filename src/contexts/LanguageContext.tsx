@@ -57,6 +57,8 @@ const translations: Record<Language, Record<string, string>> = {
     'testimonials.2.position': 'Country Manager Brazil',
     'testimonials.3.text': 'Fizemos parceria com a TOTUS Montagens para nosso evento recente em São Paulo, e ficamos muito satisfeitos com o serviço de construção de estande. O estande que eles projetaram foi visualmente atraente e capturou efetivamente a atenção dos participantes. As luzes adicionais que forneceram agregaram valor ao melhorar a visibilidade. Foi uma experiência satisfatória, e achamos o serviço definitivamente vale o preço. Consideraríamos colaborar com eles novamente no futuro!',
     'testimonials.3.position': 'Gerente de Marketing',
+    'testimonials.4.text': 'Pessoal, bom dia. Passando para parabenizá-los pela entrega, pelo resultado final do projeto. Não estou pessoalmente, mas pelas fotos e vídeos que recebi, superou expectativas. Excelente trabalho de toda equipe 👏👏',
+    'testimonials.4.position': 'Cliente',
     
     // Contact Form
     'contact.title': 'Vamos transformar suas ideias em',
@@ -195,6 +197,8 @@ const translations: Record<Language, Record<string, string>> = {
     'testimonials.2.position': 'Country Manager Brazil',
     'testimonials.3.text': 'We partnered with TOTUS Montagens for our recent event in São Paulo, and we were very pleased with their stand construction service. The stand they designed was visually appealing and effectively captured attendees attention. The additional lights they provided added value by enhancing the visibility. It was a satisfactory experience, and we found the service definitely worth the price. We would consider collaborating with them again in the future!',
     'testimonials.3.position': 'Marketing Manager',
+    'testimonials.4.text': 'Good morning, team. Just stopping by to congratulate you on the delivery and the final result of the project. I\'m not there in person, but from the photos and videos I received, it exceeded expectations. Excellent work by the entire team 👏👏',
+    'testimonials.4.position': 'Client',
     
     // Contact Form
     'contact.title': 'Let\'s transform your ideas into',
@@ -333,6 +337,8 @@ const translations: Record<Language, Record<string, string>> = {
     'testimonials.2.position': 'Country Manager Brazil',
     'testimonials.3.text': 'Nos asociamos con TOTUS Montagens para nuestro evento reciente en São Paulo, y quedamos muy satisfechos con su servicio de construcción de stands. El stand que diseñaron fue visualmente atractivo y capturó efectivamente la atención de los asistentes. Las luces adicionales que proporcionaron agregaron valor al mejorar la visibilidad. Fue una experiencia satisfactoria, y encontramos que el servicio definitivamente vale el precio. ¡Consideraríamos colaborar con ellos nuevamente en el futuro!',
     'testimonials.3.position': 'Gerente de Marketing',
+    'testimonials.4.text': 'Buenos días, equipo. Pasando para felicitarlos por la entrega, por el resultado final del proyecto. No estoy presencialmente, pero por las fotos y videos que recibí, superó las expectativas. ¡Excelente trabajo de todo el equipo 👏👏!',
+    'testimonials.4.position': 'Cliente',
     
     // Contact Form
     'contact.title': 'Vamos a transformar tus ideas en',
