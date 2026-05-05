@@ -1,9 +1,12 @@
 import { Settings, Box, HardHat, Hammer, Rocket } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import standConstruction from "@/assets/stand-construction-2.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Services = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   
   const services = [
     {
@@ -77,6 +80,15 @@ const Services = () => {
                 )}
               </div>
             ))}
+            <div className="flex justify-center pt-4">
+              <Button
+                size="lg"
+                onClick={() => navigate("/portfolio")}
+                className="bg-neon text-black hover:bg-neon/90 font-semibold text-base md:text-lg px-6 md:px-8 py-5 md:py-6 rounded-lg glow-neon"
+              >
+                {t('hero.cta')}
+              </Button>
+            </div>
           </div>
         </div>
 
