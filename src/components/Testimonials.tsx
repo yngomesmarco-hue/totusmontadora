@@ -95,34 +95,41 @@ const Testimonials = () => {
             <Quote className="absolute top-4 left-4 md:top-6 md:left-6 w-8 h-8 md:w-12 md:h-12 text-neon/20" />
 
             <div className="relative z-10">
-              <p className="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 leading-relaxed">
-                "{t(testimonials[currentIndex].textKey)}"
-              </p>
-
-              <div className="flex items-center gap-3 md:gap-4">
-                {testimonials[currentIndex].image ? (
-                  <img
-                    src={testimonials[currentIndex].image}
-                    alt={testimonials[currentIndex].author}
-                    className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover flex-shrink-0"
-                  />
-                ) : (
-                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-neon/20 flex items-center justify-center flex-shrink-0">
-                    <span className="text-xl md:text-2xl font-bold text-neon">
-                      {testimonials[currentIndex].author.charAt(0)}
-                    </span>
+              {testimonials.map((item, idx) => (
+                <div
+                  key={idx}
+                  className={idx === currentIndex ? "block" : "hidden"}
+                >
+                  <p className="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 leading-relaxed">
+                    "{t(item.textKey)}"
+                  </p>
+                  <div className="flex items-center gap-3 md:gap-4">
+                    {item.image ? (
+                      <img
+                        src={item.image}
+                        alt={item.author}
+                        loading="eager"
+                        decoding="sync"
+                        className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover flex-shrink-0"
+                      />
+                    ) : (
+                      <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-neon/20 flex items-center justify-center flex-shrink-0">
+                        <span className="text-xl md:text-2xl font-bold text-neon">
+                          {item.author.charAt(0)}
+                        </span>
+                      </div>
+                    )}
+                    <div>
+                      <p className="font-semibold text-base md:text-lg">
+                        {item.author}
+                      </p>
+                      <p className="text-sm md:text-base text-muted-foreground">
+                        {t(item.positionKey)} • {item.company}
+                      </p>
+                    </div>
                   </div>
-                )}
-                <div>
-                  <p className="font-semibold text-base md:text-lg">
-                    {testimonials[currentIndex].author}
-                  </p>
-                  <p className="text-sm md:text-base text-muted-foreground">
-                    {t(testimonials[currentIndex].positionKey)} •{" "}
-                    {testimonials[currentIndex].company}
-                  </p>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
 
