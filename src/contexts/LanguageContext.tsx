@@ -44,7 +44,7 @@ const translations: Record<Language, Record<string, string>> = {
     'comparison.title': 'Prova da Excelência em stands para eventos!',
     'comparison.titleHighlight': 'stands para eventos!',
     'comparison.subtitle': 'Veja as fotos com o antes e depois e comprove como nossos projetos 3D se transformam em stands para eventos perfeitos.',
-    'comparison.viewMore': 'VER MAIS PROJETOS!',
+    'comparison.viewMore': 'VEJA NOSSO PORTFÓLIO',
     'comparison.stand': 'Stand',
     'comparison.project3d': 'Projeto 3D',
     
@@ -184,7 +184,7 @@ const translations: Record<Language, Record<string, string>> = {
     'comparison.title': 'Proof of Excellence in event stands!',
     'comparison.titleHighlight': 'event stands!',
     'comparison.subtitle': 'See the before and after photos and see how our 3D projects turn into perfect event stands.',
-    'comparison.viewMore': 'VIEW MORE PROJECTS!',
+    'comparison.viewMore': 'SEE OUR PORTFOLIO',
     'comparison.stand': 'Stand',
     'comparison.project3d': '3D Project',
     
@@ -324,7 +324,7 @@ const translations: Record<Language, Record<string, string>> = {
     'comparison.title': '¡Prueba de Excelencia en stands para eventos!',
     'comparison.titleHighlight': 'stands para eventos!',
     'comparison.subtitle': 'Vea las fotos del antes y después y compruebe cómo nuestros proyectos 3D se transforman en stands para eventos perfectos.',
-    'comparison.viewMore': '¡VER MÁS PROYECTOS!',
+    'comparison.viewMore': 'VEA NUESTRO PORTAFOLIO',
     'comparison.stand': 'Stand',
     'comparison.project3d': 'Proyecto 3D',
     
