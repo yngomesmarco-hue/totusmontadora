@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import bgTestimonials from "@/assets/bg-testimonials.png";
 import dennyaRonchi from "@/assets/dennya-ronchi.png";
@@ -9,6 +9,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { t } = useLanguage();
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
 
   const testimonials = [
     {
@@ -49,6 +51,23 @@ const Testimonials = () => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    const dy = e.changedTouches[0].clientY - touchStartY.current;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) nextTestimonial();
+      else prevTestimonial();
+    }
+    touchStartX.current = null;
+    touchStartY.current = null;
+  };
+
   return (
     <section
       className="py-12 md:py-20 lg:py-32 bg-white relative"
@@ -68,7 +87,11 @@ const Testimonials = () => {
         </div>
 
         <div className="max-w-4xl mx-auto px-2 md:px-0">
-          <div className="bg-card p-6 md:p-8 lg:p-12 rounded-lg border border-border relative">
+          <div
+            className="bg-card p-6 md:p-8 lg:p-12 rounded-lg border border-border relative"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
             <Quote className="absolute top-4 left-4 md:top-6 md:left-6 w-8 h-8 md:w-12 md:h-12 text-neon/20" />
 
             <div className="relative z-10">
