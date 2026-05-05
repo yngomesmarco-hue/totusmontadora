@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import ParticleBackground from "./ParticleBackground";
 import heroStand from "@/assets/stand-bet7k.png";
 import logoTotus from "@/assets/logo-totus.png";
@@ -6,6 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   
   return (
     <section
@@ -40,9 +42,7 @@ const Hero = () => {
             <Button
               size="lg"
               className="bg-neon text-black hover:bg-neon/90 font-semibold text-base md:text-lg px-6 md:px-8 py-5 md:py-6 rounded-lg glow-neon w-full md:w-auto"
-              onClick={() => {
-                window.open("https://api.whatsapp.com/send/?phone=11940042546&text=Oi%2C+vim+pelo+site+da+Totus+e+tenho+interesse&type=phone_number&app_absent=0", "_blank");
-              }}
+              onClick={() => navigate("/portfolio")}
             >
               {t('hero.cta')}
             </Button>

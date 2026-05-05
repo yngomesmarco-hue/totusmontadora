@@ -21,7 +21,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.title1': 'Criamos experiências únicas ',
     'hero.title2': 'que inspiram, conectam e engajam',
     'hero.subtitle': 'Soluções completas em stands para eventos, da concepção à execução, cuidamos de cada passo para o sucesso do seu evento',
-    'hero.cta': 'Solicite um orçamento',
+    'hero.cta': 'Veja nosso portfólio',
     
     // Services
     'services.project.title': 'Desenvolvimento do Projeto',
@@ -161,7 +161,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.title1': 'We create unique experiences ',
     'hero.title2': 'that inspire, connect and engage',
     'hero.subtitle': 'Complete solutions in event stands, from conception to execution, we take care of every step for the success of your event',
-    'hero.cta': 'Request a quote',
+    'hero.cta': 'See our portfolio',
     
     // Services
     'services.project.title': 'Project Development',
@@ -301,7 +301,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.title1': 'Creamos experiencias únicas ',
     'hero.title2': 'que inspiran, conectan y comprometen',
     'hero.subtitle': 'Soluciones completas en stands para eventos, desde la concepción hasta la ejecución, cuidamos cada paso para el éxito de tu evento',
-    'hero.cta': 'Solicitar presupuesto',
+    'hero.cta': 'Vea nuestro portafolio',
     
     // Services
     'services.project.title': 'Desarrollo del Proyecto',
