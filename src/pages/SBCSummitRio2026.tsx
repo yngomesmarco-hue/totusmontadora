@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ImageGallery from "@/components/ImageGallery";
 import image1 from "@/assets/sbc2026/image-1.png";
 import image2 from "@/assets/sbc2026/image-2.png";
 import image3 from "@/assets/sbc2026/image-3.png";
@@ -30,8 +31,7 @@ const SBCSummitRio2026 = () => {
             SBC Summit Rio 2026
           </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Vídeo como primeiro item — preload="none" garante que o arquivo só baixa quando o usuário clica em play */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
             <div className="relative overflow-hidden rounded-lg aspect-[3/4] bg-black">
               <video
                 src="/sbc2026/sbc-summit-rio-2026.mp4"
@@ -43,22 +43,8 @@ const SBCSummitRio2026 = () => {
                 aria-label="Vídeo SBC Summit Rio 2026"
               />
             </div>
-
-            {images.map((image, index) => (
-              <div
-                key={index}
-                className="relative group overflow-hidden rounded-lg aspect-[3/4] cursor-pointer"
-              >
-                <img
-                  src={image}
-                  alt={`SBC Summit Rio 2026 - Imagem ${index + 1}`}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-            ))}
           </div>
+          <ImageGallery images={images} altPrefix="SBC Summit Rio 2026" />
         </div>
       </main>
 

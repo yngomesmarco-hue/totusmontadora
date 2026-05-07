@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import sigma2024Image from "@/assets/sigma-americas-2024.png";
+import sigma2024Cover from "@/assets/sigma2024/image-1.jpg";
 import automecImage from "@/assets/automec.png";
 import sigma2025Image from "@/assets/sigma-americas-2025.png";
 import sbc2026Image from "@/assets/sbc2026/image-1.png";
@@ -13,14 +13,19 @@ const Portfolio = () => {
 
   const projects = [
     {
-      titleKey: "portfolio.sigma2024",
-      image: sigma2024Image,
-      link: "/portfolio/sigma-americas-2024",
+      titleKey: "portfolio.denso",
+      image: sigma2024Cover,
+      link: "/portfolio/denso",
     },
     {
-      titleKey: "portfolio.automec",
-      image: automecImage,
-      link: "/portfolio/automec",
+      titleKey: "portfolio.bisSigma2026",
+      image: sbc2026Image,
+      link: "/portfolio/bis-sigma-2026",
+    },
+    {
+      titleKey: "portfolio.sigma2024",
+      image: sigma2024Cover,
+      link: "/portfolio/sigma-americas-2024",
     },
     {
       titleKey: "portfolio.sigma2025",

@@ -140,10 +140,13 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.subtitle': 'Explore nossos projetos de sucesso e veja como transformamos visões em realidade',
     'portfolio.banner': 'Cada stand para eventos que criamos é uma prova do nosso compromisso com a qualidade, inovação e personalização.',
     'portfolio.back': 'Voltar ao Portfólio',
-    'portfolio.sigma2024': 'SIGMA AMÉRICAS 2024',
+    'portfolio.denso': 'DENSO',
+    'portfolio.bisSigma2026': 'BiS SiGMA 2026',
+    'portfolio.sigma2024': 'BiS SiGMA 2024',
     'portfolio.automec': 'AUTOMEC',
-    'portfolio.sigma2025': 'SIGMA AMÉRICAS 2025',
+    'portfolio.sigma2025': 'BiS SiGMA 2025',
     'portfolio.sbc2026': 'SBC SUMMIT RIO 2026',
+    'portfolio.comingSoon': 'Em breve — fotos serão adicionadas em breve.',
     
     // Video Gallery
     'videoGallery.title': 'Veja nossos projetos em ação',
@@ -280,10 +283,13 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.subtitle': 'Explore our successful projects and see how we transform visions into reality',
     'portfolio.banner': 'Every event stand we create is proof of our commitment to quality, innovation and personalization.',
     'portfolio.back': 'Back to Portfolio',
-    'portfolio.sigma2024': 'SIGMA AMERICAS 2024',
+    'portfolio.denso': 'DENSO',
+    'portfolio.bisSigma2026': 'BiS SiGMA 2026',
+    'portfolio.sigma2024': 'BiS SiGMA 2024',
     'portfolio.automec': 'AUTOMEC',
-    'portfolio.sigma2025': 'SIGMA AMERICAS 2025',
+    'portfolio.sigma2025': 'BiS SiGMA 2025',
     'portfolio.sbc2026': 'SBC SUMMIT RIO 2026',
+    'portfolio.comingSoon': 'Coming soon — photos will be added shortly.',
     
     // Video Gallery
     'videoGallery.title': 'See our projects in action',
@@ -420,10 +426,13 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.subtitle': 'Explore nuestros proyectos exitosos y vea cómo transformamos visiones en realidad',
     'portfolio.banner': 'Cada stand para eventos que creamos es una prueba de nuestro compromiso con la calidad, innovación y personalización.',
     'portfolio.back': 'Volver al Portafolio',
-    'portfolio.sigma2024': 'SIGMA AMÉRICAS 2024',
+    'portfolio.denso': 'DENSO',
+    'portfolio.bisSigma2026': 'BiS SiGMA 2026',
+    'portfolio.sigma2024': 'BiS SiGMA 2024',
     'portfolio.automec': 'AUTOMEC',
-    'portfolio.sigma2025': 'SIGMA AMÉRICAS 2025',
+    'portfolio.sigma2025': 'BiS SiGMA 2025',
     'portfolio.sbc2026': 'SBC SUMMIT RIO 2026',
+    'portfolio.comingSoon': 'Próximamente — las fotos se agregarán pronto.',
     
     // Video Gallery
     'videoGallery.title': 'Vea nuestros proyectos en acción',
