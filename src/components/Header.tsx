@@ -92,14 +92,17 @@ const Header = () => {
                 {t('nav.portfolio')} <ChevronDown size={16} />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-background border border-border z-50">
+                <DropdownMenuItem onClick={() => navigateToPage("/portfolio/denso")} className="text-foreground hover:text-neon cursor-pointer">
+                  Denso
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => navigateToPage("/portfolio/bis-sigma-2026")} className="text-foreground hover:text-neon cursor-pointer">
+                  BiS SiGMA 2026
+                </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => navigateToPage("/portfolio/sigma-americas-2024")} className="text-foreground hover:text-neon cursor-pointer">
-                  Sigma Américas 2024
+                  BiS SiGMA 2024
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => navigateToPage("/portfolio/sigma-americas-2025")} className="text-foreground hover:text-neon cursor-pointer">
-                  Sigma Américas 2025
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => navigateToPage("/portfolio/automec")} className="text-foreground hover:text-neon cursor-pointer">
-                  Automec
+                  BiS SiGMA 2025
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => navigateToPage("/portfolio/sbc-summit-rio-2026")} className="text-foreground hover:text-neon cursor-pointer">
                   SBC Summit Rio 2026
