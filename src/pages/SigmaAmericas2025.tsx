@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ImageGallery from "@/components/ImageGallery";
 import image1 from "@/assets/sigma2025/image-1.jpg";
 import image2 from "@/assets/sigma2025/image-2.jpg";
 import image3 from "@/assets/sigma2025/image-3.jpg";
@@ -46,21 +47,7 @@ const SigmaAmericas2025 = () => {
             Sigma Américas 2025
           </h1>
 
-          {/* Image Gallery Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {images.map((image, index) => (
-              <div
-                key={index}
-                className="relative group overflow-hidden rounded-lg aspect-[3/4] cursor-pointer"
-              >
-                <img
-                  src={image}
-                  alt={`Sigma Américas 2025 - Imagem ${index + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-            ))}
-          </div>
+          <ImageGallery images={images} altPrefix="Sigma Américas 2025" />
         </div>
       </main>
 
