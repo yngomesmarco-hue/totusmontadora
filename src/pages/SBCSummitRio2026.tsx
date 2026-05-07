@@ -31,19 +31,6 @@ const SBCSummitRio2026 = () => {
             SBC Summit Rio 2026
           </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-            <div className="relative overflow-hidden rounded-lg aspect-[3/4] bg-black">
-              <video
-                src="/sbc2026/sbc-summit-rio-2026.mp4"
-                poster="/sbc2026/sbc-summit-rio-2026-poster.jpg"
-                controls
-                preload="none"
-                playsInline
-                className="w-full h-full object-cover"
-                aria-label="Vídeo SBC Summit Rio 2026"
-              />
-            </div>
-          </div>
           <ImageGallery images={images} altPrefix="SBC Summit Rio 2026" />
         </div>
       </main>
