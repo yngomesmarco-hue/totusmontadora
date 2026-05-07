@@ -1,9 +1,5 @@
-import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { MessageCircle } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
 import iconInstagram from "@/assets/icon-instagram.png";
 import iconFacebook from "@/assets/icon-facebook.png";
@@ -11,26 +7,7 @@ import iconFacebook from "@/assets/icon-facebook.png";
 const Footer = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { toast } = useToast();
   const { t } = useLanguage();
-  const [downloadForm, setDownloadForm] = useState({
-    name: "",
-    company: "",
-    email: "",
-  });
-
-  const handleDownload = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: t('footer.downloadStarted'),
-      description: t('footer.thanks'),
-    });
-    setDownloadForm({
-      name: "",
-      company: "",
-      email: "",
-    });
-  };
 
   const scrollToSection = (id: string) => {
     if (location.pathname !== "/") {
@@ -139,46 +116,6 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Download Form */}
-            <div>
-              <h3 className="font-semibold text-lg mb-4">{t('footer.downloadPortfolio')}</h3>
-              <form onSubmit={handleDownload} className="space-y-3">
-                <Input
-                  placeholder={t('footer.name')}
-                  value={downloadForm.name}
-                  onChange={(e) =>
-                    setDownloadForm({ ...downloadForm, name: e.target.value })
-                  }
-                  required
-                  className="bg-secondary border-border"
-                />
-                <Input
-                  placeholder={t('footer.company')}
-                  value={downloadForm.company}
-                  onChange={(e) =>
-                    setDownloadForm({ ...downloadForm, company: e.target.value })
-                  }
-                  required
-                  className="bg-secondary border-border"
-                />
-                <Input
-                  type="email"
-                  placeholder={t('footer.email')}
-                  value={downloadForm.email}
-                  onChange={(e) =>
-                    setDownloadForm({ ...downloadForm, email: e.target.value })
-                  }
-                  required
-                  className="bg-secondary border-border"
-                />
-                <Button
-                  type="submit"
-                  className="w-full bg-neon text-black hover:bg-neon/90 font-semibold"
-                >
-                  {t('footer.download')}
-                </Button>
-              </form>
-            </div>
           </div>
 
           {/* Bottom Bar */}
