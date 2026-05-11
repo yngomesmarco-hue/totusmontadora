@@ -41,7 +41,7 @@ const Hero = () => {
             {/* CTA Button */}
             <Button
               size="lg"
-              className="bg-neon text-black hover:bg-neon/90 font-semibold text-sm md:text-lg px-7 md:px-8 py-4 md:py-6 rounded-lg glow-neon w-auto min-w-[220px] max-w-full md:min-w-0"
+              className="bg-neon text-black hover:bg-neon/90 font-semibold text-sm md:text-lg px-7 md:px-8 py-4 md:py-6 rounded-lg glow-neon w-auto min-w-[260px] max-w-full md:min-w-0"
               onClick={() => navigate("/portfolio")}
             >
               {t('hero.cta')}

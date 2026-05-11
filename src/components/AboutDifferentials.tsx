@@ -26,12 +26,12 @@ const AboutDifferentials = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section className="pt-8 pb-20 md:pt-12 bg-background">
       <div className="container mx-auto px-6">
         <div className="flex justify-center mb-10 md:mb-12">
           <Button
             size="lg"
-            className="bg-neon text-black hover:bg-neon/90 font-semibold text-sm md:text-lg px-7 md:px-8 py-4 md:py-6 rounded-lg glow-neon"
+            className="bg-neon text-black hover:bg-neon/90 font-semibold text-sm md:text-lg px-7 md:px-8 py-4 md:py-6 rounded-lg glow-neon min-w-[260px] max-w-full md:min-w-0"
             onClick={() => navigate("/portfolio")}
           >
             {t('hero.cta')}

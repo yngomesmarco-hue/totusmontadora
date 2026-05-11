@@ -84,7 +84,7 @@ const Services = () => {
               <Button
                 size="lg"
                 onClick={() => navigate("/portfolio")}
-                className="bg-neon text-black hover:bg-neon/90 font-semibold text-sm md:text-lg px-7 md:px-8 py-4 md:py-6 rounded-lg glow-neon"
+                className="bg-neon text-black hover:bg-neon/90 font-semibold text-sm md:text-lg px-7 md:px-8 py-4 md:py-6 rounded-lg glow-neon min-w-[260px] max-w-full md:min-w-0"
               >
                 {t('hero.cta')}
               </Button>
