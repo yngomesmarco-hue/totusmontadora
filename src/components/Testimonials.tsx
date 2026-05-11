@@ -182,7 +182,7 @@ const Testimonials = () => {
               </p>
             </div>
 
-            <div className="overflow-hidden">
+            <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden md:left-auto md:right-auto md:mx-0 md:w-auto">
               <div className="flex w-max gap-4 md:gap-6 animate-marquee [animation-duration:28s] hover:[animation-play-state:paused]">
                 {videoCarouselItems.map((title, index) => (
                   <button

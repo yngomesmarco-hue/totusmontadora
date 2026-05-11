@@ -1,8 +1,11 @@
 import { Award, Lightbulb, Cog } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const AboutDifferentials = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
   const differentials = [
     {
@@ -25,6 +28,16 @@ const AboutDifferentials = () => {
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
+        <div className="flex justify-center mb-10 md:mb-12">
+          <Button
+            size="lg"
+            className="bg-neon text-black hover:bg-neon/90 font-semibold text-sm md:text-lg px-7 md:px-8 py-4 md:py-6 rounded-lg glow-neon"
+            onClick={() => navigate("/portfolio")}
+          >
+            {t('hero.cta')}
+          </Button>
+        </div>
+
         <h2 className="md:text-4xl lg:text-5xl font-bold text-center mb-16 text-foreground text-3xl">
           {t('aboutDifferentials.title')}
         </h2>
