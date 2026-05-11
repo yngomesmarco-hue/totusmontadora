@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Trophy } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const AboutCommitments = () => {
   const [openSection, setOpenSection] = useState<string>("valores");
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
   const toggleSection = (section: string) => {
     setOpenSection(openSection === section ? "" : section);
@@ -171,15 +173,10 @@ const AboutCommitments = () => {
 
         <div className="flex justify-center mt-12">
           <button
-            onClick={() =>
-              window.open(
-                "https://api.whatsapp.com/send/?phone=11940042546&text=Oi%2C+vim+pelo+site+da+Totus+e+tenho+interesse&type=phone_number&app_absent=0",
-                "_blank"
-              )
-            }
+            onClick={() => navigate("/portfolio")}
             className="bg-neon text-black hover:bg-neon/90 font-bold text-lg px-12 py-4 rounded-md glow-neon transition-all"
           >
-            {t('nav.quote')}
+            {t('hero.cta')}
           </button>
         </div>
       </div>

@@ -20,14 +20,13 @@ const LogoSlider = () => {
   ];
 
   return (
-    <section className="bg-white py-8 overflow-hidden">
+    <section className="bg-white py-5 md:py-8 overflow-hidden">
       <div className="relative w-full overflow-hidden">
         <div className="flex w-max animate-marquee">
           {[...logos, ...logos].map((logo, index) => (
             <div
               key={`logo-${index}`}
-              className="flex-shrink-0 mx-8 flex items-center justify-center"
-              style={{ width: "200px", height: "100px" }}
+              className="flex-shrink-0 mx-5 md:mx-8 flex items-center justify-center w-[150px] h-[72px] md:w-[200px] md:h-[100px]"
             >
               <img
                 src={logo}

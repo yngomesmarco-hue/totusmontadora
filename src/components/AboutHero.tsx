@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import ParticleBackground from "./ParticleBackground";
 import heroStand from "@/assets/stand-bet7k.png";
 import logoTotus from "@/assets/logo-totus.png";
@@ -7,6 +8,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const AboutHero = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-background">
@@ -50,20 +52,24 @@ const AboutHero = () => {
             {/* CTA Button */}
             <Button
               size="lg"
-              className="bg-neon text-black hover:bg-neon/90 font-semibold text-lg px-8 py-6 rounded-lg glow-neon"
-              onClick={() => {
-                window.open(
-                  "https://api.whatsapp.com/send/?phone=11940042546&text=Oi%2C+vim+pelo+site+da+Totus+e+tenho+interesse&type=phone_number&app_absent=0",
-                  "_blank"
-                );
-              }}
+              className="hidden md:inline-flex bg-neon text-black hover:bg-neon/90 font-semibold text-lg px-8 py-6 rounded-lg glow-neon"
+              onClick={() => navigate("/portfolio")}
             >
-              {t('nav.quote')}
+              {t('hero.cta')}
             </Button>
 
             {/* Stand Image - Mobile Only */}
-            <div className="mt-8 md:hidden">
+            <div className="mt-8 md:hidden space-y-6">
               <img src={standMobile} alt="Stand TOTUS" className="w-full h-auto object-contain" />
+              <div className="flex justify-center">
+                <Button
+                  size="lg"
+                  className="bg-neon text-black hover:bg-neon/90 font-semibold text-sm px-7 py-4 rounded-lg glow-neon"
+                  onClick={() => navigate("/portfolio")}
+                >
+                  {t('hero.cta')}
+                </Button>
+              </div>
             </div>
           </div>
 

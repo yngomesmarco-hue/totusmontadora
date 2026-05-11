@@ -53,12 +53,12 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contato" className="py-12 md:py-20 bg-background">
+    <section id="contato" className="py-10 md:py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight">
                 {t('contact.title')}{" "}
                 <span className="text-neon">{t('contact.titleHighlight')}</span>
               </h2>
@@ -67,7 +67,7 @@ const ContactForm = () => {
                 {t('contact.description')}
               </p>
 
-              <ul className="space-y-4 text-muted-foreground">
+              <ul className="space-y-3 md:space-y-4 text-sm md:text-base text-muted-foreground">
                 <li className="flex items-center gap-3">
                   <span className="w-2 h-2 bg-neon rounded-full"></span>
                   {t('contact.benefit1')}
@@ -85,9 +85,9 @@ const ContactForm = () => {
 
             <form
               onSubmit={handleSubmit}
-              className="bg-card p-6 md:p-8 rounded-lg border border-border"
+              className="bg-card p-5 md:p-8 rounded-lg border border-border"
             >
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 <Input
                   type="text"
                   placeholder={t('contact.name')}
@@ -133,7 +133,7 @@ const ContactForm = () => {
 
                 <Button
                   type="submit"
-                  className="w-full bg-neon text-black hover:bg-neon/90 font-bold text-base md:text-lg py-5 md:py-6 glow-neon uppercase"
+                  className="w-full bg-neon text-black hover:bg-neon/90 font-bold text-sm md:text-lg py-4 md:py-6 glow-neon uppercase"
                 >
                   {t('contact.submit')}
                 </Button>

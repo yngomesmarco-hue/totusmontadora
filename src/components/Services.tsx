@@ -46,8 +46,8 @@ const Services = () => {
       {/* Services Section with split layout */}
       <div className="grid md:grid-cols-2">
         {/* Left Column - Services List */}
-        <div className="bg-background py-16 md:py-20">
-          <div className="space-y-12 px-6 md:px-12 lg:px-16">
+        <div className="bg-background py-12 md:py-20">
+          <div className="space-y-8 md:space-y-12 px-5 md:px-12 lg:px-16">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -55,17 +55,17 @@ const Services = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Icon */}
-                <div className="flex justify-center mb-6">
-                  <service.icon className="w-16 h-16 md:w-20 md:h-20 text-foreground" strokeWidth={1.5} />
+                <div className="flex justify-center mb-4 md:mb-6">
+                  <service.icon className="w-12 h-12 md:w-20 md:h-20 text-foreground" strokeWidth={1.5} />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-2xl md:text-3xl font-bold text-neon mb-4">
+                <h3 className="text-xl md:text-3xl font-bold text-neon mb-3 md:mb-4">
                   {t(service.titleKey)}
                 </h3>
 
                 {/* Subtitle */}
-                <p className="text-foreground font-medium mb-6 text-base md:text-lg">
+                <p className="text-foreground font-medium mb-4 md:mb-6 text-sm md:text-lg">
                   {t(service.subtitleKey)}
                 </p>
 
@@ -76,7 +76,7 @@ const Services = () => {
 
                 {/* Divider */}
                 {index < services.length - 1 && (
-                  <div className="mt-12 mb-12 border-t border-border/30"></div>
+                  <div className="mt-8 mb-8 md:mt-12 md:mb-12 border-t border-border/30"></div>
                 )}
               </div>
             ))}
@@ -84,7 +84,7 @@ const Services = () => {
               <Button
                 size="lg"
                 onClick={() => navigate("/portfolio")}
-                className="bg-neon text-black hover:bg-neon/90 font-semibold text-base md:text-lg px-6 md:px-8 py-5 md:py-6 rounded-lg glow-neon"
+                className="bg-neon text-black hover:bg-neon/90 font-semibold text-sm md:text-lg px-7 md:px-8 py-4 md:py-6 rounded-lg glow-neon"
               >
                 {t('hero.cta')}
               </Button>
@@ -93,7 +93,7 @@ const Services = () => {
         </div>
 
         {/* Right Column - Image */}
-        <div className="relative min-h-[600px] md:min-h-screen">
+        <div className="relative min-h-[420px] md:min-h-screen">
           <img
             src={standConstruction}
             alt="Montagem de Stand"

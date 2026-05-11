@@ -51,28 +51,50 @@ const ImageGallery = ({ images, altPrefix }: ImageGalleryProps) => {
       </div>
 
       <Dialog open={openIndex !== null} onOpenChange={(o) => !o && close()}>
-        <DialogContent className="max-w-[95vw] md:max-w-[90vw] w-fit p-0 bg-transparent border-0 shadow-none">
+        <DialogContent className="w-[94vw] max-w-[94vw] md:max-w-[90vw] p-0 bg-transparent border-0 shadow-none">
           {openIndex !== null && (
-            <div className="relative flex items-center justify-center">
+            <div className="relative flex flex-col items-center justify-center gap-4">
               <button
                 onClick={prev}
                 aria-label="Anterior"
-                className="absolute left-2 md:-left-12 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black/80 text-white rounded-full p-2"
+                className="hidden md:flex absolute -left-14 top-1/2 -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90 text-white rounded-full p-3 shadow-lg"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
-              <img
-                src={images[openIndex]}
-                alt={`${altPrefix} - Imagem ${openIndex + 1}`}
-                className="max-h-[90vh] max-w-full w-auto h-auto object-contain rounded-lg"
-              />
+              <div className="w-full overflow-hidden rounded-2xl bg-black shadow-2xl ring-1 ring-white/10">
+                <img
+                  src={images[openIndex]}
+                  alt={`${altPrefix} - Imagem ${openIndex + 1}`}
+                  className="mx-auto h-auto max-h-[78vh] w-full object-contain md:max-h-[90vh] md:w-auto md:max-w-full"
+                />
+              </div>
               <button
                 onClick={next}
                 aria-label="Próxima"
-                className="absolute right-2 md:-right-12 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black/80 text-white rounded-full p-2"
+                className="hidden md:flex absolute -right-14 top-1/2 -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90 text-white rounded-full p-3 shadow-lg"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
+
+              <div className="flex md:hidden items-center justify-center gap-5 rounded-full bg-black/75 px-5 py-2.5 text-white shadow-lg backdrop-blur-sm">
+                <button
+                  onClick={prev}
+                  aria-label="Anterior"
+                  className="rounded-full p-2 active:scale-95"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+                <span className="min-w-12 text-center text-sm font-medium">
+                  {openIndex + 1}/{images.length}
+                </span>
+                <button
+                  onClick={next}
+                  aria-label="Próxima"
+                  className="rounded-full p-2 active:scale-95"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+              </div>
             </div>
           )}
         </DialogContent>

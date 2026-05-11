@@ -52,17 +52,28 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const isAboutPage = location.pathname === "/sobre-nos";
+  const quoteLabel = isAboutPage ? t('hero.cta') : t('nav.quote');
+  const handleQuoteClick = () => {
+    if (isAboutPage) {
+      navigateToPage("/portfolio");
+      return;
+    }
+
+    window.open("https://api.whatsapp.com/send/?phone=11940042546&text=Oi%2C+vim+pelo+site+da+Totus+e+tenho+interesse&type=phone_number&app_absent=0", "_blank");
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? "bg-background/95 backdrop-blur-md shadow-lg" : "bg-background/50 backdrop-blur-sm"
       }`}
     >
-      <div className="container mx-auto px-6 py-5">
+      <div className="container mx-auto px-4 md:px-6 py-4 md:py-5">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button onClick={() => navigate("/")} className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
-            <img src={logoTotus} alt="TOTUS Cenografia" className="h-8 md:h-10 w-auto" />
+            <img src={logoTotus} alt="TOTUS Cenografia" className="h-7 md:h-10 w-auto" />
           </button>
 
           {/* Desktop Navigation */}
@@ -120,10 +131,10 @@ const Header = () => {
           {/* Right Section */}
           <div className="hidden md:flex items-center gap-4">
             <Button
-              onClick={() => window.open("https://api.whatsapp.com/send/?phone=11940042546&text=Oi%2C+vim+pelo+site+da+Totus+e+tenho+interesse&type=phone_number&app_absent=0", "_blank")}
+              onClick={handleQuoteClick}
               className="bg-neon text-black hover:bg-neon/90 font-semibold glow-neon rounded-lg px-6"
             >
-              {t('nav.quote')}
+              {quoteLabel}
             </Button>
             <LanguageSelector />
           </div>
@@ -168,10 +179,10 @@ const Header = () => {
               {t('nav.contact')}
             </button>
             <Button
-              onClick={() => window.open("https://api.whatsapp.com/send/?phone=11940042546&text=Oi%2C+vim+pelo+site+da+Totus+e+tenho+interesse&type=phone_number&app_absent=0", "_blank")}
-              className="bg-neon text-black hover:bg-neon/90 font-semibold"
+              onClick={handleQuoteClick}
+              className="w-full h-auto min-h-11 bg-neon text-black hover:bg-neon/90 font-semibold text-sm leading-tight whitespace-normal px-4 py-3 text-center"
             >
-              {t('nav.quote')}
+              {quoteLabel}
             </Button>
             {/* Social Media Icons */}
             <div className="flex items-center gap-4 pt-2">
