@@ -1,12 +1,19 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Play, Eye, Layers, Clock, Building2, ArrowRight, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import guilhermePhoto from "@/assets/guilherme-camargo.jpeg";
 
 const WHATSAPP =
   "https://api.whatsapp.com/send/?phone=11940042546&text=Oi%2C+gostaria+de+falar+sobre+parcerias+estrat%C3%A9gicas+com+a+Totus+Asset&type=phone_number&app_absent=0";
+
+function vimeoIframeSrc(embedUrl: string) {
+  if (embedUrl.includes("autoplay=")) return embedUrl;
+  return `${embedUrl}${embedUrl.includes("?") ? "&" : "?"}autoplay=1`;
+}
 
 type TimelineItem = {
   year: string;
@@ -131,6 +138,8 @@ const principleCards = [
 ];
 
 const LiderancaEstrategica = () => {
+  const [openCaseVideoUrl, setOpenCaseVideoUrl] = useState<string | null>(null);
+
   const handleContact = () => {
     window.open(WHATSAPP, "_blank");
   };
@@ -235,15 +244,14 @@ const LiderancaEstrategica = () => {
                     ))}
                     <div className="flex flex-col gap-2 pt-1 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
                       {item.videoUrl ? (
-                        <a
-                          href={item.videoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-xs font-semibold text-primary transition-opacity hover:opacity-80"
+                        <button
+                          type="button"
+                          onClick={() => setOpenCaseVideoUrl(item.videoUrl!)}
+                          className="inline-flex items-center gap-2 text-left text-xs font-semibold text-primary transition-opacity hover:opacity-80"
                         >
-                          <Play className="h-3.5 w-3.5 fill-primary" />
+                          <Play className="h-3.5 w-3.5 shrink-0 fill-primary" />
                           Assistir case
-                        </a>
+                        </button>
                       ) : null}
                       {item.siteUrl ? (
                         item.siteUrl.startsWith("/") ? (
@@ -362,6 +370,26 @@ const LiderancaEstrategica = () => {
           </Button>
         </div>
       </main>
+
+      <Dialog open={openCaseVideoUrl !== null} onOpenChange={(open) => !open && setOpenCaseVideoUrl(null)}>
+        <DialogContent className="w-[min(92vw,420px,min(calc(85vh*9/16),100vw))] max-w-[min(92vw,420px,min(calc(85vh*9/16),100vw))] p-0 bg-black border-0 shadow-none [&>button]:text-white [&>button]:hover:opacity-100">
+          {openCaseVideoUrl ? (
+            <div className="overflow-hidden rounded-3xl bg-black shadow-2xl ring-1 ring-white/10">
+              <div className="aspect-[9/16] w-full bg-black">
+                <iframe
+                  key={openCaseVideoUrl}
+                  title="Case em vídeo"
+                  src={vimeoIframeSrc(openCaseVideoUrl)}
+                  className="h-full w-full border-0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          ) : null}
+        </DialogContent>
+      </Dialog>
+
       <Footer />
     </div>
   );
