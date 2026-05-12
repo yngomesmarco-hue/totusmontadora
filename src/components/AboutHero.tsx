@@ -11,12 +11,12 @@ const AboutHero = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-background">
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-background">
       {/* Particle Background */}
       <ParticleBackground />
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 py-20">
+      <div className="relative z-10 mx-auto w-full max-w-[100%] px-6 py-20">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
           <div className="space-y-8 animate-fade-in">
@@ -59,12 +59,16 @@ const AboutHero = () => {
             </Button>
 
             {/* Stand Image - Mobile Only */}
-            <div className="mt-8 md:hidden space-y-6">
-              <img src={standMobile} alt="Stand TOTUS" className="w-full h-auto object-contain" />
-              <div className="flex justify-center">
+            <div className="mt-8 w-full min-w-0 space-y-6 md:hidden">
+              <img
+                src={standMobile}
+                alt="Stand TOTUS"
+                className="mx-auto block h-auto w-full max-w-full rounded-lg object-contain"
+              />
+              <div className="flex justify-center px-1">
                 <Button
                   size="lg"
-                  className="bg-neon text-black hover:bg-neon/90 font-semibold text-sm px-7 py-4 rounded-lg glow-neon min-w-[260px] max-w-full"
+                  className="rounded-lg bg-neon px-7 py-4 text-sm font-semibold text-black glow-neon hover:bg-neon/90"
                   onClick={() => navigate("/portfolio")}
                 >
                   {t('hero.cta')}
