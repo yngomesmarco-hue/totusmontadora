@@ -17,9 +17,12 @@ import image13 from "@/assets/sbc2026/image-13.jpeg";
 import image14 from "@/assets/sbc2026/image-14.jpeg";
 import image15 from "@/assets/sbc2026/image-15.jpeg";
 import image16 from "@/assets/sbc2026/image-16.jpeg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const SBCSummitRio2026 = () => {
+  const { t } = useLanguage();
   const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15, image16];
+  const title = t('portfolio.sbc2026');
 
   return (
     <div className="min-h-screen bg-background">
@@ -28,10 +31,10 @@ const SBCSummitRio2026 = () => {
       <main className="pt-32 pb-16">
         <div className="container mx-auto px-6">
           <h1 className="text-5xl md:text-6xl font-bold text-center text-foreground mb-16">
-            SBC Summit Rio 2026
+            {title}
           </h1>
 
-          <ImageGallery images={images} altPrefix="SBC Summit Rio 2026" />
+          <ImageGallery images={images} altPrefix={title} />
         </div>
       </main>
 

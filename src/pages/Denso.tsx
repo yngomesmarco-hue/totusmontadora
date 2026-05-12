@@ -10,7 +10,7 @@ const Denso = () => {
       <main className="pt-32 pb-16">
         <div className="container mx-auto px-6">
           <h1 className="text-5xl md:text-6xl font-bold text-center text-foreground mb-8">
-            Denso
+            {t('portfolio.denso')}
           </h1>
           <p className="text-center text-muted-foreground text-xl">
             {t('portfolio.comingSoon')}

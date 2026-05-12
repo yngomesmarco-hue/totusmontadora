@@ -6,14 +6,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
-import flagSpain from '@/assets/flag-spain.png';
 import flagUsa from '@/assets/flag-usa.png';
 import flagBrazil from '@/assets/flag-brazil.png';
 
 const languages: { code: Language; label: string; image: string }[] = [
   { code: 'pt', label: 'PT', image: flagBrazil },
   { code: 'en', label: 'EN', image: flagUsa },
-  { code: 'es', label: 'ES', image: flagSpain },
 ];
 
 const LanguageSelector = () => {

@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import VimeoIntroLightbox from "@/components/VimeoIntroLightbox";
 import Hero from "@/components/Hero";
 import LogoSlider from "@/components/LogoSlider";
 import Services from "@/components/Services";
@@ -10,6 +11,7 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <VimeoIntroLightbox />
       <Header />
       <Hero />
       <LogoSlider />

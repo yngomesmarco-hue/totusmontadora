@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import sigma2024Cover from "@/assets/sigma2024/image-1.jpg";
-import automecImage from "@/assets/automec.png";
+import densoCover from "@/assets/hero-stand.jpg";
+import bisSigma2026Cover from "@/assets/bis-sigma-2026/image-001.jpg";
+import sigma2024CactusCover from "@/assets/sigma2024/cactus.png";
 import sigma2025Image from "@/assets/sigma-americas-2025.png";
 import sbc2026Image from "@/assets/sbc2026/image-1.png";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -14,17 +15,17 @@ const Portfolio = () => {
   const projects = [
     {
       titleKey: "portfolio.denso",
-      image: sigma2024Cover,
+      image: densoCover,
       link: "/portfolio/denso",
     },
     {
       titleKey: "portfolio.bisSigma2026",
-      image: sbc2026Image,
+      image: bisSigma2026Cover,
       link: "/portfolio/bis-sigma-2026",
     },
     {
       titleKey: "portfolio.sigma2024",
-      image: sigma2024Cover,
+      image: sigma2024CactusCover,
       link: "/portfolio/sigma-americas-2024",
     },
     {

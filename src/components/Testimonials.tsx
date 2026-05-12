@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Play, Quote } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import bgTestimonials from "@/assets/bg-testimonials.png";
@@ -8,9 +8,32 @@ import dorotaGruszka from "@/assets/dorota-gruszka.png";
 import lorenaCometaGaming from "@/assets/lorena-cometa-gaming.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+/** Vimeo IDs + privacy hash (h=). Links enviados tinham %22 no final; removemos ao normalizar. */
+const VIDEO_TESTIMONIALS = [
+  { id: "1191299549", hash: "fadeee17f1" },
+  { id: "1191300651", hash: "1be6e3f53c" },
+  { id: "1191301035", hash: "2e4cda79b9" },
+  { id: "1190656947", hash: "1e610e8173" },
+] as const;
+
+function vimeoEmbedSrc(id: string, hash: string, autoplay: boolean) {
+  const params = new URLSearchParams({
+    h: hash,
+    badge: "0",
+    autopause: "0",
+  });
+  if (autoplay) params.set("autoplay", "1");
+  return `https://player.vimeo.com/video/${id}?${params.toString()}`;
+}
+
+function vimeoPageUrl(id: string, hash: string) {
+  return `https://vimeo.com/${id}?h=${encodeURIComponent(hash)}`;
+}
+
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedVideoIndex, setSelectedVideoIndex] = useState<number | null>(null);
+  const [videoThumbs, setVideoThumbs] = useState<Record<string, string | undefined>>({});
   const { t } = useLanguage();
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
@@ -46,14 +69,32 @@ const Testimonials = () => {
     },
   ];
 
-  const videoTestimonials = [
-    "Depoimento em vídeo 01",
-    "Depoimento em vídeo 02",
-    "Depoimento em vídeo 03",
-    "Depoimento em vídeo 04",
-  ];
+  const videoCarouselItems = [...VIDEO_TESTIMONIALS, ...VIDEO_TESTIMONIALS];
 
-  const videoCarouselItems = [...videoTestimonials, ...videoTestimonials];
+  useEffect(() => {
+    let cancelled = false;
+    const load = async () => {
+      for (const v of VIDEO_TESTIMONIALS) {
+        const key = `${v.id}-${v.hash}`;
+        try {
+          const page = vimeoPageUrl(v.id, v.hash);
+          const res = await fetch(
+            `https://vimeo.com/api/oembed.json?url=${encodeURIComponent(page)}&maxwidth=480`
+          );
+          if (!res.ok) continue;
+          const data = (await res.json()) as { thumbnail_url?: string };
+          if (cancelled || !data.thumbnail_url) continue;
+          setVideoThumbs((prev) => ({ ...prev, [key]: data.thumbnail_url }));
+        } catch {
+          /* fallback: gradient capa */
+        }
+      }
+    };
+    void load();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
@@ -136,7 +177,7 @@ const Testimonials = () => {
                         {item.author}
                       </p>
                       <p className="text-sm md:text-base text-muted-foreground">
-                        {t(item.positionKey)} • {item.company}
+                        {item.positionLabel ?? t(item.positionKey)} • {item.company}
                       </p>
                     </div>
                   </div>
@@ -175,24 +216,39 @@ const Testimonials = () => {
           <div className="mt-12 md:mt-16">
             <div className="text-center mb-6 md:mb-8">
               <h3 className="text-2xl md:text-4xl font-bold text-slate-950 leading-tight">
-                Depoimentos em <span className="text-neon">vídeo</span>
+                {t('testimonials.video.headingBefore')}
+                <span className="text-neon">{t('testimonials.video.headingHighlight')}</span>
+                {t('testimonials.video.headingAfter')}
               </h3>
               <p className="text-sm md:text-base text-slate-700 mt-2">
-                Em breve, vídeos reais dos nossos clientes.
+                {t('testimonials.video.subtitle')}
               </p>
             </div>
 
             <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden md:left-auto md:right-auto md:mx-0 md:w-auto">
               <div className="flex w-max gap-4 md:gap-6 animate-marquee [animation-duration:28s] hover:[animation-play-state:paused]">
-                {videoCarouselItems.map((title, index) => (
+                {videoCarouselItems.map((video, index) => {
+                  const key = `${video.id}-${video.hash}`;
+                  const thumb = videoThumbs[key];
+                  const slot = index % VIDEO_TESTIMONIALS.length;
+                  const videoTitle = `${t('testimonials.videoItem')} ${String(slot + 1).padStart(2, '0')}`;
+                  return (
                   <button
-                    key={`${title}-${index}`}
+                    key={`${key}-${index}`}
                     type="button"
-                    onClick={() => setSelectedVideoIndex(index % videoTestimonials.length)}
+                    onClick={() => setSelectedVideoIndex(index % VIDEO_TESTIMONIALS.length)}
                     className="group relative w-[170px] sm:w-[200px] md:w-[240px] flex-shrink-0 overflow-hidden rounded-2xl bg-slate-950 text-left shadow-xl ring-1 ring-white/20 transition-transform hover:scale-[1.02]"
                   >
                     <div className="aspect-[9/16] bg-gradient-to-br from-slate-900 via-slate-800 to-black">
-                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(132,255,0,0.28),transparent_30%),linear-gradient(180deg,transparent,rgba(0,0,0,0.75))]" />
+                      {thumb ? (
+                        <img
+                          src={thumb}
+                          alt=""
+                          className="absolute inset-0 h-full w-full object-cover"
+                          loading="lazy"
+                        />
+                      ) : null}
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(132,255,0,0.22),transparent_35%),linear-gradient(180deg,transparent,rgba(0,0,0,0.82))]" />
                       <div className="absolute inset-x-0 top-0 h-24 bg-white/5" />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <span className="flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-full bg-neon text-black shadow-lg transition-transform group-hover:scale-110">
@@ -200,12 +256,13 @@ const Testimonials = () => {
                         </span>
                       </div>
                       <div className="absolute inset-x-0 bottom-0 p-4">
-                        <p className="text-sm md:text-base font-semibold text-white">{title}</p>
-                        <p className="mt-1 text-xs md:text-sm text-white/65">Placeholder Vimeo</p>
+                        <p className="text-sm md:text-base font-semibold text-white">{videoTitle}</p>
+                        <p className="mt-1 text-xs md:text-sm text-white/65">Vimeo</p>
                       </div>
                     </div>
                   </button>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -213,21 +270,22 @@ const Testimonials = () => {
       </div>
 
       <Dialog open={selectedVideoIndex !== null} onOpenChange={(open) => !open && setSelectedVideoIndex(null)}>
-        <DialogContent className="w-[92vw] max-w-sm p-0 bg-transparent border-0 shadow-none">
+        <DialogContent className="w-[min(92vw,420px)] max-w-[min(92vw,420px)] p-0 bg-black border-0 shadow-none">
           {selectedVideoIndex !== null && (
-            <div className="overflow-hidden rounded-2xl bg-slate-950 shadow-2xl ring-1 ring-white/10">
-              <div className="aspect-[9/16] bg-gradient-to-br from-slate-900 via-slate-800 to-black">
-                <div className="h-full w-full flex flex-col items-center justify-center px-8 text-center">
-                  <span className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-neon text-black shadow-lg">
-                    <Play className="h-8 w-8 fill-current" />
-                  </span>
-                  <p className="text-lg font-semibold text-white">
-                    {videoTestimonials[selectedVideoIndex]}
-                  </p>
-                  <p className="mt-2 text-sm text-white/65">
-                    Aqui entra o player do Vimeo quando os links estiverem definidos.
-                  </p>
-                </div>
+            <div className="overflow-hidden rounded-2xl bg-black shadow-2xl ring-1 ring-white/10">
+              <div className="aspect-[9/16] w-full bg-black">
+                <iframe
+                  key={`${VIDEO_TESTIMONIALS[selectedVideoIndex].id}-${VIDEO_TESTIMONIALS[selectedVideoIndex].hash}`}
+                  title={`${t('testimonials.videoItem')} ${String(selectedVideoIndex + 1).padStart(2, '0')}`}
+                  src={vimeoEmbedSrc(
+                    VIDEO_TESTIMONIALS[selectedVideoIndex].id,
+                    VIDEO_TESTIMONIALS[selectedVideoIndex].hash,
+                    true
+                  )}
+                  className="h-full w-full border-0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                />
               </div>
             </div>
           )}

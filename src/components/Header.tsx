@@ -104,19 +104,19 @@ const Header = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="bg-background border border-border z-50">
                 <DropdownMenuItem onClick={() => navigateToPage("/portfolio/denso")} className="text-foreground hover:text-neon cursor-pointer">
-                  Denso
+                  {t('portfolio.denso')}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => navigateToPage("/portfolio/bis-sigma-2026")} className="text-foreground hover:text-neon cursor-pointer">
-                  BiS SiGMA 2026
+                  {t('portfolio.bisSigma2026')}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => navigateToPage("/portfolio/sigma-americas-2024")} className="text-foreground hover:text-neon cursor-pointer">
-                  BiS SiGMA 2024
+                  {t('portfolio.sigma2024')}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => navigateToPage("/portfolio/sigma-americas-2025")} className="text-foreground hover:text-neon cursor-pointer">
-                  BiS SiGMA 2025
+                  {t('portfolio.sigma2025')}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => navigateToPage("/portfolio/sbc-summit-rio-2026")} className="text-foreground hover:text-neon cursor-pointer">
-                  SBC Summit Rio 2026
+                  {t('portfolio.sbc2026')}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
