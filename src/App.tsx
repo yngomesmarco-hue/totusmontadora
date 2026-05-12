@@ -13,6 +13,7 @@ import SigmaAmericas2025 from "./pages/SigmaAmericas2025";
 import SBCSummitRio2026 from "./pages/SBCSummitRio2026";
 import Denso from "./pages/Denso";
 import BisSigma2026 from "./pages/BisSigma2026";
+import LiderancaEstrategica from "./pages/LiderancaEstrategica";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="/portfolio/sbc-summit-rio-2026" element={<SBCSummitRio2026 />} />
             <Route path="/portfolio/denso" element={<Denso />} />
             <Route path="/portfolio/bis-sigma-2026" element={<BisSigma2026 />} />
+            <Route path="/lideranca-estrategica" element={<LiderancaEstrategica />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
