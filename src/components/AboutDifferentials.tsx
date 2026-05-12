@@ -28,21 +28,21 @@ const AboutDifferentials = () => {
   return (
     <section className="bg-background pb-20 pt-8 md:-mt-4 md:pt-12">
       <div className="container mx-auto max-w-full px-6">
-        <div className="mb-5 hidden w-full md:mb-12 md:block">
+        <h2 className="mb-8 text-center text-3xl font-bold text-foreground md:mb-10 md:text-4xl lg:text-5xl">
+          {t('aboutDifferentials.title')}
+        </h2>
+
+        <div className="mb-10 flex justify-center md:mb-12">
           <Button
             size="lg"
-            className="bg-neon px-7 py-4 text-sm font-semibold text-black hover:bg-neon/90 md:w-auto md:min-w-0 md:px-8 md:py-6 md:text-lg glow-neon rounded-lg"
+            className="rounded-lg bg-neon px-7 py-4 text-sm font-semibold text-black glow-neon hover:bg-neon/90 md:px-8 md:py-6 md:text-lg"
             onClick={() => navigate("/portfolio")}
           >
             {t('hero.cta')}
           </Button>
         </div>
 
-        <h2 className="md:text-4xl lg:text-5xl font-bold text-center mb-16 text-foreground text-3xl">
-          {t('aboutDifferentials.title')}
-        </h2>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-3">
           {differentials.map((item, index) => (
             <div
               key={index}
