@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import LanguageSelector from "./LanguageSelector";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { BRAND_COPY } from "@/constants/brandCopy";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -100,7 +101,7 @@ const Header = () => {
                 location.pathname === "/lideranca-estrategica" ? "text-neon" : "text-foreground hover:text-neon"
               }`}
             >
-              {t('nav.leadership')}
+              {BRAND_COPY.navLeadership}
             </button>
             <DropdownMenu>
               <DropdownMenuTrigger 
@@ -124,7 +125,7 @@ const Header = () => {
                   {t('portfolio.sigma2025')}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => navigateToPage("/portfolio/sbc-summit-rio-2026")} className="text-foreground hover:text-neon cursor-pointer">
-                  {t('portfolio.sbc2026')}
+                  {BRAND_COPY.portfolioSbcRioSummit2026}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -178,7 +179,7 @@ const Header = () => {
               onClick={() => navigateToPage("/lideranca-estrategica")}
               className="text-foreground hover:text-neon transition-colors text-left"
             >
-              {t('nav.leadership')}
+              {BRAND_COPY.navLeadership}
             </button>
             <button
               onClick={() => navigateToPage("/portfolio")}

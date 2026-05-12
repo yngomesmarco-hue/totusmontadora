@@ -7,6 +7,7 @@ import claudioCorrea from "@/assets/claudio-correa.png";
 import dorotaGruszka from "@/assets/dorota-gruszka.png";
 import lorenaCometaGaming from "@/assets/lorena-cometa-gaming.png";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { BRAND_COPY } from "@/constants/brandCopy";
 
 /** Vimeo IDs + privacy hash (h=). Links enviados tinham %22 no final; removemos ao normalizar. */
 const VIDEO_TESTIMONIALS = [
@@ -65,7 +66,7 @@ const Testimonials = () => {
       author: "Lorena",
       positionKey: 'testimonials.4.position',
       /** Sempre este texto em PT/EN (evita tradução automática “Chefe” ou divergência de i18n). */
-      positionLabel: "Head de Marketing",
+      positionLabel: BRAND_COPY.lorenaPosition,
       company: "Cometa Gaming",
       image: lorenaCometaGaming,
     },

@@ -1,6 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { MessageCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { BRAND_COPY } from "@/constants/brandCopy";
 import iconInstagram from "@/assets/icon-instagram.png";
 import iconFacebook from "@/assets/icon-facebook.png";
 
@@ -87,7 +88,7 @@ const Footer = () => {
                     onClick={() => navigateToPage("/lideranca-estrategica")}
                     className="text-muted-foreground hover:text-neon transition-colors"
                   >
-                    {t('nav.leadership')}
+                    {BRAND_COPY.navLeadership}
                   </button>
                 </li>
                 <li>

@@ -7,6 +7,7 @@ import sigma2024CactusCover from "@/assets/sigma2024/cactus.png";
 import sigma2025Image from "@/assets/sigma-americas-2025.png";
 import sbc2026Image from "@/assets/sbc2026/image-1.png";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { BRAND_COPY } from "@/constants/brandCopy";
 
 const Portfolio = () => {
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ const Portfolio = () => {
     },
     {
       titleKey: "portfolio.sbc2026",
+      titleFixed: BRAND_COPY.portfolioSbcRioSummit2026,
       image: sbc2026Image,
       link: "/portfolio/sbc-summit-rio-2026",
     },
@@ -67,12 +69,12 @@ const Portfolio = () => {
                 >
                   <img
                     src={project.image}
-                    alt={t(project.titleKey)}
+                    alt={project.titleFixed ?? t(project.titleKey)}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-6">
                     <h3 className="text-white font-bold text-xl text-center w-full">
-                      {t(project.titleKey)}
+                      {project.titleFixed ?? t(project.titleKey)}
                     </h3>
                   </div>
                 </div>
