@@ -340,7 +340,8 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   };
 
   const t = (key: string): string => {
-    return translations[language][key] || key;
+    const value = translations[language][key];
+    return value !== undefined ? value : key;
   };
 
   useEffect(() => {

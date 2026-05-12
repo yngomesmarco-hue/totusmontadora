@@ -123,7 +123,7 @@ const Testimonials = () => {
 
   return (
     <section
-      className="py-10 md:py-20 lg:py-32 bg-white relative"
+      className="relative w-full max-w-full overflow-x-hidden bg-white py-10 md:py-20 lg:py-32"
       style={{
         backgroundImage: `url(${bgTestimonials})`,
         backgroundSize: "cover",
@@ -225,7 +225,7 @@ const Testimonials = () => {
               </p>
             </div>
 
-            <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden md:left-auto md:right-auto md:mx-0 md:w-auto">
+            <div className="relative -mx-4 w-[calc(100%+2rem)] overflow-hidden sm:-mx-6 sm:w-[calc(100%+3rem)] md:relative md:left-1/2 md:w-[100dvw] md:max-w-[100dvw] md:-translate-x-1/2">
               <div className="flex w-max gap-4 md:gap-6 animate-marquee [animation-duration:28s] hover:[animation-play-state:paused]">
                 {videoCarouselItems.map((video, index) => {
                   const key = `${video.id}-${video.hash}`;

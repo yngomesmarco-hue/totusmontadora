@@ -14,7 +14,6 @@ function introPlayerSrc() {
     badge: "0",
     autopause: "0",
     autoplay: "1",
-    // Necessário na maioria dos navegadores para autoplay na carga da página; dá para ativar o som nos controles do Vimeo.
     muted: "1",
   });
   return `https://player.vimeo.com/video/${VIMEO_ID}?${params.toString()}`;
@@ -29,32 +28,40 @@ const VimeoIntroLightbox = () => {
         <DialogOverlay className="z-[200]" />
         <DialogPrimitive.Content
           className={cn(
-            "fixed left-1/2 top-1/2 z-[201] w-[min(96vw,960px)] max-h-[90vh] translate-x-[-50%] translate-y-[-50%]",
-            "border-0 bg-transparent p-0 shadow-none outline-none",
+            "fixed inset-0 z-[201] flex items-center justify-center border-0 bg-transparent p-0 shadow-none outline-none",
             "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
             "duration-200"
           )}
         >
           <DialogPrimitive.Title className="sr-only">Vídeo TOTUS Cenografia</DialogPrimitive.Title>
-          <div className="relative overflow-hidden rounded-xl bg-black shadow-2xl ring-1 ring-white/15">
-            <div className="aspect-video w-full bg-black">
-              {open ? (
-                <iframe
-                  src={introPlayerSrc()}
-                  className="h-full w-full border-0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  title="Vídeo TOTUS Cenografia"
-                />
-              ) : null}
-            </div>
-            <DialogPrimitive.Close
-              className="absolute right-2 top-2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/75 text-white ring-1 ring-white/25 transition-colors hover:bg-black"
-              aria-label="Fechar vídeo"
-            >
-              <X className="h-5 w-5" />
-            </DialogPrimitive.Close>
+
+          {/* Maior retângulo 9:16 que cabe na viewport — vídeo vertical, quase tela cheia, sem “letterbox” do container */}
+          <div
+            className={cn(
+              "relative overflow-hidden bg-black",
+              "h-[min(100dvh,calc(100vw*16/9))] w-[min(100vw,calc(100dvh*9/16))]"
+            )}
+          >
+            {open ? (
+              <iframe
+                src={introPlayerSrc()}
+                className="absolute inset-0 block h-full w-full border-0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                title="Vídeo TOTUS Cenografia"
+              />
+            ) : null}
           </div>
+
+          <DialogPrimitive.Close
+            className={cn(
+              "absolute right-[max(1rem,env(safe-area-inset-right))] top-[max(1rem,env(safe-area-inset-top))] z-10",
+              "flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+            )}
+            aria-label="Fechar vídeo"
+          >
+            <X className="h-5 w-5" />
+          </DialogPrimitive.Close>
         </DialogPrimitive.Content>
       </DialogPortal>
     </Dialog>
