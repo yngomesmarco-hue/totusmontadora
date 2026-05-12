@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Play, Eye, Layers, Clock, Building2, ArrowRight, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { useLanguage } from "@/contexts/LanguageContext";
+import type { Language } from "@/contexts/LanguageContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import guilhermePhoto from "@/assets/guilherme-camargo.jpeg";
@@ -10,9 +12,13 @@ import guilhermePhoto from "@/assets/guilherme-camargo.jpeg";
 const WHATSAPP =
   "https://api.whatsapp.com/send/?phone=11940042546&text=Oi%2C+gostaria+de+falar+sobre+parcerias+estrat%C3%A9gicas+com+a+Totus+Asset&type=phone_number&app_absent=0";
 
-function vimeoIframeSrc(embedUrl: string) {
-  if (embedUrl.includes("autoplay=")) return embedUrl;
-  return `${embedUrl}${embedUrl.includes("?") ? "&" : "?"}autoplay=1`;
+function vimeoIframeSrc(embedUrl: string, uiLang: Language) {
+  const u = new URL(embedUrl);
+  if (!u.searchParams.has("autoplay")) {
+    u.searchParams.set("autoplay", "1");
+  }
+  u.searchParams.set("lang", uiLang === "pt" ? "pt" : "en");
+  return u.toString();
 }
 
 type TimelineItem = {
@@ -138,6 +144,7 @@ const principleCards = [
 ];
 
 const LiderancaEstrategica = () => {
+  const { t, language } = useLanguage();
   const [openCaseVideoUrl, setOpenCaseVideoUrl] = useState<string | null>(null);
 
   const handleContact = () => {
@@ -250,7 +257,7 @@ const LiderancaEstrategica = () => {
                           className="inline-flex items-center gap-2 text-left text-xs font-semibold text-primary transition-opacity hover:opacity-80"
                         >
                           <Play className="h-3.5 w-3.5 shrink-0 fill-primary" />
-                          Assistir case
+                          {t("leadership.watchCase")}
                         </button>
                       ) : null}
                       {item.siteUrl ? (
@@ -377,9 +384,9 @@ const LiderancaEstrategica = () => {
             <div className="overflow-hidden rounded-3xl bg-black shadow-2xl ring-1 ring-white/10">
               <div className="aspect-[9/16] w-full bg-black">
                 <iframe
-                  key={openCaseVideoUrl}
-                  title="Case em vídeo"
-                  src={vimeoIframeSrc(openCaseVideoUrl)}
+                  key={`${openCaseVideoUrl}-${language}`}
+                  title={t("leadership.caseVideoIframeTitle")}
+                  src={vimeoIframeSrc(openCaseVideoUrl, language)}
                   className="h-full w-full border-0"
                   allow="autoplay; fullscreen; picture-in-picture"
                   allowFullScreen

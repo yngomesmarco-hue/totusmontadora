@@ -17,6 +17,8 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.portfolio': 'Portfólio',
     'nav.contact': 'Contato',
     'nav.quote': 'Solicite um orçamento',
+    'leadership.watchCase': 'Assistir case',
+    'leadership.caseVideoIframeTitle': 'Case em vídeo',
     
     // Hero
     'hero.title1': 'Criamos experiências únicas ',
@@ -146,7 +148,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.sigma2024': 'BIS SIGMA 2024',
     'portfolio.automec': 'AUTOMEC',
     'portfolio.sigma2025': 'BiS SiGMA 2025',
-    'portfolio.sbc2026': 'Rio Summit 2026',
+    'portfolio.sbc2026': 'SBC Rio Summit 2026',
     'portfolio.comingSoon': 'Em breve — fotos serão adicionadas em breve.',
     
     // Video Gallery
@@ -168,6 +170,8 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.portfolio': 'Portfolio',
     'nav.contact': 'Contact',
     'nav.quote': 'Request a quote',
+    'leadership.watchCase': 'Watch case study',
+    'leadership.caseVideoIframeTitle': 'Video case study',
     
     // Hero
     'hero.title1': 'We create unique experiences ',
@@ -297,7 +301,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.sigma2024': 'BIS SIGMA 2024',
     'portfolio.automec': 'AUTOMEC',
     'portfolio.sigma2025': 'BiS SiGMA 2025',
-    'portfolio.sbc2026': 'Rio Summit 2026',
+    'portfolio.sbc2026': 'SBC Rio Summit 2026',
     'portfolio.comingSoon': 'Coming soon — photos will be added shortly.',
     
     // Video Gallery
