@@ -94,6 +94,14 @@ const Header = () => {
             >
               {t('nav.about')}
             </button>
+            <button
+              onClick={() => navigateToPage("/lideranca-estrategica")}
+              className={`transition-colors font-medium ${
+                location.pathname === "/lideranca-estrategica" ? "text-neon" : "text-foreground hover:text-neon"
+              }`}
+            >
+              {t('nav.leadership')}
+            </button>
             <DropdownMenu>
               <DropdownMenuTrigger 
                 onClick={() => navigateToPage("/portfolio")}
@@ -165,6 +173,12 @@ const Header = () => {
               className="text-foreground hover:text-neon transition-colors text-left"
             >
               {t('nav.about')}
+            </button>
+            <button
+              onClick={() => navigateToPage("/lideranca-estrategica")}
+              className="text-foreground hover:text-neon transition-colors text-left"
+            >
+              {t('nav.leadership')}
             </button>
             <button
               onClick={() => navigateToPage("/portfolio")}

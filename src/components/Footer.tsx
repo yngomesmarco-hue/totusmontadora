@@ -84,6 +84,14 @@ const Footer = () => {
                 </li>
                 <li>
                   <button
+                    onClick={() => navigateToPage("/lideranca-estrategica")}
+                    className="text-muted-foreground hover:text-neon transition-colors"
+                  >
+                    {t('nav.leadership')}
+                  </button>
+                </li>
+                <li>
+                  <button
                     onClick={() => navigateToPage("/portfolio")}
                     className="text-muted-foreground hover:text-neon transition-colors"
                   >
