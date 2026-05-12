@@ -6,6 +6,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { BRAND_COPY } from "@/constants/brandCopy";
+import { useLanguage } from "@/contexts/LanguageContext";
 import guilhermePhoto from "@/assets/guilherme-camargo.jpeg";
 
 const WHATSAPP =
@@ -144,6 +145,7 @@ const principleCards = [
 ];
 
 const LiderancaEstrategica = () => {
+  const { t } = useLanguage();
   const [openCaseVideoUrl, setOpenCaseVideoUrl] = useState<string | null>(null);
 
   const handleContact = () => {
@@ -256,7 +258,7 @@ const LiderancaEstrategica = () => {
                           className="inline-flex items-center gap-2 text-left text-xs font-semibold text-primary transition-opacity hover:opacity-80"
                         >
                           <Play className="h-3.5 w-3.5 shrink-0 fill-primary" />
-                          {BRAND_COPY.caseCta}
+                          {t("leadership.caseCta")}
                         </button>
                       ) : null}
                       {item.siteUrl ? (
