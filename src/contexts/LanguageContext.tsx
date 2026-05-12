@@ -170,8 +170,8 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.portfolio': 'Portfolio',
     'nav.contact': 'Contact',
     'nav.quote': 'Request a quote',
-    'leadership.watchCase': 'Watch case study',
-    'leadership.caseVideoIframeTitle': 'Video case study',
+    'leadership.watchCase': 'Assistir case',
+    'leadership.caseVideoIframeTitle': 'Case em vídeo',
     
     // Hero
     'hero.title1': 'We create unique experiences ',

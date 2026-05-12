@@ -64,6 +64,8 @@ const Testimonials = () => {
       textKey: 'testimonials.4.text',
       author: "Lorena",
       positionKey: 'testimonials.4.position',
+      /** Sempre este texto em PT/EN (evita tradução automática “Chefe” ou divergência de i18n). */
+      positionLabel: "Head de Marketing",
       company: "Cometa Gaming",
       image: lorenaCometaGaming,
     },
