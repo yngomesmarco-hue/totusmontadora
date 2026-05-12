@@ -210,7 +210,7 @@ const translations: Record<Language, Record<string, string>> = {
     'testimonials.3.text': 'We partnered with TOTUS Montagens for our recent event in São Paulo, and we were very pleased with their stand construction service. The stand they designed was visually appealing and effectively captured attendees attention. The additional lights they provided added value by enhancing the visibility. It was a satisfactory experience, and we found the service definitely worth the price. We would consider collaborating with them again in the future!',
     'testimonials.3.position': 'Marketing Manager',
     'testimonials.4.text': 'Good morning, team. Just stopping by to congratulate you on the delivery and the final result of the project. I\'m not there in person, but from the photos and videos I received, it exceeded expectations. Excellent work by the entire team 👏👏',
-    'testimonials.4.position': 'Head of Marketing',
+    'testimonials.4.position': 'Head de Marketing',
     
     // Contact Form
     'contact.title': 'Let\'s transform your ideas into',
