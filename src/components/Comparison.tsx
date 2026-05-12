@@ -146,7 +146,7 @@ const Comparison = () => {
         <div className="flex justify-center mt-8 md:mt-12">
           <button
             onClick={() => (window.location.href = "/portfolio")}
-            className="bg-neon text-black hover:bg-neon/90 font-bold text-sm md:text-lg px-7 md:px-12 py-3 md:py-4 rounded-md glow-neon transition-all"
+            className="bg-neon text-black hover:bg-neon/90 font-bold text-sm md:text-lg px-7 md:px-12 py-3 md:py-4 rounded-md glow-neon transition-all min-w-[260px] max-w-full md:min-w-0"
           >
             {t('comparison.viewMore')}
           </button>

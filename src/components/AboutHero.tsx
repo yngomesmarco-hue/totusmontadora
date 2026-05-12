@@ -64,7 +64,7 @@ const AboutHero = () => {
               <div className="flex justify-center">
                 <Button
                   size="lg"
-                  className="bg-neon text-black hover:bg-neon/90 font-semibold text-sm px-7 py-4 rounded-lg glow-neon"
+                  className="bg-neon text-black hover:bg-neon/90 font-semibold text-sm px-7 py-4 rounded-lg glow-neon min-w-[260px] max-w-full"
                   onClick={() => navigate("/portfolio")}
                 >
                   {t('hero.cta')}

@@ -174,7 +174,7 @@ const AboutCommitments = () => {
         <div className="flex justify-center mt-12">
           <button
             onClick={() => navigate("/portfolio")}
-            className="bg-neon text-black hover:bg-neon/90 font-bold text-lg px-12 py-4 rounded-md glow-neon transition-all"
+            className="bg-neon text-black hover:bg-neon/90 font-bold text-lg px-12 py-4 rounded-md glow-neon transition-all min-w-[260px] max-w-full md:min-w-0"
           >
             {t('hero.cta')}
           </button>
