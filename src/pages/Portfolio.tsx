@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import densoCover from "@/assets/denso/image-01.jpg";
+import densoCover from "@/assets/denso/cover.png";
 import bisSigma2026Cover from "@/assets/bis-sigma-2026/image-001.jpg";
 import sigma2024CactusCover from "@/assets/sigma2024/cactus.png";
 import sigma2025Image from "@/assets/sigma-americas-2025.png";
