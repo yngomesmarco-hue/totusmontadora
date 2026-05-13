@@ -1,152 +1,101 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Play, Eye, Layers, Clock, Building2, ArrowRight, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { BRAND_COPY } from "@/constants/brandCopy";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage, type Language } from "@/contexts/LanguageContext";
 import guilhermePhoto from "@/assets/guilherme-camargo.jpeg";
 
 const WHATSAPP =
   "https://api.whatsapp.com/send/?phone=11940042546&text=Oi%2C+gostaria+de+falar+sobre+parcerias+estrat%C3%A9gicas+com+a+Totus+Asset&type=phone_number&app_absent=0";
 
-/** Player sempre em PT — nomes/frases acordados não devem “traduzir” via UI do Vimeo. */
-function vimeoIframeSrc(embedUrl: string) {
+function vimeoIframeSrc(embedUrl: string, lang: Language) {
   const u = new URL(embedUrl);
   if (!u.searchParams.has("autoplay")) {
     u.searchParams.set("autoplay", "1");
   }
-  u.searchParams.set("lang", "pt");
+  u.searchParams.set("lang", lang === "pt" ? "pt" : "en");
   return u.toString();
 }
 
-type TimelineItem = {
+type TimelineSpec = {
   year: string;
-  title: string;
-  paragraphs: string[];
+  id: string;
+  paragraphCount: number;
   videoUrl?: string;
   siteUrl?: string;
 };
 
-const metrics = [
-  { value: "1991", label: "Primeiro empreendimento" },
-  { value: "35+", label: "Anos de trajetória" },
-  { value: "4", label: "Empresas ativas no grupo" },
-  { value: "3", label: "Setores de atuação" },
-];
-
-/** Vimeo dos cases = mesmos URLs do bundle em produção (locamotofacil.com.br/lideranca-estrategica). */
-const timeline: TimelineItem[] = [
-  {
-    year: "2026",
-    title: "Fundação da Totus Asset",
-    paragraphs: [
-      "A Totus Asset foi estruturada como a holding estratégica do grupo, com o objetivo de consolidar operações, organizar capital e viabilizar crescimento com governança e escala. A empresa atua na gestão de ativos, estruturação financeira e desenvolvimento de novos negócios, conectando investidores a operações reais com lastro operacional.",
-      "Seu modelo se baseia em controle rigoroso, previsibilidade de resultados e eficiência na alocação de recursos, criando uma plataforma que sustenta o crescimento das empresas do grupo de forma integrada. Mais do que uma holding, a Totus Asset funciona como um sistema de inteligência operacional e financeira, responsável por transformar operações em ativos estruturados.",
-    ],
-  },
+/** Dados fixos da linha do tempo; textos via i18n (leadership.y*). */
+const TIMELINE_SPEC: TimelineSpec[] = [
+  { year: "2026", id: "y2026", paragraphCount: 2 },
   {
     year: "2025",
-    title: "Fundação da LocaMotoFácil",
+    id: "y2025",
+    paragraphCount: 2,
     siteUrl: "https://www.locamotofacil.com.br",
-    paragraphs: [
-      "A LocaMotoFácil nasce para resolver uma ineficiência estrutural do mercado de mobilidade: o acesso limitado ao crédito para aquisição de veículos produtivos. A empresa estrutura uma alternativa baseada em locação, permitindo que profissionais de entrega e transporte tenham acesso imediato a ativos geradores de renda.",
-      "A operação combina tecnologia proprietária, automação de processos, telemetria e controle de risco em tempo real, criando um modelo escalável, com alta taxa de ocupação e previsibilidade operacional. Ao integrar gestão, cobrança, monitoramento e manutenção em uma única plataforma, a LocaMotoFácil transforma locação em um sistema eficiente de geração de receita recorrente.",
-    ],
   },
   {
     year: "2024",
-    title: "Fundação da LocaCarroFácil",
+    id: "y2024",
+    paragraphCount: 2,
     siteUrl: "https://www.locacarrofacil.com.br",
-    paragraphs: [
-      "A LocaCarroFácil foi criada com foco em eficiência operacional e giro de ativos no segmento de mobilidade urbana. A empresa oferece veículos prontos para operação por motoristas de aplicativo, eliminando barreiras de entrada como crédito, burocracia e tempo de aquisição.",
-      "Seu modelo privilegia simplicidade, velocidade e alta ocupação, estruturando uma operação enxuta, com controle direto sobre performance dos ativos. A LocaCarroFácil consolida uma abordagem prática e orientada a resultado dentro do ecossistema de mobilidade do grupo.",
-    ],
   },
   {
     year: "2023",
-    title: "Fundação da Totus Cenografia",
+    id: "y2023",
+    paragraphCount: 2,
     siteUrl: "/",
     videoUrl: "https://player.vimeo.com/video/1190656947?h=1e610e8173",
-    paragraphs: [
-      "A Totus Cenografia foi criada para atuar no desenvolvimento e execução de projetos cenográficos e stands premium para grandes eventos e feiras corporativas. A empresa rapidamente se posicionou como uma operação de alcance nacional, com capacidade de entrega para projetos de alta complexidade.",
-      "Seus projetos são concebidos a partir da integração entre arquitetura, tecnologia e estratégia de marca, incorporando princípios de neuroarquitetura para influenciar comportamento, aumentar tempo de permanência e potencializar engajamento. Mais do que estruturas físicas, a Totus desenvolve ambientes que operam como ferramentas de comunicação e conversão.",
-    ],
   },
   {
     year: "2020",
-    title: "Fundação da Liga de Combate ao Câncer",
+    id: "y2020",
+    paragraphCount: 3,
     videoUrl: "https://player.vimeo.com/video/508645636?badge=0&autopause=0&player_id=0&app_id=58479",
-    paragraphs: [
-      "Em parceria com o Hospital de Amor (antigo Hospital de Câncer de Barretos), foi concebida a Liga de Combate ao Câncer — uma iniciativa de impacto social estruturada a partir da aplicação integrada de tecnologia, design de experiência e estratégia comportamental.",
-      "O projeto foi desenhado para atuar na base da cadeia de conscientização, transformando crianças do ensino fundamental em agentes multiplicadores de informação em suas comunidades. Por meio de uma jornada interativa, imersiva e gamificada, a iniciativa promove engajamento ativo e incentiva a realização de exames preventivos de câncer de mama e colo do útero.",
-      "Reconhecida internacionalmente, a iniciativa recebeu certificação do American College of Surgeons como uma das melhores práticas globais em prevenção do câncer. Esse projeto estabelece as bases conceituais que hoje orientam a atuação do grupo: operações concebidas como sistemas completos, com foco em impacto real, engajamento e controle.",
-    ],
   },
   {
     year: "2012",
-    title: "Fundação da DigToten",
+    id: "y2012",
+    paragraphCount: 2,
     videoUrl: "https://player.vimeo.com/video/1190655769?badge=0&autopause=0&player_id=0&app_id=58479",
-    paragraphs: [
-      "A DigToten foi pioneira no desenvolvimento de tecnologias interativas para marketing promocional, criando soluções que ampliam o engajamento do público em eventos e ativações de marca. A empresa também atuou na gestão de credenciamento e controle de acesso, sendo uma das primeiras a implementar sistemas de autoatendimento em feiras e congressos.",
-      "Sua atuação integrou tecnologia, experiência do usuário e eficiência operacional em projetos para grandes marcas nacionais e internacionais, como Embraer, Ambev, Coca-Cola, Elvis Presley Enterprises e CVC. A DigToten antecipou tendências que hoje se consolidaram no mercado, posicionando a tecnologia como elemento central na experiência de eventos.",
-    ],
   },
   {
     year: "2005",
-    title: "Fundação da GPN",
+    id: "y2005",
+    paragraphCount: 2,
     videoUrl: "https://player.vimeo.com/video/631008048?badge=0&autopause=0&player_id=0&app_id=58479",
-    paragraphs: [
-      "A GPN foi criada com o objetivo de estruturar um modelo inovador para gestão de reprodução de documentos acadêmicos com controle de direitos autorais. Em parceria com o Ministério da Cultura, Biblioteca Nacional, Agência Internacional do ISBN e Banco do Brasil, desenvolveu um sistema capaz de registrar e viabilizar o repasse de direitos autorais a cada página copiada de obras técnicas e literárias.",
-      "A operação permitiu conciliar acesso democrático ao conhecimento com remuneração justa aos autores, criando um modelo sustentável e juridicamente estruturado. Instalada na Universidade Católica de Brasília e no UniCEUB, a empresa chegou a atender mais de 40 mil alunos diariamente, consolidando uma solução de grande escala dentro do ambiente acadêmico.",
-    ],
   },
   {
     year: "2003",
-    title: "Produção de Festival Internacional de Música",
+    id: "y2003",
+    paragraphCount: 2,
     videoUrl: "https://player.vimeo.com/video/570418042?badge=0&autopause=0&player_id=0&app_id=58479",
-    paragraphs: [
-      "Em parceria com a Rede Globo e com patrocínio de grandes grupos como Banco do Brasil, Claro, Vale e Petrobras, foi realizado o maior festival de música da América Latina naquele ano, reunindo mais de 40 bandas nacionais e internacionais.",
-      "O projeto teve desdobramento em um especial televisivo exibido após o programa Fantástico, alcançando mais de 50% dos televisores ligados no país. A operação envolveu coordenação de múltiplos stakeholders, produção em larga escala e integração entre evento físico e mídia de massa.",
-    ],
   },
-  {
-    year: "1998",
-    title: "Fundação da Suporte de Produção",
-    paragraphs: [
-      "A Suporte de Produção foi criada com foco em conteúdo audiovisual institucional, desenvolvendo vídeos publicitários e documentários para organizações públicas e privadas. Atendeu clientes como Sebrae, TV Escola e Caixa Econômica Federal.",
-      "A empresa consolidou experiência na construção de narrativas audiovisuais estratégicas, conectando comunicação, conteúdo e objetivos institucionais de forma clara e eficiente.",
-    ],
-  },
-  {
-    year: "1994",
-    title: 'Produção do Programa "YourFace" (Canadá)',
-    paragraphs: [
-      'Produziu, em Estevan, Canadá, o programa semanal "YourFace", voltado à cobertura de eventos esportivos e culturais, além da discussão de temas relevantes para o público jovem.',
-      "A experiência internacional contribuiu para o desenvolvimento de uma visão ampliada sobre comunicação, audiência e construção de conteúdo, antecipando conceitos que hoje são centrais na economia da atenção.",
-    ],
-  },
-  {
-    year: "1991",
-    title: "Fundação da Oficina de Imagens",
-    paragraphs: [
-      "Aos 14 anos, fundou a Oficina de Imagens, primeira produtora audiovisual de sua cidade natal, Barretos/SP, em sociedade com seu professor de fotografia e vídeo, Paulo Marques.",
-      "Aos 15 anos, realizou seu primeiro contrato de grande porte, produzindo a campanha política do então candidato a prefeito Dr. Hélio Navarro. O projeto marcou o início de uma trajetória empreendedora baseada em execução, responsabilidade e capacidade de entrega em contextos reais.",
-    ],
-  },
+  { year: "1998", id: "y1998", paragraphCount: 2 },
+  { year: "1994", id: "y1994", paragraphCount: 2 },
+  { year: "1991", id: "y1991", paragraphCount: 2 },
 ];
 
-const principleCards = [
-  { n: "01", title: "Estrutura antes da escala", desc: "Construir bases sólidas antes de buscar volume." },
-  { n: "02", title: "Controle antes do crescimento", desc: "Crescer com governança, métricas e previsibilidade." },
-  { n: "03", title: "Sistema antes da execução", desc: "Pensar o todo como mecanismo integrado, não como tarefas isoladas." },
-];
+const METRIC_VALUES = ["1991", "35+", "4", "3"] as const;
+
+const PRINCIPLE_NUMS = ["1", "2", "3"] as const;
 
 const LiderancaEstrategica = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [openCaseVideoUrl, setOpenCaseVideoUrl] = useState<string | null>(null);
+
+  const timeline = useMemo(
+    () =>
+      TIMELINE_SPEC.map((spec) => ({
+        ...spec,
+        title: t(`leadership.${spec.id}.title`),
+        paragraphs: Array.from({ length: spec.paragraphCount }, (_, i) => t(`leadership.${spec.id}.p${i}`)),
+      })),
+    [t, language],
+  );
 
   const handleContact = () => {
     window.open(WHATSAPP, "_blank");
@@ -156,27 +105,20 @@ const LiderancaEstrategica = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="mx-auto max-w-5xl px-4 pb-12 pt-24 sm:px-6 sm:pt-28">
-        {/* Hero — ordem mobile: foto primeiro (igual referência) */}
         <section>
           <div className="grid items-center gap-8 lg:grid-cols-[3fr_2fr] lg:gap-12">
             <div className="order-2 text-center lg:order-1 lg:text-left">
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                Liderança Estratégica
+                {t("leadership.hero.eyebrow")}
               </div>
 
               <h1 className="mb-2 text-3xl font-bold sm:text-4xl md:text-5xl">
                 <span className="text-neon">Guilherme Camargo</span>
               </h1>
 
-              <p className="mb-5 text-base font-semibold text-foreground/90 sm:text-lg">
-                Fundador &amp; CEO da Totus Asset
-              </p>
+              <p className="mb-5 text-base font-semibold text-foreground/90 sm:text-lg">{t("leadership.hero.role")}</p>
 
-              <p className="mb-7 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                Empreendedor com atuação multissetorial, responsável pela estruturação de operações escaláveis nos setores
-                de cenografia, mobilidade e tecnologia, com foco em eficiência operacional, controle e geração de valor
-                sustentável.
-              </p>
+              <p className="mb-7 text-sm leading-relaxed text-muted-foreground sm:text-base">{t("leadership.hero.intro")}</p>
 
               <Button
                 size="lg"
@@ -184,7 +126,7 @@ const LiderancaEstrategica = () => {
                 onClick={() => document.getElementById("trajetoria")?.scrollIntoView({ behavior: "smooth" })}
               >
                 <Play className="h-4 w-4" />
-                Ver trajetória completa
+                {t("leadership.hero.ctaScroll")}
               </Button>
             </div>
 
@@ -192,7 +134,7 @@ const LiderancaEstrategica = () => {
               <div className="relative mx-auto aspect-[3/4] max-w-[320px] overflow-hidden rounded-2xl border-2 border-primary/40 shadow-[0_0_40px_hsl(var(--primary)/0.25)] sm:max-w-[380px]">
                 <img
                   src={guilhermePhoto}
-                  alt="Guilherme Camargo, Fundador e CEO da Totus Asset"
+                  alt={t("leadership.hero.imgAlt")}
                   className="h-full w-full object-cover [object-position:center_25%]"
                   loading="eager"
                 />
@@ -202,36 +144,26 @@ const LiderancaEstrategica = () => {
           </div>
         </section>
 
-        {/* Visão e abordagem */}
         <section className="mt-12 sm:mt-16">
           <div className="mb-4 flex items-center gap-2.5">
             <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-primary/20">
               <Eye className="h-4 w-4 text-primary" />
             </div>
-            <h2 className="text-xl font-bold sm:text-2xl">Visão e abordagem</h2>
+            <h2 className="text-xl font-bold sm:text-2xl">{t("leadership.vision.title")}</h2>
           </div>
 
           <div className="space-y-4 rounded-2xl border border-primary/30 bg-card/50 p-5 sm:p-7">
-            <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-              A atuação de Guilherme é orientada pela construção de operações estruturadas, onde estratégia, execução e
-              controle caminham de forma integrada. Ao longo de sua trajetória, desenvolveu modelos capazes de transformar
-              atividades operacionais em ativos organizados, com previsibilidade, escala e governança.
-            </p>
-            <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-              Seu trabalho conecta diferentes disciplinas — tecnologia, cenografia, experiência do usuário, gestão
-              financeira e estruturação jurídica — com o objetivo de criar sistemas completos, capazes de sustentar
-              crescimento consistente e geração de valor no longo prazo.
-            </p>
+            <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">{t("leadership.vision.p0")}</p>
+            <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">{t("leadership.vision.p1")}</p>
           </div>
         </section>
 
-        {/* Trajetória */}
         <section id="trajetoria" className="mt-12 scroll-mt-24 sm:mt-16">
           <div className="mb-6 flex items-center gap-2.5">
             <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-primary/20">
               <Clock className="h-4 w-4 text-primary" />
             </div>
-            <h2 className="text-xl font-bold sm:text-2xl">Trajetória</h2>
+            <h2 className="text-xl font-bold sm:text-2xl">{t("leadership.timeline.title")}</h2>
           </div>
 
           <div className="relative pl-10 sm:pl-14">
@@ -239,7 +171,7 @@ const LiderancaEstrategica = () => {
 
             <div className="space-y-8">
               {timeline.map((item) => (
-                <div key={`${item.year}-${item.title}`} className="relative">
+                <div key={`${item.year}-${item.id}`} className="relative">
                   <div className="absolute -left-[30px] top-2 h-3 w-3 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.6)] ring-4 ring-background sm:-left-[42px]" />
 
                   <p className="mb-1 text-xs font-bold uppercase tracking-wider text-primary">{item.year}</p>
@@ -268,7 +200,7 @@ const LiderancaEstrategica = () => {
                             className="inline-flex items-center gap-2 text-xs font-semibold text-primary transition-opacity hover:opacity-80"
                           >
                             <Globe className="h-3.5 w-3.5" />
-                            Ver site
+                            {t("leadership.visitSite")}
                           </Link>
                         ) : (
                           <a
@@ -278,7 +210,7 @@ const LiderancaEstrategica = () => {
                             className="inline-flex items-center gap-2 text-xs font-semibold text-primary transition-opacity hover:opacity-80"
                           >
                             <Globe className="h-3.5 w-3.5" />
-                            Ver site
+                            {t("leadership.visitSite")}
                           </a>
                         )
                       ) : null}
@@ -290,68 +222,67 @@ const LiderancaEstrategica = () => {
           </div>
         </section>
 
-        {/* Princípios de construção */}
         <section className="mt-12 sm:mt-16">
           <div className="mb-4 flex items-center gap-2.5">
             <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-primary/20">
               <Layers className="h-4 w-4 text-primary" />
             </div>
-            <h2 className="text-xl font-bold sm:text-2xl">Princípios de construção</h2>
+            <h2 className="text-xl font-bold sm:text-2xl">{t("leadership.principles.title")}</h2>
           </div>
 
           <div className="space-y-4 rounded-2xl border border-primary/30 bg-card/50 p-5 sm:p-7">
             <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-              Os projetos liderados por Guilherme seguem uma lógica comum: são concebidos como{" "}
-              <span className="font-semibold text-primary">sistemas integrados</span>, onde cada elemento — operacional,
-              financeiro, tecnológico e jurídico — é estruturado desde a origem.
+              {t("leadership.principles.intro.before")}
+              <span className="font-semibold text-primary">{t("leadership.principles.intro.highlight")}</span>
+              {t("leadership.principles.intro.after")}
             </p>
             <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-              Essa abordagem aumenta controle, reduz risco e permite escalar operações com{" "}
-              <span className="font-semibold text-primary">consistência e previsibilidade</span>.
+              {t("leadership.principles.intro2.before")}
+              <span className="font-semibold text-primary">{t("leadership.principles.intro2.highlight")}</span>
+              {t("leadership.principles.intro2.after")}
             </p>
           </div>
 
           <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-3">
-            {principleCards.map((p) => (
+            {PRINCIPLE_NUMS.map((n) => (
               <div
-                key={p.n}
+                key={n}
                 className="rounded-2xl border border-primary/30 bg-card/50 p-5 transition-colors hover:border-primary"
               >
-                <p className="mb-2 text-2xl font-bold text-neon">{p.n}</p>
-                <h3 className="mb-2 text-base font-bold">{p.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
+                <p className="mb-2 text-2xl font-bold text-neon">{`0${n}`}</p>
+                <h3 className="mb-2 text-base font-bold">{t(`leadership.principle${n}.title`)}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{t(`leadership.principle${n}.desc`)}</p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* A Totus como plataforma */}
         <section className="mt-12 sm:mt-16">
           <div className="mb-6 flex items-center gap-2.5">
             <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-primary/20">
               <Building2 className="h-4 w-4 text-primary" />
             </div>
-            <h2 className="text-xl font-bold sm:text-2xl">A Totus como plataforma</h2>
+            <h2 className="text-xl font-bold sm:text-2xl">{t("leadership.platform.title")}</h2>
           </div>
 
           <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-10">
             <div>
               <h3 className="mb-3 text-lg font-bold sm:text-xl">
-                Onde cada operação se torna um <span className="text-primary">ativo</span>
+                {t("leadership.platform.subtitle.before")}
+                <span className="text-primary">{t("leadership.platform.subtitle.highlight")}</span>
               </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-                A Totus Asset consolida essa visão ao atuar como uma plataforma de gestão, organização e expansão das
-                operações do grupo, estruturando capital, processos e governança. Mais do que centralizar operações, cria as
-                condições para que cada iniciativa evolua como um ativo estruturado e escalável.
-              </p>
+              <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">{t("leadership.platform.body")}</p>
             </div>
 
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              {metrics.map((m) => (
-                <div key={m.label} className="rounded-xl border border-primary/30 bg-card/50 p-4 text-center">
-                  <p className="mb-1 text-2xl font-bold text-neon sm:text-3xl">{m.value}</p>
+              {METRIC_VALUES.map((value, i) => (
+                <div
+                  key={`${value}-${i}`}
+                  className="rounded-xl border border-primary/30 bg-card/50 p-4 text-center"
+                >
+                  <p className="mb-1 text-2xl font-bold text-neon sm:text-3xl">{value}</p>
                   <p className="text-[10px] uppercase leading-tight tracking-wider text-muted-foreground sm:text-xs">
-                    {m.label}
+                    {t(`leadership.stats.${i}`)}
                   </p>
                 </div>
               ))}
@@ -359,21 +290,16 @@ const LiderancaEstrategica = () => {
           </div>
         </section>
 
-        {/* CTA */}
         <div className="mt-12 rounded-2xl border-2 border-primary bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 p-6 text-center sm:mt-16 sm:p-10">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">Parcerias Estratégicas</p>
-          <h3 className="mb-3 text-xl font-bold sm:text-2xl">
-            Para parcerias, investimentos ou oportunidades estratégicas
-          </h3>
-          <p className="mx-auto mb-6 max-w-xl text-sm text-muted-foreground">
-            Vamos conversar sobre como a Totus Asset pode estruturar sua próxima operação.
-          </p>
+          <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">{t("leadership.cta.eyebrow")}</p>
+          <h3 className="mb-3 text-xl font-bold sm:text-2xl">{t("leadership.cta.title")}</h3>
+          <p className="mx-auto mb-6 max-w-xl text-sm text-muted-foreground">{t("leadership.cta.body")}</p>
           <Button
             size="lg"
             className="gap-2 bg-neon font-semibold text-black glow-neon hover:bg-neon/90"
             onClick={handleContact}
           >
-            Falar com a Totus
+            {t("leadership.cta.button")}
             <ArrowRight className="h-4 w-4" />
           </Button>
         </div>
@@ -386,8 +312,8 @@ const LiderancaEstrategica = () => {
               <div className="aspect-[9/16] w-full bg-black">
                 <iframe
                   key={openCaseVideoUrl}
-                  title={BRAND_COPY.caseVideoIframeTitle}
-                  src={vimeoIframeSrc(openCaseVideoUrl)}
+                  title={t("leadership.caseVideoTitle")}
+                  src={vimeoIframeSrc(openCaseVideoUrl, language)}
                   className="h-full w-full border-0"
                   allow="autoplay; fullscreen; picture-in-picture"
                   allowFullScreen

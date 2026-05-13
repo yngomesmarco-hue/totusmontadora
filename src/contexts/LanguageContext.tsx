@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { LIDERANCA_PT, LIDERANCA_EN } from '@/i18n/liderancaEstrategica';
 
 export type Language = 'pt' | 'en';
 
@@ -15,8 +16,8 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.about': 'Sobre Nós',
     'nav.portfolio': 'Portfólio',
     'nav.contact': 'Contato',
+    'nav.leadership': 'Nossa Liderança',
     'nav.quote': 'Solicite um orçamento',
-    'leadership.caseCta': 'Assistir case',
 
     // Hero
     'hero.title1': 'Criamos experiências únicas ',
@@ -146,6 +147,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.sigma2024': 'BIS SIGMA 2024',
     'portfolio.automec': 'AUTOMEC',
     'portfolio.sigma2025': 'BiS SiGMA 2025',
+    'portfolio.sbc2026': 'SBC Rio Summit 2026',
     'portfolio.comingSoon': 'Em breve — fotos serão adicionadas em breve.',
     
     // Video Gallery
@@ -158,6 +160,7 @@ const translations: Record<Language, Record<string, string>> = {
     'testimonials.video.headingAfter': '',
     'testimonials.video.subtitle': 'Depoimentos reais dos nossos clientes em vídeo.',
     'testimonials.videoItem': 'Depoimento em vídeo',
+    ...LIDERANCA_PT,
   },
   en: {
     // Header
@@ -165,8 +168,8 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.about': 'About Us',
     'nav.portfolio': 'Portfolio',
     'nav.contact': 'Contact',
+    'nav.leadership': 'Our Leadership',
     'nav.quote': 'Request a quote',
-    'leadership.caseCta': 'Watch case',
 
     // Hero
     'hero.title1': 'We create unique experiences ',
@@ -296,6 +299,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.sigma2024': 'BIS SIGMA 2024',
     'portfolio.automec': 'AUTOMEC',
     'portfolio.sigma2025': 'BiS SiGMA 2025',
+    'portfolio.sbc2026': 'SBC Rio Summit 2026',
     'portfolio.comingSoon': 'Coming soon — photos will be added shortly.',
     
     // Video Gallery
@@ -308,6 +312,7 @@ const translations: Record<Language, Record<string, string>> = {
     'testimonials.video.headingAfter': ' testimonials',
     'testimonials.video.subtitle': 'Real testimonials from our clients on video.',
     'testimonials.videoItem': 'Video testimonial',
+    ...LIDERANCA_EN,
   },
 };
 

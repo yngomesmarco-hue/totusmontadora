@@ -18,11 +18,12 @@ import image14 from "@/assets/sbc2026/image-14.jpeg";
 import image15 from "@/assets/sbc2026/image-15.jpeg";
 import image16 from "@/assets/sbc2026/image-16.jpeg";
 
-import { BRAND_COPY } from "@/constants/brandCopy";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const SBCSummitRio2026 = () => {
+  const { t } = useLanguage();
   const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15, image16];
-  const title = BRAND_COPY.portfolioSbcRioSummit2026;
+  const title = t("portfolio.sbc2026");
 
   return (
     <div className="min-h-screen bg-background">
