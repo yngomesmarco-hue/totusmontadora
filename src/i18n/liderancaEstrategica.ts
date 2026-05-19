@@ -19,6 +19,19 @@ export const LIDERANCA_PT: Record<string, string> = {
     "Seu trabalho conecta diferentes disciplinas — tecnologia, cenografia, experiência do usuário, gestão financeira e estruturação jurídica — com o objetivo de criar sistemas completos, capazes de sustentar crescimento consistente e geração de valor no longo prazo.",
 
   "leadership.timeline.title": "Trajetória",
+  "leadership.timeline.subtitle":
+    "De Barretos ao cenário nacional. Uma trajetória de operações construídas com método, execução e visão de longo prazo.",
+
+  "leadership.y2023.photo0.caption":
+    "Guilherme Camargo (CEO Totus Cenografia) e Lorena Bicalho (Head Marketing Sabiá Gaming)",
+  "leadership.y2020.photo0.caption": "Henrique Prata — Presidente do Hospital de Amor",
+  "leadership.y2012.photo0.caption": "Jack Correa, Vice Presidente da Coca-Cola",
+  "leadership.y2005.photo0.caption":
+    "Guilherme Camargo em entrevista à TV Brasil sobre o sistema de Gestão de Direitos Autorais",
+  "leadership.y2003.photo0.caption":
+    "Guilherme Camargo em entrevista à Rede Globo no Brasília Music Festival",
+  "leadership.y1998.photo0.caption":
+    'Produção do Documentário "O Sabor do Saber" de Rubem Alves — TV Escola',
 
   "leadership.y2026.title": "Fundação da Totus Asset",
   "leadership.y2026.p0":
@@ -63,6 +76,18 @@ export const LIDERANCA_PT: Record<string, string> = {
     "A GPN foi criada com o objetivo de estruturar um modelo inovador para gestão de reprodução de documentos acadêmicos com controle de direitos autorais. Em parceria com o Ministério da Cultura, Biblioteca Nacional, Agência Internacional do ISBN e Banco do Brasil, desenvolveu um sistema capaz de registrar e viabilizar o repasse de direitos autorais a cada página copiada de obras técnicas e literárias.",
   "leadership.y2005.p1":
     "A operação permitiu conciliar acesso democrático ao conhecimento com remuneração justa aos autores, criando um modelo sustentável e juridicamente estruturado. Instalada na Universidade Católica de Brasília e no UniCEUB, a empresa chegou a atender mais de 40 mil alunos diariamente, consolidando uma solução de grande escala dentro do ambiente acadêmico.",
+
+  "leadership.y2004.title": "Lançamento da pedra fundamental do Hospital da Criança de Brasília",
+  "leadership.y2004.p0":
+    "Entre os projetos de maior relevância conduzidos por Guilherme Camargo, destaca-se a realização do evento de lançamento da pedra fundamental do Hospital da Criança de Brasília José Alencar, marco inicial de um dos mais importantes projetos de oncologia pediátrica do país.",
+  "leadership.y2004.p1":
+    "O evento reuniu importantes nomes do cenário empresarial, político e artístico brasileiro, entre eles Sérgio Reis, Marcelinho Carioca, a então vice-primeira-dama Marisa Alencar, executivos do Banco do Brasil, Correios e Nadim Haddad, representante do McDonald's na América Latina.",
+  "leadership.y2004.p2":
+    "A cerimônia contou ainda com a presença de Ilda Peliz, fundadora do hospital, criado após sua mobilização pessoal pela causa do câncer infantil.",
+  "leadership.y2004.p3":
+    "A participação de Guilherme Camargo na coordenação e realização do projeto reforça sua capacidade de conectar grandes empresas, executivos, personalidades e iniciativas de impacto social em torno de causas transformadoras.",
+  "leadership.y2004.p4":
+    "Hoje, o Hospital da Criança de Brasília José Alencar é referência nacional em pediatria de alta complexidade, com atendimento 100% SUS, mais de 220 leitos e 8,7 milhões de atendimentos realizados desde sua inauguração, consolidando-se como um dos principais hospitais pediátricos públicos do Brasil.",
 
   "leadership.y2003.title": "Produção de Festival Internacional de Música",
   "leadership.y2003.p0":
@@ -140,6 +165,19 @@ export const LIDERANCA_EN: Record<string, string> = {
     "His work connects different disciplines — technology, scenography, user experience, financial management and legal structuring — to create complete systems that can sustain consistent growth and long-term value creation.",
 
   "leadership.timeline.title": "Journey",
+  "leadership.timeline.subtitle":
+    "From Barretos to the national stage. A journey of operations built with method, execution and long-term vision.",
+
+  "leadership.y2023.photo0.caption":
+    "Guilherme Camargo (CEO Totus Cenografia) and Lorena Bicalho (Head Marketing Sabiá Gaming)",
+  "leadership.y2020.photo0.caption": "Henrique Prata — President of Hospital de Amor",
+  "leadership.y2012.photo0.caption": "Jack Correa, Vice President of Coca-Cola",
+  "leadership.y2005.photo0.caption":
+    "Guilherme Camargo interviewed on TV Brasil about the Copyright Management system",
+  "leadership.y2003.photo0.caption":
+    "Guilherme Camargo interviewed on Rede Globo at the Brasília Music Festival",
+  "leadership.y1998.photo0.caption":
+    'Production of the documentary "O Sabor do Saber" by Rubem Alves — TV Escola',
 
   "leadership.y2026.title": "Founding of Totus Asset",
   "leadership.y2026.p0":
@@ -184,6 +222,18 @@ export const LIDERANCA_EN: Record<string, string> = {
     "GPN was created to structure an innovative model for reproducing academic documents with copyright control. With the Ministry of Culture, National Library, International ISBN Agency and Banco do Brasil, it built a system to register and route royalties per copied page of technical and literary works.",
   "leadership.y2005.p1":
     "The operation balanced democratizing access to knowledge with fair author compensation in a sustainable, legally sound model. Deployed at Universidade Católica de Brasília and UniCEUB, it served more than 40,000 students daily.",
+
+  "leadership.y2004.title": "Cornerstone laying of the Children's Hospital of Brasília",
+  "leadership.y2004.p0":
+    "Among the most relevant projects led by Guilherme Camargo is the cornerstone laying event of the José Alencar Children's Hospital of Brasília, the founding milestone of one of the country's most important pediatric oncology projects.",
+  "leadership.y2004.p1":
+    "The event brought together important names from the Brazilian business, political and artistic scene, including Sérgio Reis, Marcelinho Carioca, then Second Lady Marisa Alencar, executives from Banco do Brasil, Correios and Nadim Haddad, McDonald's representative in Latin America.",
+  "leadership.y2004.p2":
+    "The ceremony also featured Ilda Peliz, founder of the hospital, created after her personal mobilization for the cause of childhood cancer.",
+  "leadership.y2004.p3":
+    "Guilherme Camargo's role in coordinating and delivering the project reinforces his ability to connect large companies, executives, personalities and social-impact initiatives around transformative causes.",
+  "leadership.y2004.p4":
+    "Today, the José Alencar Children's Hospital of Brasília is a national reference in high-complexity pediatrics, with 100% SUS care, more than 220 beds and 8.7 million appointments since its opening, consolidating itself as one of the leading public pediatric hospitals in Brazil.",
 
   "leadership.y2003.title": "International music festival production",
   "leadership.y2003.p0":
